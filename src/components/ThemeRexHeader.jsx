@@ -76,7 +76,7 @@ export default function ThemeRexHeader({ onOpenQuote, onOpenLoadRequest, onOpenO
   return (
     <header className="w-full z-40 bg-white">
       {/* Top Utility Bar (Clean ThemeREX Light Top Bar) */}
-      <div className="bg-primary-navy text-white text-xs py-2 px-4 border-b border-[#002244]">
+      <div className="bg-primary-navy text-white text-xs py-6 px-4 border-b border-[#002244]">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           {/* Contact Details */}
           <div className="flex items-center gap-4 sm:gap-6">

@@ -16,7 +16,7 @@
   --font-heading: 'Outfit', 'Plus Jakarta Sans', sans-serif;
 }
 
-/* Modern Light Theme Index Stylesheet */
+/* CSS Custom Properties — not layered so they're always available */
 :root {
   --primary-navy: #003366;
   --primary-blue: #0245a3;
@@ -46,28 +46,41 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  background-color: #ffffff;
-  color: #334155;
-  overflow-x: hidden;
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-}
-
+/*
+  CRITICAL FIX:
+  The box-sizing reset, margin: 0, and padding: 0 MUST be inside @layer base.
+  If placed outside any @layer, they become "unlayered" CSS which in the CSS
+  Cascade Level 5 spec ALWAYS wins over @layer styles — including @layer components.
+  This was causing container-custom's padding-left/right to be overridden by
+  the * { padding: 0 } rule, stripping all horizontal padding on mobile.
+*/
 @layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-width: 320px;
+    min-height: 100vh;
+    background-color: #ffffff;
+    color: #334155;
+    overflow-x: hidden;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
     color: inherit;
@@ -76,14 +89,7 @@ body {
   }
 }
 
-#root {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Light Scrollbar */
+/* Light Scrollbar — kept outside layers intentionally (browser UI, safe) */
 ::-webkit-scrollbar {
   width: 9px;
 }
