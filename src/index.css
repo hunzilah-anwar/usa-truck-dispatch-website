@@ -1,0 +1,102 @@
+@import "tailwindcss";
+@import "./App.css";
+
+@source "./**/*.{js,jsx,ts,tsx}";
+@source "../index.html";
+
+@theme {
+  --color-primary-navy: #003366;
+  --color-primary-blue: #0245a3;
+  --color-accent-amber: #fcb900;
+  --color-accent-amber-hover: #e5a700;
+  --color-accent-red: #dc2626;
+  --color-whatsapp-green: #25d366;
+
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Modern Light Theme Index Stylesheet */
+:root {
+  --primary-navy: #003366;
+  --primary-blue: #0245a3;
+  --accent-amber: #fcb900;
+  --accent-amber-hover: #e5a700;
+  --accent-red: #dc2626;
+  --whatsapp-green: #25D366;
+
+  --bg-light: #ffffff;
+  --bg-soft: #f8fafc;
+  --bg-muted: #f1f5f9;
+  --border-light: #e2e8f0;
+  --border-card: #e2e8f0;
+
+  --text-heading: #0f172a;
+  --text-body: #334155;
+  --text-muted: #64748b;
+
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  color-scheme: light;
+  background-color: #ffffff;
+  color: #334155;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #ffffff;
+  color: #334155;
+  overflow-x: hidden;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    color: inherit;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Light Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #fcb900;
+}
