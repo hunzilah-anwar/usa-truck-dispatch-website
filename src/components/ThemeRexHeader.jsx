@@ -136,8 +136,8 @@ export default function ThemeRexHeader({ onOpenQuote, onOpenLoadRequest, onOpenO
                 to={link.path}
                 className={`py-1 relative transition-colors nav-link-animated ${
                   isActive(link.path)
-                    ? 'text-[#003366] font-extrabold active'
-                    : 'text-slate-700 hover:text-[#003366]'
+                    ? 'text-primary-navy font-extrabold active'
+                    : 'text-slate-700 hover:text-primary-navy'
                 }`}
               >
                 {link.label}
@@ -156,7 +156,7 @@ export default function ThemeRexHeader({ onOpenQuote, onOpenLoadRequest, onOpenO
             </button>
             <button
               onClick={onOpenQuote}
-              className="px-3.5 py-2 text-xs font-extrabold uppercase tracking-wider text-white bg-[#003366] hover:bg-[#002244] rounded-lg shadow-sm hover:shadow transition-all whitespace-nowrap"
+              className="px-3.5 py-2 text-xs font-extrabold uppercase tracking-wider text-white bg-primary-navy hover:bg-[#002244] rounded-lg shadow-sm hover:shadow transition-all whitespace-nowrap"
             >
               Get A Quote
             </button>

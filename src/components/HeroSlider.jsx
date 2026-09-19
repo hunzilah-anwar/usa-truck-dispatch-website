@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { HERO_SLIDES, COMPANY_DETAILS } from '../data/dispatchData';
-import { IconChevronRight, IconTruck, IconArrowRight, IconPhone, IconShieldCheck } from './Icons';
+import { IconTruck, IconArrowRight, IconPhone } from './Icons';
 
-export default function HeroSlider({ onOpenQuote, onOpenLoadRequest, onScrollToSection }) {
+export default function HeroSlider({ onOpenQuote, onOpenLoadRequest }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -45,7 +45,7 @@ export default function HeroSlider({ onOpenQuote, onOpenLoadRequest, onScrollToS
             className="w-full h-full object-cover"
           />
           {/* ThemeREX Semi-Transparent Light Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-black/40 sm:from-white/95 sm:via-white/70 sm:to-transparent"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-black/95 via-black/80 to-black/40 sm:from-white/95 sm:via-white/70 sm:to-transparent"></div>
         </div>
       ))}
 
@@ -60,7 +60,7 @@ export default function HeroSlider({ onOpenQuote, onOpenLoadRequest, onScrollToS
           </div>
 
           {/* Main Slide Title */}
-          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#003366] leading-tight tracking-tight">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-primary-navy leading-tight tracking-tight">
             {slide.title}
           </h1>
 
@@ -72,7 +72,7 @@ export default function HeroSlider({ onOpenQuote, onOpenLoadRequest, onScrollToS
           {/* Slide Stat Box */}
           <div className="inline-flex items-center gap-2 py-2 px-4 rounded-xl bg-amber-50 border border-amber-200 text-xs sm:text-sm font-bold text-amber-900 shadow-xs">
             <span className="text-base">⭐</span>
-            <span>Verified Freight Volume: <strong className="text-[#003366] font-black">{slide.stat}</strong></span>
+            <span>Verified Freight Volume: <strong className="text-primary-navy font-black">{slide.stat}</strong></span>
           </div>
 
           {/* Action CTAs */}
@@ -87,7 +87,7 @@ export default function HeroSlider({ onOpenQuote, onOpenLoadRequest, onScrollToS
 
             <button
               onClick={onOpenQuote}
-              className="px-6 py-3.5 bg-[#003366] hover:bg-[#002244] text-white font-black uppercase tracking-wider text-xs rounded-xl shadow-md transition-all flex items-center gap-2 cursor-pointer transform hover:-translate-y-0.5 whitespace-nowrap"
+              className="px-6 py-3.5 bg-primary-navy hover:bg-[#002244] text-white font-black uppercase tracking-wider text-xs rounded-xl shadow-md transition-all flex items-center gap-2 cursor-pointer transform hover:-translate-y-0.5 whitespace-nowrap"
             >
               <span>{slide.buttonSecondary}</span>
               <IconArrowRight className="w-4 h-4" />
@@ -95,7 +95,7 @@ export default function HeroSlider({ onOpenQuote, onOpenLoadRequest, onScrollToS
 
             <a
               href={`tel:${COMPANY_DETAILS.phoneRaw}`}
-              className="hidden sm:flex items-center gap-2 text-[#003366] font-bold text-xs hover:text-amber-600 transition-colors ml-1 whitespace-nowrap"
+              className="hidden sm:flex items-center gap-2 text-primary-navy font-bold text-xs hover:text-amber-600 transition-colors ml-1 whitespace-nowrap"
             >
               <IconPhone className="w-4 h-4 text-amber-500" />
               <span>{COMPANY_DETAILS.phone}</span>
@@ -131,7 +131,7 @@ export default function HeroSlider({ onOpenQuote, onOpenLoadRequest, onScrollToS
 
           <div className="glass-card glass-shine bg-white/90 p-4 rounded-2xl border border-blue-200 shadow-lg animate-float" style={{ animationDelay: '3s' }}>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-blue-100 text-[#003366] flex items-center justify-center font-black text-lg">
+              <div className="w-10 h-10 rounded-xl bg-blue-100 text-primary-navy flex items-center justify-center font-black text-lg">
                 ⚡
               </div>
               <div>
