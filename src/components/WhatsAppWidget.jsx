@@ -20,10 +20,9 @@ export default function WhatsAppWidget() {
                 <IconWhatsApp className="w-4 h-4" />
               </div>
               <div>
-                <h4 className="text-xs font-black text-slate-900">Live Dispatch Desk</h4>
+                <h4 className="text-xs font-black text-slate-900">Dispatch Desk</h4>
                 <div className="flex items-center gap-1.5 text-[10px] text-emerald-600 font-bold">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                  <span>Online • Ready to Dispatch</span>
+                  <span>Ready to Dispatch</span>
                 </div>
               </div>
             </div>
