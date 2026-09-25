@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import MeetTheTeamSection from '../components/MeetTheTeamSection';
 import Testimonials from '../components/Testimonials';
 import { IconAward, IconCheckCircle, IconShieldCheck, IconClock, IconTruck, IconArrowRight } from '../components/Icons';
 import { COMPANY_DETAILS, LIVE_STATS } from '../data/dispatchData';
@@ -181,12 +180,10 @@ export default function AboutPage({ onOpenQuote, onOpenOnboard }) {
         </div>
       </section>
 
-      {/* Core Team Section */}
-      <MeetTheTeamSection />
-
       {/* Testimonials */}
       <Testimonials />
     </div>
   );
 }
+
 

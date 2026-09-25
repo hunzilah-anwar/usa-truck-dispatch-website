@@ -15,8 +15,9 @@ export default function DualInteractiveWidget({ onOpenQuote }) {
 
   const selectedEquipment = EQUIPMENT_DETAILS.find((e) => e.id === equipmentId) || EQUIPMENT_DETAILS[0];
   const ratePerMile = selectedEquipment.baseRatePerMile;
+  const commissionRate = selectedEquipment.commissionRate || 0.05;
   const weeklyGross = weeklyMiles * ratePerMile * trucks;
-  const dispatchFee = weeklyGross * 0.05;
+  const dispatchFee = weeklyGross * commissionRate;
   const carrierNet = weeklyGross - dispatchFee;
 
   const handleTrackSubmit = (e) => {
@@ -110,13 +111,17 @@ export default function DualInteractiveWidget({ onOpenQuote }) {
               </div>
 
               {/* Output Preview */}
-              <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 mb-6 flex justify-between items-center shadow-xs">
+              <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 mb-6 flex flex-wrap justify-between items-center gap-3 shadow-xs">
                 <div>
-                  <span className="text-[11px] text-slate-500 uppercase tracking-wider block font-bold">Estimated Weekly Gross</span>
-                  <span className="text-2xl sm:text-3xl font-black text-[#003366]">${Math.round(weeklyGross).toLocaleString()}</span>
+                  <span className="text-[11px] text-slate-500 uppercase tracking-wider block font-bold">Weekly Gross</span>
+                  <span className="text-xl sm:text-2xl font-black text-[#003366]">${Math.round(weeklyGross).toLocaleString()}</span>
+                </div>
+                <div className="text-center px-3 py-1.5 bg-amber-100/80 rounded-xl border border-amber-300">
+                  <span className="text-[10px] text-amber-900 uppercase tracking-wider block font-black">Fee ({selectedEquipment.commission})</span>
+                  <span className="text-xs font-black text-amber-950">-${Math.round(dispatchFee).toLocaleString()}</span>
                 </div>
                 <div className="text-right">
-                  <span className="text-[11px] text-slate-500 uppercase tracking-wider block font-bold">Carrier Net Payout</span>
+                  <span className="text-[11px] text-slate-500 uppercase tracking-wider block font-bold">Your Net Payout</span>
                   <span className="text-xl sm:text-2xl font-black text-emerald-700">${Math.round(carrierNet).toLocaleString()}</span>
                 </div>
               </div>

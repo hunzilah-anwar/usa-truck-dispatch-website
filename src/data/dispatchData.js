@@ -25,33 +25,33 @@ export const COMPANY_DETAILS = {
 export const HERO_SLIDES = [
   {
     id: 1,
-    tagline: "INDEPENDENT TRUCK DISPATCHING IN THE USA",
-    title: "Maximize Your Opportunities With Clear Choices",
-    subtitle: "Dedicated 24/7 dispatchers negotiating the highest rates per mile on your behalf. We handle paperwork and broker credit checks with 0% forced dispatch.",
-    image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1920&auto=format&fit=crop&q=85",
-    buttonPrimary: "Request A Load",
-    buttonSecondary: "Instant Rate Calculator",
-    stat: "623,000 Loads / Day"
+    tagline: "PREMIUM FREIGHT MANAGEMENT",
+    title: "Accelerate Your Trucking Business",
+    subtitle: "We connect independent owner-operators and fleets with high-paying loads, reducing deadhead miles and maximizing your take-home pay. Zero forced dispatch.",
+    image: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=1920&auto=format&fit=crop&q=85",
+    buttonPrimary: "Discover Our Services",
+    buttonSecondary: "Become a Partner",
+    stat: "99% Carrier Retention"
   },
   {
     id: 2,
-    tagline: "HIGH PAYING DRY VAN, REEFER & FLATBED LOADS",
-    title: "Keep Your Wheels Rolling & Profits High",
-    subtitle: "Born in 2016 to support hardworking cargo truck owners nationwide. No long-term contracts, transparent 5% pay-as-you-go pricing.",
-    image: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=1920&auto=format&fit=crop&q=85",
-    buttonPrimary: "View Today's Rates",
-    buttonSecondary: "Register As Carrier",
-    stat: "159 Million Loads Annually"
+    tagline: "DEDICATED 24/7 SUPPORT",
+    title: "We Handle The Paperwork, You Drive",
+    subtitle: "Stop stressing over rate confirmations, broker setups, and invoicing. Our expert dispatchers take care of the entire back-office so you can focus on the road.",
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&auto=format&fit=crop&q=85",
+    buttonPrimary: "Explore Factoring",
+    buttonSecondary: "Contact Support",
+    stat: "24/7 Dispatch Desk"
   },
   {
     id: 3,
-    tagline: "SAME-DAY FUNDING & CASH FLOW SUPPORT",
-    title: "Fast Factoring & Paperwork Automation",
-    subtitle: "Official partner of Express Freight Finance. We handle rate confirmations, BOL submissions, and detention pay so you get paid the day you deliver.",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&auto=format&fit=crop&q=85",
-    buttonPrimary: "Apply For Factoring",
-    buttonSecondary: "Talk To Dispatcher",
-    stat: "24/7 Driver Support"
+    tagline: "EXPERT NEGOTIATION TEAM",
+    title: "Get The Best Rates In Any Market",
+    subtitle: "Leverage our proprietary network of direct shippers and top-tier brokers. We aggressively negotiate your rate-per-mile, ensuring your truck is always profitable.",
+    image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1920&auto=format&fit=crop&q=85",
+    buttonPrimary: "Learn Dispatching",
+    buttonSecondary: "Talk to an Expert",
+    stat: "Avg 12% Revenue Lift"
   }
 ];
 
@@ -91,6 +91,7 @@ export const TODAY_RATES = [
     trendDirection: "up",
     topLanes: "Midwest to Southeast, Texas to Northeast",
     avgWeeklyGross: "$7,800 - $9,500",
+    commission: "5%",
     popular: true
   },
   {
@@ -101,6 +102,7 @@ export const TODAY_RATES = [
     trendDirection: "up",
     topLanes: "California to Midwest, Florida to East Coast",
     avgWeeklyGross: "$9,200 - $11,800",
+    commission: "5%",
     popular: true
   },
   {
@@ -111,6 +113,7 @@ export const TODAY_RATES = [
     trendDirection: "up",
     topLanes: "Gulf Coast to Midwest, Pacific NW to West",
     avgWeeklyGross: "$8,500 - $10,500",
+    commission: "5%",
     popular: true
   },
   {
@@ -121,6 +124,7 @@ export const TODAY_RATES = [
     trendDirection: "up",
     topLanes: "Heavy Machinery & Construction Corridors",
     avgWeeklyGross: "$9,800 - $12,500",
+    commission: "5%",
     popular: false
   },
   {
@@ -131,16 +135,29 @@ export const TODAY_RATES = [
     trendDirection: "up",
     topLanes: "Amazon, Dedicated Shippers, Drop & Hook",
     avgWeeklyGross: "$7,000 - $8,800",
+    commission: "5%",
     popular: false
   },
   {
-    type: "Box Truck / Hotshot",
-    rate: "$2.40 - $3.10",
+    type: "Box Truck (26')",
+    rate: "$2.35 - $2.95",
     unit: "/ mile",
-    trend: "+5.9%",
+    trend: "+5.5%",
     trendDirection: "up",
-    topLanes: "Expedited Freight, Regional Hotshot Loads",
-    avgWeeklyGross: "$6,500 - $8,200",
+    topLanes: "Local, Regional & Expedited Freight Corridors",
+    avgWeeklyGross: "$5,500 - $7,500",
+    commission: "6%",
+    popular: false
+  },
+  {
+    type: "Hotshot (40')",
+    rate: "$2.50 - $3.25",
+    unit: "/ mile",
+    trend: "+6.1%",
+    trendDirection: "up",
+    topLanes: "Oilfield, Construction, Expedited Industrial",
+    avgWeeklyGross: "$6,200 - $8,500",
+    commission: "6%",
     popular: false
   }
 ];
@@ -188,14 +205,16 @@ export const EQUIPMENT_DETAILS = [
   {
     id: "dry-van",
     name: "Dry Van (53')",
-    badge: "Most Common",
+    badge: "5% Dispatch Fee",
+    commission: "5%",
+    commissionRate: 0.05,
     description:
       "Consistent high-volume lanes across all 48 continental states. We negotiate top per-mile rates with vetted brokers to keep deadhead miles below 8%.",
     features: [
-      "No touch freight opportunities",
-      "Drop & Hook options available",
+      "5% Transparent pay-as-you-go commission",
+      "No touch freight & drop-and-hook options",
       "Vetted credit-approved brokers only",
-      "Average $7,500 - $9,500 weekly gross"
+      "Average $7,800 - $9,500 weekly gross"
     ],
     specs: {
       payload: "Up to 45,000 lbs",
@@ -209,13 +228,15 @@ export const EQUIPMENT_DETAILS = [
   {
     id: "reefer",
     name: "Reefer (Temperature Controlled)",
-    badge: "Highest RPM",
+    badge: "5% Dispatch Fee",
+    commission: "5%",
+    commissionRate: 0.05,
     description:
       "Premium cold chain and produce transport requiring strict temperature monitoring. We prioritize highest paying food, pharmaceutical, and floral freight.",
     features: [
-      "Maximum rate per mile premium",
+      "5% Transparent pay-as-you-go commission",
+      "Maximum rate per mile premium across all lanes",
       "Year-round consistent produce corridors",
-      "Reefer breakdown assistance protocol",
       "Average $9,200 - $12,000 weekly gross"
     ],
     specs: {
@@ -230,14 +251,16 @@ export const EQUIPMENT_DETAILS = [
   {
     id: "flatbed",
     name: "Flatbed & Open Deck",
-    badge: "Heavy Haul",
+    badge: "5% Dispatch Fee",
+    commission: "5%",
+    commissionRate: 0.05,
     description:
       "Heavy industrial, steel, lumber, and specialized cargo. We secure high-paying building materials freight with tarp and detention pay enforced.",
     features: [
+      "5% Transparent pay-as-you-go commission",
       "Tarp fees automatically negotiated ($100-$150+)",
       "Strict broker credit risk checks",
-      "Over-dimensional load support",
-      "Average $8,800 - $11,000 weekly gross"
+      "Average $8,500 - $10,500 weekly gross"
     ],
     specs: {
       payload: "Up to 48,000 lbs",
@@ -251,13 +274,15 @@ export const EQUIPMENT_DETAILS = [
   {
     id: "step-deck",
     name: "Step Deck / Single Drop",
-    badge: "Specialized",
+    badge: "5% Dispatch Fee",
+    commission: "5%",
+    commissionRate: 0.05,
     description:
       "Ideal for tall machinery, industrial generators, and specialized equipment that exceed legal flatbed heights. High dollar value per run.",
     features: [
+      "5% Transparent pay-as-you-go commission",
       "Specialized equipment rate multipliers",
       "Ramp and oversized permits guidance",
-      "Direct industrial shipper partnerships",
       "Average $9,800 - $13,000 weekly gross"
     ],
     specs: {
@@ -272,13 +297,15 @@ export const EQUIPMENT_DETAILS = [
   {
     id: "power-only",
     name: "Power Only (Tractor Only)",
-    badge: "Low Maintenance",
+    badge: "5% Dispatch Fee",
+    commission: "5%",
+    commissionRate: 0.05,
     description:
       "Keep moving without buying or leasing a trailer. Pull pre-loaded trailers, Amazon relay, and corporate enterprise trailers with rapid turnaround.",
     features: [
+      "5% Transparent pay-as-you-go commission",
       "Zero trailer maintenance costs",
       "Fast drop-and-hook turnaround times",
-      "Consistent regional or OTR routing",
       "Average $7,000 - $8,800 weekly gross"
     ],
     specs: {
@@ -291,25 +318,50 @@ export const EQUIPMENT_DETAILS = [
     image: "https://images.unsplash.com/photo-1501700493788-fa1a4fc9fe62?w=600&auto=format&fit=crop&q=80"
   },
   {
-    id: "box-truck-hotshot",
-    name: "Box Truck (26') & Hotshot",
-    badge: "Fast Expedited",
+    id: "box-truck",
+    name: "Box Truck (26')",
+    badge: "6% Dispatch Fee",
+    commission: "6%",
+    commissionRate: 0.06,
     description:
-      "Expedited local and regional deliveries for CDL and Non-CDL operators. High demand for same-day delivery, LTL consolidation, and oilfield runs.",
+      "Expedited local and regional deliveries for CDL and Non-CDL operators. High demand for same-day delivery, LTL consolidation, and residential liftgate drops.",
     features: [
-      "Local, regional, and OTR options",
-      "Expedited dispatch dispatchers assigned",
-      "Support for 26' box trucks with liftgates",
-      "Average $6,000 - $8,200 weekly gross"
+      "6% Dedicated dispatch fee (No hidden charges)",
+      "Local, regional, and OTR high-priority lanes",
+      "Liftgate and pallet-jack premium pay negotiated",
+      "Average $5,500 - $7,500 weekly gross"
     ],
     specs: {
-      payload: "10,000 to 16,500 lbs",
-      dimensions: "26' Straight Truck or 40' Gooseneck",
-      capacity: "12 Pallets (Box) or Hotshot Deck",
-      topCommodities: "Expedited Freight, Automotive Parts, Medical Supplies, Job Sites"
+      payload: "Up to 10,000 lbs (Non-CDL) / 16,000 lbs",
+      dimensions: "26' L x 102\" W x 102\" H (Roll-Up / Swing Door)",
+      capacity: "12 Standard Pallets",
+      topCommodities: "Expedited Freight, Automotive Parts, Retail Store Delivery, Medical"
     },
-    baseRatePerMile: 2.75,
+    baseRatePerMile: 2.65,
     image: "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=600&auto=format&fit=crop&q=80"
+  },
+  {
+    id: "hotshot",
+    name: "Hotshot (40' Gooseneck)",
+    badge: "6% Dispatch Fee",
+    commission: "6%",
+    commissionRate: 0.06,
+    description:
+      "Time-critical expedited machinery, pipe, job site materials, and oilfield runs with rapid turnaround. High demand for 40' gooseneck trailers.",
+    features: [
+      "6% Dedicated dispatch fee (No forced dispatch)",
+      "Premium partial & full load combinations",
+      "Direct oilfield and construction site loads",
+      "Average $6,200 - $8,500 weekly gross"
+    ],
+    specs: {
+      payload: "12,000 to 18,500 lbs",
+      dimensions: "40' Gooseneck Flatbed Deck",
+      capacity: "Open Deck Fast Ramp Loading",
+      topCommodities: "Oilfield Tools, Heavy Equipment, Construction Supplies, Machinery"
+    },
+    baseRatePerMile: 2.85,
+    image: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=600&auto=format&fit=crop&q=80"
   }
 ];
 
@@ -353,60 +405,233 @@ export const ONBOARDING_REQUIREMENTS = [
 
 export const PRICING_PLANS = [
   {
-    name: "Pay-As-You-Go",
+    name: "Standard Equipment",
     rate: "5%",
     rateSubtext: "of gross load pay",
-    description: "The most flexible dispatch solution for independent owner-operators.",
+    equipmentList: "Dry Van (53') • Reefer • Flatbed • Step Deck • Power Only",
+    description: "Full-service dedicated dispatching for standard Class 8 trailers. Zero upfront deposits.",
     features: [
-      "No contracts & no forced dispatch",
-      "Dedicated 24/7 dispatcher assigned",
-      "Top-paying rate negotiations",
-      "Broker credit checks & vetting",
-      "Rate confirmations & setup packets",
-      "You approve every single load",
-      "Pay only when you roll and get paid"
+      "5% Transparent fee — pay only when you roll",
+      "No long-term contracts & 0% forced dispatch",
+      "Dedicated personal dispatcher assigned 24/7",
+      "Aggressive spot & contract rate negotiation",
+      "Full broker setup packets & credit checks",
+      "Factoring & same-day ACH wire coordination",
+      "Detention & TONU collection enforcement"
     ],
     popular: true,
-    badge: "Most Popular",
-    buttonText: "Get Started at 5%"
+    badge: "5% Standard",
+    buttonText: "Start With 5% Plan"
   },
   {
-    name: "Full Service Pro",
-    rate: "7%",
+    name: "Box Truck & Hotshot",
+    rate: "6%",
     rateSubtext: "of gross load pay",
-    description: "Complete hands-off administrative and dispatch back-office management.",
+    equipmentList: "26' Box Trucks (CDL / Non-CDL) • 40' Hotshot Goosenecks",
+    description: "Specialized expedited dispatch desk tailored for straight trucks and hotshot haulers.",
     features: [
-      "All Pay-As-You-Go features included",
-      "Priority load board & direct shipper access",
-      "Factoring & quick-pay coordination",
-      "Detention & layover money collection",
-      "IFTA quarterly report preparation support",
-      "Safety & compliance documentation assistance",
-      "Weekly revenue optimization reviews"
+      "6% Dedicated fee — no hidden weekly charges",
+      "Local, regional, and OTR expedited lanes",
+      "Liftgate & pallet jack premium pay negotiated",
+      "Partial and full load combinations",
+      "Direct shipper & construction site runs",
+      "Fast 2-hour onboarding and load assignment",
+      "24/7 dedicated night and weekend check-in"
     ],
     popular: false,
-    badge: "Maximum Profit",
-    buttonText: "Choose Full Service Pro"
+    badge: "6% Expedited",
+    buttonText: "Start With 6% Plan"
   },
   {
-    name: "Fleet Partner",
-    rate: "Custom",
-    rateSubtext: "volume tiered discounts",
-    description: "Tailored enterprise dispatch desk for carriers operating 4 or more trucks.",
+    name: "Dispatch Academy Course",
+    rate: "Certified",
+    rateSubtext: "complete masterclass",
+    equipmentList: "Hands-on Training • Live Load Boards • Real Carrier Setup",
+    description: "Launch your career as a professional independent or fleet truck dispatcher from home or office.",
     features: [
-      "Discounted percentage or flat weekly fee",
-      "Dedicated team of dispatchers & night desk",
-      "Dedicated lane planning & backhauls",
-      "Real-time GPS tracking status updates",
-      "Direct API load ingestion",
-      "Monthly fleet performance analytics",
-      "Dedicated Account Director"
+      "Full 4-week live hands-on training curriculum",
+      "Live DAT One & Truckstop load board mastery",
+      "Rate negotiation scripts & broker psychology",
+      "Real carrier packets, agreements & COI templates",
+      "Factoring setup & invoice submission workflows",
+      "Official Certified Freight Dispatcher Certificate",
+      "1-on-1 mentorship & lifetime community access"
+    ],
+    popular: false,
+    badge: "New Training Course",
+    buttonText: "Explore Course Details"
+  },
+  {
+    name: "Fleet Partner (4+ Trucks)",
+    rate: "Volume",
+    rateSubtext: "discounted fleet rates",
+    equipmentList: "Fleets Operating 4 or More Power Units",
+    description: "Enterprise dispatch operations desk for expanding motor carriers and fleet owners.",
+    features: [
+      "Tiered percentage or dedicated flat-fee structure",
+      "Assigned multi-dispatcher team & 24/7 night desk",
+      "Continuous triangle routing & dedicated backhauls",
+      "Real-time GPS tracking & broker check calls",
+      "Weekly revenue analytics & lane optimization",
+      "Direct factoring integration & consolidated billing"
     ],
     popular: false,
     badge: "For Fleets 4+",
     buttonText: "Contact Fleet Sales"
   }
 ];
+
+export const DISPATCH_COURSE_DATA = {
+  title: "Professional Truck Dispatcher Masterclass",
+  subtitle: "Learn the art and science of independent & fleet freight dispatching from industry veterans.",
+  badge: "OFFICIAL DISPATCH TRAINING ACADEMY",
+  overview:
+    "Whether you want to start your own independent dispatch business from home or manage a carrier fleet, our masterclass gives you the practical, real-world tools, load board training (DAT One & Truckstop), negotiation scripts, and carrier packets needed to succeed from Day 1.",
+  stats: [
+    { label: "Graduates Certified", value: "500+" },
+    { label: "Core Modules", value: "8 Modules" },
+    { label: "Practical Training", value: "100% Hands-On" },
+    { label: "Mentorship", value: "Lifetime Support" }
+  ],
+  modules: [
+    {
+      number: "01",
+      title: "US Freight Logistics & Regulatory Fundamentals",
+      summary:
+        "Understand the anatomy of the American freight ecosystem: FMCSA rules, MC/DOT authorities, BOC-3, safety ratings, and hours of service (HOS).",
+      topics: [
+        "How freight moves across all 48 continental states",
+        "Understanding FMCSA registry, safety audits & operating status",
+        "Roles of Shippers, 3PL Brokers, Carriers, and Independent Dispatchers",
+        "Legal guidelines for dispatching without a broker license"
+      ]
+    },
+    {
+      number: "02",
+      title: "Truck Types, Trailers & Equipment Specifications",
+      summary:
+        "Master the technical specs, weight limits, and commodity profiles for all major trailer types to protect carriers from compliance fines.",
+      topics: [
+        "Dry Van (53'), Reefer (Refrigerated), Flatbed, and Step Deck / Single Drop",
+        "Power Only operations and drop-and-hook logistics",
+        "Box Trucks (26' CDL & Non-CDL) and Hotshot 40' gooseneck trailers",
+        "Payload weights, pallet counts, bridge laws, and dimensional limits"
+      ]
+    },
+    {
+      number: "03",
+      title: "Mastering DAT One, Truckstop & Spot Load Boards",
+      summary:
+        "Real-world training on the industry's premier load boards. Learn how to search, post trucks, evaluate load-to-truck ratios, and identify premium lanes.",
+      topics: [
+        "Setting up search filters, radius, and deadhead parameters",
+        "Analyzing 7-day, 15-day, and 30-day lane rate averages",
+        "Posting trucks effectively to attract high-paying broker inbound calls",
+        "Spotting freight fraud, double-brokering traps, and scam listings"
+      ]
+    },
+    {
+      number: "04",
+      title: "Rate Negotiation Psychology & Accessorial Compensation",
+      summary:
+        "How to command top dollar per mile and negotiate essential accessorial pay that adds thousands to carrier weekly gross pay.",
+      topics: [
+        "Proven telephone scripts when calling freight brokers",
+        "Establishing an RPM baseline and countering broker opening offers",
+        "Negotiating detention ($50-$75/hr), TONU ($150-$250), and layover fees",
+        "Tarp money, multiple drops/picks, and hazardous material surcharges"
+      ]
+    },
+    {
+      number: "05",
+      title: "Broker Credit Vetting, Setup Packets & COI Management",
+      summary:
+        "Step-by-step paperwork workflows so your drivers never get stuck with uncollectible debt or delayed approvals.",
+      topics: [
+        "Performing instant credit checks via factoring portals & credit bureaus",
+        "Rapidly completing carrier-broker agreements and W-9 submissions",
+        "How to request Certificate of Insurance (COI) naming Certificate Holders",
+        "Reviewing Rate Confirmations (RateCons) to eliminate hidden penalty clauses"
+      ]
+    },
+    {
+      number: "06",
+      title: "Factoring Operations, Invoicing & Rapid Cash Flow",
+      summary:
+        "How to manage billing for carriers so they receive same-day ACH wire deposits after delivery.",
+      topics: [
+        "Partnering with factoring houses (Recourse vs. Non-Recourse factoring)",
+        "Notice of Assignment (NOA) letters and factoring setup",
+        "Auditing signed Bills of Lading (BOL), scale tickets, and receipts",
+        "Packaging and submitting clean invoices for 24-hour payouts"
+      ]
+    },
+    {
+      number: "07",
+      title: "Client Acquisition: Signing Owner-Operators & Fleets",
+      summary:
+        "How to find truck drivers, pitch your dispatch service, and sign long-term service agreements.",
+      topics: [
+        "Where to find active owner-operators (FMCSA census data, truck stops, social media)",
+        "Structuring your Dispatcher-Carrier Agreement & Limited Power of Attorney (POA)",
+        "Setting your commission percentages (5% standard, 6% box truck/hotshot)",
+        "Weekly invoicing of carriers and payment collection systems"
+      ]
+    },
+    {
+      number: "08",
+      title: "Live Booking Simulation & 1-on-1 Practice",
+      summary:
+        "Put everything into practice. Live simulation of searching, calling brokers, negotiating, and locking in your first load.",
+      topics: [
+        "Live broker mock phone calls with instructor feedback",
+        "Resolving real-world emergencies (breakdowns, weather delays, refused loads)",
+        "Building recurring lane relationships with top national freight brokers",
+        "Graduation and award of Certified Freight Dispatcher Certificate"
+      ]
+    }
+  ],
+  deliverables: [
+    {
+      title: "Editable Legal Templates",
+      desc: "Complete Dispatcher-Carrier Agreement, Limited Power of Attorney, Rate Sheet, and Driver Intake Form in Word/PDF."
+    },
+    {
+      title: "Phone Scripts & Negotiation Matrix",
+      desc: "Word-for-word scripts for broker rate negotiations, accessorial demands, and cold calling owner-operators."
+    },
+    {
+      title: "Broker Credit & Blacklist Guide",
+      desc: "Comprehensive directory and checklist for vetting broker creditworthiness and avoiding double-broker rings."
+    },
+    {
+      title: "Official Dispatcher Certification",
+      desc: "Digital and printable Certificate of Completion to showcase your professional credentials to carriers and employers."
+    },
+    {
+      title: "Private Mentorship Community",
+      desc: "Ongoing access to our alumni channel for lane tips, live broker feedback, and direct carrier referrals."
+    },
+    {
+      title: "Lifetime Course Updates",
+      desc: "Access to all future training video updates, industry regulatory changes, and new load board features."
+    }
+  ],
+  targetAudience: [
+    {
+      title: "Aspiring Independent Dispatchers",
+      desc: "Individuals looking to start a flexible, high-income work-from-home freight dispatching business with low startup overhead."
+    },
+    {
+      title: "Truck Drivers & Owner Operators",
+      desc: "CDL drivers transitioning off the road to dispatch from home, or looking to self-dispatch their own rigs with professional skills."
+    },
+    {
+      title: "Fleet Managers & Logistics Staff",
+      desc: "Personnel at growing trucking companies wanting to optimize routing, increase average RPM, and streamline back-office operations."
+    }
+  ]
+};
 
 export const TESTIMONIALS = [
   {

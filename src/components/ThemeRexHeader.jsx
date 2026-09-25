@@ -36,10 +36,10 @@ export default function ThemeRexHeader({ onOpenQuote, onOpenLoadRequest, onOpenO
     const query = searchQuery.toLowerCase();
     setMobileMenuOpen(false);
 
-    if (query.includes('rate') || query.includes('cost') || query.includes('today')) {
+    if (query.includes('course') || query.includes('train') || query.includes('learn') || query.includes('academy')) {
+      navigate('/course');
+    } else if (query.includes('rate') || query.includes('cost') || query.includes('today')) {
       navigate('/rates');
-    } else if (query.includes('plan') || query.includes('price') || query.includes('5%')) {
-      navigate('/pricing');
     } else if (query.includes('factor') || query.includes('finance')) {
       navigate('/factoring');
     } else if (query.includes('req') || query.includes('permit') || query.includes('w9')) {
@@ -48,8 +48,6 @@ export default function ThemeRexHeader({ onOpenQuote, onOpenLoadRequest, onOpenO
       navigate('/about');
     } else if (query.includes('contact') || query.includes('phone') || query.includes('call')) {
       navigate('/contact');
-    } else if (query.includes('news') || query.includes('blog') || query.includes('trend')) {
-      navigate('/news');
     } else {
       navigate('/services');
     }
@@ -58,13 +56,10 @@ export default function ThemeRexHeader({ onOpenQuote, onOpenLoadRequest, onOpenO
 
   const navLinks = [
     { label: 'Home', path: '/' },
-    { label: 'About', path: '/about' },
     { label: 'Services', path: '/services' },
-    { label: 'Rates', path: '/rates' },
     { label: 'Factoring', path: '/factoring' },
-    { label: 'Pricing', path: '/pricing' },
-    { label: 'Requirements', path: '/requirements' },
-    { label: 'News', path: '/news' },
+    { label: 'Dispatch Course', path: '/course' },
+    { label: 'About', path: '/about' },
     { label: 'Contact', path: '/contact' }
   ];
 
@@ -209,51 +204,41 @@ export default function ThemeRexHeader({ onOpenQuote, onOpenLoadRequest, onOpenO
               <IconChevronRight className="w-4 h-4 text-slate-300" />
             </Link>
 
-            {/* SERVICE PLAN (Yellow Highlighted) */}
-            <Link
-              to="/pricing"
-              onClick={() => setMobileMenuOpen(false)}
-              className="drawer-menu-item highlighted"
-            >
-              <span>SERVICE PLAN</span>
-              <IconChevronRight className="w-4 h-4 text-slate-950" />
-            </Link>
-
-            <Link
-              to="/rates"
-              onClick={() => setMobileMenuOpen(false)}
-              className="drawer-menu-item"
-            >
-              <span>TODAY'S RATES</span>
-              <IconChevronRight className="w-4 h-4 text-slate-300" />
-            </Link>
-
+            {/* OUR SERVICES */}
             <Link
               to="/services"
               onClick={() => setMobileMenuOpen(false)}
               className="drawer-menu-item"
             >
-              <span>OUR SERVICES</span>
+              <span>DISPATCH SERVICES</span>
               <IconChevronRight className="w-4 h-4 text-slate-300" />
             </Link>
 
+            {/* FACTORING */}
             <Link
               to="/factoring"
               onClick={() => setMobileMenuOpen(false)}
               className="drawer-menu-item"
             >
-              <span>FACTORING</span>
+              <span>FACTORING SERVICES</span>
               <IconChevronRight className="w-4 h-4 text-slate-300" />
             </Link>
 
+            {/* DISPATCH COURSE (Highlighted) */}
             <Link
-              to="/requirements"
+              to="/course"
               onClick={() => setMobileMenuOpen(false)}
-              className="drawer-menu-item"
+              className="drawer-menu-item highlighted"
             >
-              <span>REQUIREMENTS</span>
-              <IconChevronRight className="w-4 h-4 text-slate-300" />
+              <span className="flex items-center gap-2">
+                <span>🎓 DISPATCH COURSE</span>
+                <span className="text-[10px] bg-slate-950 text-amber-400 px-1.5 py-0.5 rounded font-black">NEW</span>
+              </span>
+              <IconChevronRight className="w-4 h-4 text-slate-950" />
             </Link>
+
+
+
 
             <div
               onClick={() => {
@@ -266,14 +251,14 @@ export default function ThemeRexHeader({ onOpenQuote, onOpenLoadRequest, onOpenO
               <IconTruck className="w-4 h-4 text-amber-400" />
             </div>
 
-            {/* REGISTER (Yellow Highlighted) */}
+            {/* REGISTER */}
             <Link
               to="/register"
               onClick={() => setMobileMenuOpen(false)}
-              className="drawer-menu-item highlighted"
+              className="drawer-menu-item"
             >
-              <span>REGISTER</span>
-              <IconChevronRight className="w-4 h-4 text-slate-950" />
+              <span>REGISTER AS CARRIER</span>
+              <IconChevronRight className="w-4 h-4 text-slate-300" />
             </Link>
 
             <Link
@@ -282,15 +267,6 @@ export default function ThemeRexHeader({ onOpenQuote, onOpenLoadRequest, onOpenO
               className="drawer-menu-item"
             >
               <span>ABOUT US</span>
-              <IconChevronRight className="w-4 h-4 text-slate-300" />
-            </Link>
-
-            <Link
-              to="/news"
-              onClick={() => setMobileMenuOpen(false)}
-              className="drawer-menu-item"
-            >
-              <span>NEWS</span>
               <IconChevronRight className="w-4 h-4 text-slate-300" />
             </Link>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import LiveRatesTicker from '../components/LiveRatesTicker';
+
 import RevenueCalculator from '../components/RevenueCalculator';
 import { IconTrendingUp, IconTruck, IconCheckCircle, IconDollarSign } from '../components/Icons';
 
@@ -14,16 +14,15 @@ export default function RatesPage({ onOpenLoadRequest, onOpenQuote }) {
             <span>Real-Time Freight Market Index</span>
           </div>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900">
-            Today's <span className="text-[#003366]">Rates</span> & Revenue Estimator
+            Today's <span className="text-[#003366]">Rates</span> & Commission Index
           </h1>
           <p className="text-sm sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium">
-            Truck Dispatch in the USA for Dry Vans, Reefer, Flat-Bed, and Step decks. We negotiate the best loads for your equipment.
+            Transparent dispatching for Dry Van (5%), Reefer (5%), Flatbed (5%), Step Deck (5%), Power Only (5%), and Box Truck & Hotshot (6%). We negotiate top $/mile with zero forced dispatch.
           </p>
         </div>
       </div>
 
-      {/* Today's Rates Board (Matching Screenshot) */}
-      <LiveRatesTicker onOpenLoadRequest={onOpenLoadRequest} />
+
 
       {/* Regional Lane Economics Matrix */}
       <section className="py-16 sm:py-20 container-custom">

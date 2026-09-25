@@ -13,10 +13,10 @@ import AboutPage from './pages/AboutPage';
 import ServicesPage from './pages/ServicesPage';
 import RatesPage from './pages/RatesPage';
 import FactoringPage from './pages/FactoringPage';
-import PricingPage from './pages/PricingPage';
-import RequirementsPage from './pages/RequirementsPage';
+
+import ServiceDetailPage from './pages/ServiceDetailPage';
 import RegisterPage from './pages/RegisterPage';
-import NewsPage from './pages/NewsPage';
+import DispatchCoursePage from './pages/DispatchCoursePage';
 import ContactPage from './pages/ContactPage';
 
 import './App.css';
@@ -97,6 +97,15 @@ function MainApp() {
             }
           />
           <Route
+            path="/services/:slug"
+            element={
+              <ServiceDetailPage
+                onOpenQuote={handleOpenQuote}
+                onOpenOnboard={handleOpenOnboard}
+              />
+            }
+          />
+          <Route
             path="/rates"
             element={
               <RatesPage
@@ -113,23 +122,7 @@ function MainApp() {
               />
             }
           />
-          <Route
-            path="/pricing"
-            element={
-              <PricingPage
-                onOpenQuote={handleOpenQuote}
-                onOpenOnboard={handleOpenOnboard}
-              />
-            }
-          />
-          <Route
-            path="/requirements"
-            element={
-              <RequirementsPage
-                onOpenOnboard={handleOpenOnboard}
-              />
-            }
-          />
+
           <Route
             path="/register"
             element={
@@ -137,9 +130,9 @@ function MainApp() {
             }
           />
           <Route
-            path="/news"
+            path="/course"
             element={
-              <NewsPage />
+              <DispatchCoursePage />
             }
           />
           <Route

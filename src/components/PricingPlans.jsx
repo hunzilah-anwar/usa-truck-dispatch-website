@@ -22,69 +22,89 @@ export default function PricingPlans({ onOpenQuote }) {
         </div>
 
         {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-          {PRICING_PLANS.map((plan, idx) => (
-            <div
-              key={idx}
-              className={`glass-card glass-shine rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 relative ${
-                plan.popular
-                  ? 'bg-gradient-to-b from-white to-amber-50/60 border-2 border-amber-400 shadow-xl transform md:-translate-y-2'
-                  : 'bg-white border border-slate-200 shadow-sm hover:border-slate-300'
-              }`}
-            >
-              {/* Badge with subtle glow animation */}
-              {plan.badge && (
-                <span
-                  className={`absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 text-xs font-black uppercase tracking-wider rounded-full shadow-md ${
-                    plan.popular
-                      ? 'bg-amber-400 text-slate-950 animate-pulse-glow'
-                      : 'bg-[#003366] text-white'
-                  }`}
-                >
-                  {plan.badge}
-                </span>
-              )}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+          {PRICING_PLANS.map((plan, idx) => {
+            const isCourse = plan.name.includes("Course") || plan.name.includes("Academy");
+            return (
+              <div
+                key={idx}
+                className={`glass-card glass-shine rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 relative ${
+                  plan.popular
+                    ? 'bg-gradient-to-b from-white to-amber-50/60 border-2 border-amber-400 shadow-xl transform lg:-translate-y-2'
+                    : 'bg-white border border-slate-200 shadow-sm hover:border-slate-300'
+                }`}
+              >
+                {/* Badge with subtle glow animation */}
+                {plan.badge && (
+                  <span
+                    className={`absolute -top-3 left-1/2 -translate-x-1/2 px-3.5 py-1 text-[11px] font-black uppercase tracking-wider rounded-full shadow-md whitespace-nowrap ${
+                      plan.popular
+                        ? 'bg-amber-400 text-slate-950 animate-pulse-glow'
+                        : isCourse
+                        ? 'bg-emerald-500 text-white'
+                        : 'bg-[#003366] text-white'
+                    }`}
+                  >
+                    {plan.badge}
+                  </span>
+                )}
 
-              <div>
-                {/* Plan Title */}
-                <h3 className="text-xl font-extrabold text-slate-900 mb-2">{plan.name}</h3>
-                <p className="text-xs text-slate-500 mb-6 leading-relaxed">{plan.description}</p>
+                <div>
+                  {/* Plan Title */}
+                  <h3 className="text-xl font-extrabold text-slate-900 mb-1">{plan.name}</h3>
+                  {plan.equipmentList && (
+                    <div className="text-[11px] font-bold text-amber-700 bg-amber-50/80 px-2.5 py-1 rounded-lg border border-amber-200/80 mb-3">
+                      {plan.equipmentList}
+                    </div>
+                  )}
+                  <p className="text-xs text-slate-500 mb-5 leading-relaxed">{plan.description}</p>
 
-                {/* Price Display */}
-                <div className="flex items-baseline gap-2 mb-6 pb-6 border-b border-slate-200">
-                  <span className="text-4xl sm:text-5xl font-black text-[#003366]">{plan.rate}</span>
-                  <span className="text-xs text-slate-500 uppercase font-bold">{plan.rateSubtext}</span>
+                  {/* Price Display */}
+                  <div className="flex items-baseline gap-2 mb-5 pb-5 border-b border-slate-200">
+                    <span className="text-4xl font-black text-[#003366]">{plan.rate}</span>
+                    <span className="text-xs text-slate-500 uppercase font-bold">{plan.rateSubtext}</span>
+                  </div>
+
+                  {/* Features List */}
+                  <ul className="space-y-2.5 mb-6">
+                    {plan.features.map((feat, fIdx) => (
+                      <li key={fIdx} className="flex items-start gap-2.5 text-xs text-slate-700">
+                        <span className="p-0.5 rounded-full bg-emerald-100 text-emerald-700 flex-shrink-0 mt-0.5 font-bold">
+                          <IconCheck className="w-3 h-3" />
+                        </span>
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                {/* Features List */}
-                <ul className="space-y-3.5 mb-8">
-                  {plan.features.map((feat, fIdx) => (
-                    <li key={fIdx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-700">
-                      <span className="p-0.5 rounded-full bg-emerald-100 text-emerald-700 flex-shrink-0 mt-0.5 font-bold">
-                        <IconCheck className="w-3.5 h-3.5" />
-                      </span>
-                      <span>{feat}</span>
-                    </li>
-                  ))}
-                </ul>
+                {/* Action Button */}
+                <div>
+                  {isCourse ? (
+                    <a
+                      href="/course"
+                      className="w-full py-3.5 px-4 rounded-xl font-black uppercase tracking-wider text-xs transition-all flex items-center justify-center gap-1.5 shadow-md bg-emerald-600 hover:bg-emerald-500 text-white cursor-pointer"
+                    >
+                      <span>{plan.buttonText}</span>
+                      <IconArrowRight className="w-3.5 h-3.5" />
+                    </a>
+                  ) : (
+                    <button
+                      onClick={() => onOpenQuote({ selectedPlan: plan.name })}
+                      className={`w-full py-3.5 px-4 rounded-xl font-black uppercase tracking-wider text-xs transition-all flex items-center justify-center gap-1.5 shadow-md cursor-pointer ${
+                        plan.popular
+                          ? 'bg-amber-400 hover:bg-amber-300 text-slate-950 shadow-amber-400/30'
+                          : 'bg-[#003366] hover:bg-[#002244] text-white'
+                      }`}
+                    >
+                      <span>{plan.buttonText}</span>
+                      <IconArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  )}
+                </div>
               </div>
-
-              {/* Action Button */}
-              <div>
-                <button
-                  onClick={() => onOpenQuote({ selectedPlan: plan.name })}
-                  className={`w-full py-3.5 px-6 rounded-xl font-black uppercase tracking-wider text-xs sm:text-sm transition-all flex items-center justify-center gap-2 shadow-md ${
-                    plan.popular
-                      ? 'bg-amber-400 hover:bg-amber-300 text-slate-950 shadow-amber-400/30'
-                      : 'bg-[#003366] hover:bg-[#002244] text-white'
-                  }`}
-                >
-                  <span>{plan.buttonText}</span>
-                  <IconArrowRight className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Guarantee Banner */}

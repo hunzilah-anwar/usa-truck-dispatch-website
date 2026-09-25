@@ -1,144 +1,113 @@
 import React, { useState } from 'react';
 import { EQUIPMENT_DETAILS } from '../data/dispatchData';
-import { IconTruck, IconCheckCircle, IconArrowRight, IconShieldCheck, IconDollarSign } from './Icons';
+import { IconTruck, IconCheckCircle, IconArrowRight, IconShieldCheck } from './Icons';
+
+const SERVICE_IMAGES = {
+  'dry-van':    '/images/dry-van.jpg',
+  'reefer':     '/images/reefer.jpg',
+  'flatbed':    '/images/flatbed.jpg',
+  'step-deck':  '/images/step-deck.jpg',
+  'box-truck':  'https://images.unsplash.com/photo-1599256872237-5dcc0fbe9668?w=800&auto=format&fit=crop&q=80',
+  'hotshot':    '/images/hotshot.jpg',
+  'power-only': '/images/dry-van.jpg',
+};
 
 export default function WhatDoYouShipSection({ onOpenLoadRequest, onOpenQuote }) {
-  const [selectedEqId, setSelectedEqId] = useState('dry-van');
-  const eq = EQUIPMENT_DETAILS.find((item) => item.id === selectedEqId) || EQUIPMENT_DETAILS[0];
+  const [selectedId, setSelectedId] = useState('dry-van');
+  const eq = EQUIPMENT_DETAILS.find(e => e.id === selectedId) || EQUIPMENT_DETAILS[0];
 
   return (
-    <section className="py-16 sm:py-20 bg-white border-b border-slate-200">
+    <section className="py-16 sm:py-24 bg-slate-50 border-t border-slate-200 overflow-hidden">
       <div className="container-custom">
+
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-extrabold uppercase tracking-wider">
-            <IconTruck className="w-3.5 h-3.5" />
-            <span>Trailer & Freight Fleet Specifications</span>
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-            What Do You <span className="text-[#003366]">Ship?</span>
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="text-xs font-black uppercase tracking-widest text-[#003366] block mb-3">
+            Equipment Types We Dispatch
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight mb-4">
+            What Do You <span className="text-amber-500">Ship?</span>
           </h2>
-
-          <p className="text-slate-600 text-base max-w-2xl mx-auto">
-            From temperature-sensitive pharmaceuticals and produce to over-dimensional flatbed machinery, we assign specialized dispatch agents for your exact trailer type.
+          <p className="text-slate-500 text-sm sm:text-base">
+            From temperature-sensitive produce to over-dimensional flatbed machinery — we have specialized dispatchers for every trailer type.
           </p>
         </div>
 
-        {/* Equipment Selector Buttons */}
+        {/* Tab selector */}
         <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
-          {EQUIPMENT_DETAILS.map((item) => (
+          {EQUIPMENT_DETAILS.map(item => (
             <button
               key={item.id}
-              onClick={() => setSelectedEqId(item.id)}
-              className={`px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-extrabold transition-all border flex items-center gap-2 ${
-                selectedEqId === item.id
-                  ? 'bg-amber-400 text-slate-950 border-amber-400 shadow-md font-black'
-                  : 'bg-slate-50 text-slate-700 border-slate-200 hover:border-slate-300 hover:bg-slate-100'
+              onClick={() => setSelectedId(item.id)}
+              className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all border ${
+                selectedId === item.id
+                  ? 'bg-primary-navy text-white border-primary-navy shadow-lg scale-105'
+                  : 'bg-white text-slate-700 border-slate-200 hover:border-primary-navy hover:text-primary-navy'
               }`}
             >
-              <span>{item.name.split('(')[0].trim()}</span>
-              {item.badge && (
-                <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase ${
-                  selectedEqId === item.id ? 'bg-slate-950 text-white' : 'bg-slate-200 text-slate-700'
-                }`}>
-                  {item.badge}
-                </span>
-              )}
+              {item.name.split('(')[0].trim()}
             </button>
           ))}
         </div>
 
-        {/* Spotlight Showcase Card with Glassmorphism */}
-        <div className="glass-card bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-lg">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Image Showcase */}
-            <div className="lg:col-span-6">
-              <div className="rounded-2xl overflow-hidden shadow-md border border-slate-200 relative h-72 sm:h-96 group">
+        {/* Main showcase — image left, info right */}
+        <div className="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-lg">
+          <div className="grid grid-cols-1 lg:grid-cols-2">
+
+            {/* Left: Image */}
+            <div className="relative h-72 sm:h-96 lg:h-full min-h-70 overflow-hidden">
+              {EQUIPMENT_DETAILS.map(item => (
                 <img
-                  src={eq.image}
-                  alt={eq.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  key={item.id}
+                  src={SERVICE_IMAGES[item.id]}
+                  alt={item.name}
+                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${item.id === selectedId ? 'opacity-100' : 'opacity-0'}`}
                 />
-                <div className="absolute top-4 left-4 bg-[#003366] text-white px-3.5 py-1.5 rounded-xl text-xs font-black uppercase tracking-wider shadow">
-                  Avg ${eq.baseRatePerMile.toFixed(2)}/mi base
-                </div>
-                <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur border border-slate-200 text-slate-900 px-3 py-1.5 rounded-xl text-xs font-bold shadow flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                  <span>Active Capacity Available</span>
-                </div>
+              ))}
+              <div className="absolute inset-0 bg-linear-to-t from-slate-900/70 via-transparent to-transparent" />
+
+              {/* Rate badge */}
+              <div className="absolute top-5 left-5 flex items-center gap-2">
+                <span className="px-3 py-1.5 bg-amber-400 text-slate-900 text-xs font-black rounded-lg shadow">
+                  {eq.commission} Dispatch Commission
+                </span>
               </div>
             </div>
 
-            {/* Information & Technical Specs */}
-            <div className="lg:col-span-6 space-y-5">
-              <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-amber-600">
-                <IconShieldCheck className="w-4 h-4 text-amber-500" />
-                <span>Verified Carrier Capacity</span>
-              </div>
+            {/* Right: Info */}
+            <div className="p-4 sm:p-10 flex flex-col justify-center sm:space-y-5 space-y-2">
 
-              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 leading-tight">
-                {eq.name}
-              </h3>
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900">{eq.name}</h3>
+              <p className="text-slate-500 text-sm leading-relaxed">{eq.description}</p>
 
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                {eq.description}
-              </p>
-
-              {/* Technical Specifications Matrix */}
-              {eq.specs && (
-                <div className="grid grid-cols-2 gap-2.5 p-4 bg-slate-50 border border-slate-200 rounded-2xl text-xs">
-                  <div>
-                    <span className="text-slate-400 font-bold uppercase text-[10px] block">Max Payload</span>
-                    <span className="font-extrabold text-slate-900">{eq.specs.payload}</span>
-                  </div>
-                  <div>
-                    <span className="text-slate-400 font-bold uppercase text-[10px] block">Trailer Dimensions</span>
-                    <span className="font-extrabold text-slate-900">{eq.specs.dimensions}</span>
-                  </div>
-                  <div>
-                    <span className="text-slate-400 font-bold uppercase text-[10px] block">Capacity / Limits</span>
-                    <span className="font-extrabold text-[#003366]">{eq.specs.capacity}</span>
-                  </div>
-                  <div>
-                    <span className="text-slate-400 font-bold uppercase text-[10px] block">Top Commodities</span>
-                    <span className="font-extrabold text-slate-800 truncate block" title={eq.specs.topCommodities}>
-                      {eq.specs.topCommodities}
-                    </span>
-                  </div>
-                </div>
-              )}
-
-              {/* Feature bullets */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
-                {eq.features.map((feature, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-800">
-                    <span className="text-emerald-500 flex-shrink-0">
-                      <IconCheckCircle className="w-4 h-4" />
-                    </span>
-                    <span>{feature}</span>
+              {/* Features */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {eq.features.slice(0, 6).map((f, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <IconCheckCircle className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                    <span className="text-xs font-semibold text-slate-700">{f}</span>
                   </div>
                 ))}
               </div>
 
-              {/* Action Buttons */}
-              <div className="pt-3 flex flex-wrap gap-3">
+              {/* CTAs */}
+              <div className="flex flex-wrap gap-3 pt-2">
                 <button
                   onClick={() => onOpenLoadRequest(eq.name)}
-                  className="px-6 py-3.5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black uppercase tracking-wider text-xs rounded-xl shadow-sm transition-all flex items-center gap-2"
+                  className="px-6 py-3.5 bg-amber-400 hover:bg-amber-300 text-slate-900 font-black uppercase tracking-wider text-xs rounded-xl shadow transition-all flex items-center gap-2 hover:-translate-y-0.5"
                 >
                   <IconTruck className="w-4 h-4" />
-                  <span>Book {eq.name.split('(')[0]} Loads</span>
+                  Book Loads
                 </button>
-
                 <button
                   onClick={() => onOpenQuote({ equipment: eq.name })}
-                  className="px-6 py-3.5 bg-[#003366] hover:bg-[#002244] text-white font-bold uppercase tracking-wider text-xs rounded-xl transition-all"
+                  className="px-6 py-3.5 bg-[#003366] hover:bg-[#002244] text-white font-black uppercase tracking-wider text-xs rounded-xl transition-all hover:-translate-y-0.5"
                 >
-                  Request Dispatch Rate
+                  Get Dispatch Rate
                 </button>
               </div>
             </div>
+
           </div>
         </div>
       </div>

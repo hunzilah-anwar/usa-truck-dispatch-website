@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import FactoringSection from '../components/FactoringSection';
 import { IconDollarSign, IconCheckCircle, IconShieldCheck, IconClock, IconMail, IconArrowRight } from '../components/Icons';
 import { COMPANY_DETAILS } from '../data/dispatchData';
 
@@ -37,9 +36,6 @@ export default function FactoringPage({ onOpenQuote }) {
           </p>
         </div>
       </div>
-
-      {/* Main Factoring Section Component */}
-      <FactoringSection onOpenQuote={onOpenQuote} />
 
       {/* Interactive Invoice Cash Advance Calculator */}
       <section className="py-16 sm:py-20 bg-slate-50 border-y border-slate-200">

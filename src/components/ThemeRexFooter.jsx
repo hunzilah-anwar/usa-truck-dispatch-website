@@ -115,21 +115,17 @@ export default function ThemeRexFooter({ onOpenLoadRequest, onOpenOnboard }) {
                 </Link>
               </li>
               <li>
-                <Link to="/factoring" className="text-slate-600 hover:text-[#003366] transition-colors flex items-center gap-1.5">
-                  <span className="text-amber-500 font-bold">»</span> factoring
+                <Link to="/course" className="text-[#003366] font-bold hover:text-amber-600 transition-colors flex items-center gap-1.5">
+                  <span className="text-amber-500 font-bold">»</span> Dispatch Course (Training)
                 </Link>
               </li>
               <li>
                 <Link to="/factoring" className="text-slate-600 hover:text-[#003366] transition-colors flex items-center gap-1.5">
-                  <span className="text-amber-500 font-bold">»</span> Express freight finance
-                </Link>
-              </li>
-              <li>
-                <Link to="/pricing" className="text-slate-600 hover:text-[#003366] transition-colors flex items-center gap-1.5">
-                  <span className="text-amber-500 font-bold">»</span> Service Plan (Pricing)
+                  <span className="text-amber-500 font-bold">»</span> Factoring Services
                 </Link>
               </li>
             </ul>
+
           </div>
 
           {/* Col 3: OUR SERVICES */}
@@ -140,27 +136,28 @@ export default function ThemeRexFooter({ onOpenLoadRequest, onOpenOnboard }) {
             <ul className="space-y-2 text-xs sm:text-sm">
               <li>
                 <Link to="/services" className="text-slate-600 hover:text-[#003366] transition-colors flex items-center gap-1.5">
-                  <span className="text-amber-500 font-bold">»</span> Service Coverage
+                  <span className="text-amber-500 font-bold">»</span> 24/7 Dispatch Services
+                </Link>
+              </li>
+              <li>
+                <Link to="/factoring" className="text-slate-600 hover:text-[#003366] transition-colors flex items-center gap-1.5">
+                  <span className="text-amber-500 font-bold">»</span> Freight Factoring
+                </Link>
+              </li>
+              <li>
+                <Link to="/course" className="text-slate-600 hover:text-[#003366] transition-colors flex items-center gap-1.5">
+                  <span className="text-amber-500 font-bold">»</span> Dispatch Academy Course
                 </Link>
               </li>
               <li>
                 <Link to="/register" className="text-amber-600 font-bold hover:underline flex items-center gap-1.5">
-                  <span className="text-amber-500 font-bold">»</span> Register
+                  <span className="text-amber-500 font-bold">»</span> Register Carrier
                 </Link>
               </li>
-              <li className="pl-4">
-                <Link to="/requirements" className="text-amber-700 text-xs hover:underline flex items-center gap-1.5">
-                  <span className="text-amber-500 font-bold">»</span> Service Coverage (Requirements)
-                </Link>
-              </li>
-              <li>
-                <Link to="/rates" className="text-slate-600 hover:text-[#003366] transition-colors flex items-center gap-1.5">
-                  <span className="text-amber-500 font-bold">»</span> Today's Rates
-                </Link>
-              </li>
+
               <li>
                 <Link to="/contact" className="text-slate-600 hover:text-[#003366] transition-colors flex items-center gap-1.5">
-                  <span className="text-amber-500 font-bold">»</span> Contact
+                  <span className="text-amber-500 font-bold">»</span> Contact Support
                 </Link>
               </li>
             </ul>
@@ -212,8 +209,7 @@ export default function ThemeRexFooter({ onOpenLoadRequest, onOpenOnboard }) {
             © {COMPANY_DETAILS.foundedYear} - {new Date().getFullYear()} {COMPANY_DETAILS.name}. All Rights Reserved.
           </div>
           <div className="flex items-center gap-6">
-            <Link to="/requirements" className="hover:text-slate-900">Carrier Requirements</Link>
-            <Link to="/pricing" className="hover:text-slate-900">Terms of Service</Link>
+
             <Link to="/contact" className="hover:text-slate-900">24/7 Dispatch Hotline</Link>
           </div>
         </div>

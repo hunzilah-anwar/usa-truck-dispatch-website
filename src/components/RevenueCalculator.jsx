@@ -15,7 +15,7 @@ export default function RevenueCalculator({ onOpenQuote }) {
   const weeklyGrossPerTruck = weeklyMiles * ratePerMile;
   const totalWeeklyGross = weeklyGrossPerTruck * truckCount;
   const totalMonthlyGross = totalWeeklyGross * 4.33;
-  const dispatchFeePercent = 0.05; // 5% standard rate
+  const dispatchFeePercent = currentEquipment.commissionRate || 0.05;
   const totalWeeklyDispatchFee = totalWeeklyGross * dispatchFeePercent;
   const totalWeeklyNetToCarrier = totalWeeklyGross - totalWeeklyDispatchFee;
   const totalMonthlyNetToCarrier = totalMonthlyGross * (1 - dispatchFeePercent);
@@ -164,7 +164,7 @@ export default function RevenueCalculator({ onOpenQuote }) {
                 <h3 className="text-xl font-black text-slate-900">{currentEquipment.name}</h3>
               </div>
               <span className="px-3 py-1 text-xs font-extrabold bg-emerald-100 text-emerald-800 border border-emerald-200 rounded-full">
-                5% Dispatch Fee
+                {currentEquipment.commission} Dispatch Fee
               </span>
             </div>
 
