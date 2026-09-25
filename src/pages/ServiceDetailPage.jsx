@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { EQUIPMENT_DETAILS } from '../data/dispatchData';
 import { IconArrowRight, IconCheckCircle, IconTruck } from '../components/Icons';
 
@@ -25,7 +26,12 @@ export default function ServiceDetailPage({ onOpenQuote, onOpenOnboard }) {
   }
 
   return (
-    <div className="bg-slate-50 min-h-screen">
+    <motion.div 
+      initial={{ opacity: 0 }} 
+      animate={{ opacity: 1 }} 
+      exit={{ opacity: 0 }}
+      className="bg-slate-50 min-h-screen"
+    >
       {/* Header */}
       <div className="bg-[#003366] text-white py-20 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl"></div>
@@ -33,7 +39,12 @@ export default function ServiceDetailPage({ onOpenQuote, onOpenOnboard }) {
           <Link to="/services" className="text-amber-400 hover:text-amber-300 text-xs font-bold uppercase tracking-wider mb-6 inline-flex items-center gap-1">
             ← Back to Services
           </Link>
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <motion.div 
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col md:flex-row md:items-end justify-between gap-6"
+          >
             <div>
               <span className="inline-block px-3 py-1 bg-white/10 text-white text-xs font-bold rounded mb-4 border border-white/20">
                 {service.badge}
@@ -46,14 +57,20 @@ export default function ServiceDetailPage({ onOpenQuote, onOpenOnboard }) {
             >
               Start Onboarding
             </button>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       <div className="container-custom py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           
-          <div className="lg:col-span-8 space-y-10">
+          <motion.div 
+            initial={{ x: -30, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-8 space-y-10"
+          >
             {/* Overview */}
             <div className="bg-white p-8 sm:p-10 rounded-3xl shadow-sm border border-slate-200">
               <h2 className="text-2xl font-black text-slate-900 mb-4">Service Overview</h2>
@@ -72,9 +89,15 @@ export default function ServiceDetailPage({ onOpenQuote, onOpenOnboard }) {
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="lg:col-span-4 space-y-6">
+          <motion.div 
+            initial={{ x: 30, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-4 space-y-6"
+          >
             {/* Specs Card */}
             <div className="bg-slate-900 text-white p-8 rounded-3xl shadow-xl border border-slate-800">
               <div className="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center text-amber-400 mb-6">
@@ -114,10 +137,10 @@ export default function ServiceDetailPage({ onOpenQuote, onOpenOnboard }) {
                 <IconArrowRight className="w-4 h-4 text-amber-400" />
               </button>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

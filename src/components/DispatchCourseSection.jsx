@@ -4,7 +4,7 @@ import { IconArrowRight, IconCheck } from './Icons';
 
 export default function DispatchCourseSection() {
   return (
-    <section className="py-20 sm:py-24 relative overflow-hidden bg-primary-navy border-y border-[#002244]">
+    <section className="py-16 sm:py-24 relative overflow-hidden bg-primary-navy border-y border-[#002244]">
       {/* Background Image Overlay */}
       <img
         src="/images/course.jpg"
@@ -14,7 +14,7 @@ export default function DispatchCourseSection() {
       <div className="absolute inset-0 bg-linear-to-r from-primary-navy via-primary-navy/90 to-transparent" />
       
       <div className="container-custom relative z-10">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
           
           <div className="md:w-1/2 sm:space-y-6 space-y-4">
             <span className="inline-block text-amber-400 font-black text-xs uppercase">

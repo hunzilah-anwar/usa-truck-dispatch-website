@@ -72,7 +72,7 @@ export default function ThemeRexHeader({ onOpenQuote, onOpenLoadRequest, onOpenO
     <header className="w-full z-40 bg-white">
       {/* Top Utility Bar (Clean ThemeREX Light Top Bar) */}
       <div className="bg-primary-navy text-white text-xs py-6 px-4 border-b border-[#002244]">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
+        <div className="max-w-7xl px-4 sm:px-6 xl:px-12 mx-auto flex justify-between items-center">
           {/* Contact Details */}
           <div className="flex items-center gap-4 sm:gap-6">
             <a 
@@ -117,14 +117,14 @@ export default function ThemeRexHeader({ onOpenQuote, onOpenLoadRequest, onOpenO
 
       {/* Main Navigation (ThemeREX Clean Crisp White Navigation) */}
       <nav className={`transition-all duration-300 ${isScrolled ? 'shadow-md py-2.5' : 'py-3.5'} bg-white border-b border-slate-200 sticky top-0 z-40`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 xl:px-12 flex items-center justify-between gap-4">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 cursor-pointer shrink-0 mr-2">
             <Logo variant="dark" size="md" />
           </Link>
 
           {/* Desktop Nav Items with smooth animated underline */}
-          <div className="hidden xl:flex items-center gap-4 2xl:gap-6 text-xs 2xl:text-[13px] font-bold tracking-tight whitespace-nowrap shrink-0">
+          <div className="hidden xl:flex items-center gap-4 2xl:gap-6 text-sm 2xl:text-[13px] font-bold tracking-tight whitespace-nowrap shrink-0">
             {navLinks.map((link) => (
               <Link
                 key={link.path}

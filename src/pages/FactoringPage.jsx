@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { IconDollarSign, IconCheckCircle, IconShieldCheck, IconClock, IconMail, IconArrowRight } from '../components/Icons';
 import { COMPANY_DETAILS } from '../data/dispatchData';
 
@@ -20,10 +21,20 @@ export default function FactoringPage({ onOpenQuote }) {
   const reserveAmount = (invoiceAmount - immediateAdvance).toFixed(0);
 
   return (
-    <div className="factoring-page bg-white">
+    <motion.div 
+      initial={{ opacity: 0 }} 
+      animate={{ opacity: 1 }} 
+      exit={{ opacity: 0 }}
+      className="factoring-page bg-white"
+    >
       {/* Header Banner */}
       <div className="page-hero-light py-16 sm:py-20 border-b border-slate-200">
-        <div className="container-custom text-center space-y-4">
+        <motion.div 
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="container-custom text-center space-y-4"
+        >
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-900 text-xs font-bold uppercase tracking-wider shadow-sm">
             <IconDollarSign className="w-3.5 h-3.5 text-emerald-700" />
             <span>Express Freight Finance Official Partner</span>
@@ -34,13 +45,18 @@ export default function FactoringPage({ onOpenQuote }) {
           <p className="text-sm sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium">
             Our funding program helps ensure motor carriers have uninterrupted cash flow to cover diesel, insurance, and payroll. Get paid within 24 hours of delivery.
           </p>
-        </div>
+        </motion.div>
       </div>
 
       {/* Interactive Invoice Cash Advance Calculator */}
       <section className="py-16 sm:py-20 bg-slate-50 border-y border-slate-200">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
+          <motion.div 
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center max-w-3xl mx-auto space-y-3 mb-12"
+          >
             <span className="text-xs font-black uppercase tracking-widest text-emerald-700 block">
               INSTANT LIQUIDITY ESTIMATOR
             </span>
@@ -50,9 +66,15 @@ export default function FactoringPage({ onOpenQuote }) {
             <p className="text-slate-600 text-sm sm:text-base">
               Slide to see how much immediate cash is deposited in your account within 24 hours instead of waiting 30-45 days on broker terms.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="max-w-4xl mx-auto bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-lg grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <motion.div 
+            initial={{ scale: 0.95, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="max-w-4xl mx-auto bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-lg grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+          >
             {/* Controls */}
             <div className="lg:col-span-6 space-y-6">
               <div>
@@ -176,13 +198,18 @@ export default function FactoringPage({ onOpenQuote }) {
                 <span>Lock In This Advance Rate</span>
               </a>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* How Factoring Works 4 Steps */}
       <section className="py-16 sm:py-20 container-custom">
-        <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
+        <motion.div 
+          initial={{ y: 20, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-center max-w-3xl mx-auto space-y-3 mb-14"
+        >
           <span className="text-xs font-black uppercase tracking-widest text-amber-600 block">
             HOW IT WORKS
           </span>
@@ -192,53 +219,41 @@ export default function FactoringPage({ onOpenQuote }) {
           <p className="text-slate-600 text-sm sm:text-base">
             Never stress about broker 30 to 45 day payment cycles again.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <div className="bg-slate-50 border border-slate-200 p-6 rounded-2xl space-y-3 relative hover:shadow-md transition-all">
-            <div className="w-10 h-10 rounded-xl bg-[#003366] text-white font-black text-sm flex items-center justify-center shadow">
-              1
-            </div>
-            <h3 className="text-base font-black text-slate-900">Book High-Paying Load</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Your dedicated dispatcher verifies broker creditworthiness and books top $/mile freight you approve.
-            </p>
-          </div>
-
-          <div className="bg-slate-50 border border-slate-200 p-6 rounded-2xl space-y-3 relative hover:shadow-md transition-all">
-            <div className="w-10 h-10 rounded-xl bg-[#003366] text-white font-black text-sm flex items-center justify-center shadow">
-              2
-            </div>
-            <h3 className="text-base font-black text-slate-900">Deliver Cargo</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Complete the shipment on time and obtain a signed Bill of Lading (BOL) or electronic proof of delivery.
-            </p>
-          </div>
-
-          <div className="bg-slate-50 border border-slate-200 p-6 rounded-2xl space-y-3 relative hover:shadow-md transition-all">
-            <div className="w-10 h-10 rounded-xl bg-[#003366] text-white font-black text-sm flex items-center justify-center shadow">
-              3
-            </div>
-            <h3 className="text-base font-black text-slate-900">We Submit Paperwork</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Your dispatcher packages the rate confirmation, signed BOL, and invoice directly to Express Freight Finance.
-            </p>
-          </div>
-
-          <div className="bg-slate-50 border border-slate-200 p-6 rounded-2xl space-y-3 relative hover:shadow-md transition-all">
-            <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white font-black text-sm flex items-center justify-center shadow">
-              4
-            </div>
-            <h3 className="text-base font-black text-slate-900">Get Paid Same Day</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Funds are deposited via ACH or wire directly into your bank account or fuel card within 24 hours.
-            </p>
-          </div>
+          {[
+            { step: "1", title: "Book High-Paying Load", desc: "Your dedicated dispatcher verifies broker creditworthiness and books top $/mile freight you approve.", color: "[#003366]" },
+            { step: "2", title: "Deliver Cargo", desc: "Complete the shipment on time and obtain a signed Bill of Lading (BOL) or electronic proof of delivery.", color: "[#003366]" },
+            { step: "3", title: "We Submit Paperwork", desc: "Your dispatcher packages the rate confirmation, signed BOL, and invoice directly to Express Freight Finance.", color: "[#003366]" },
+            { step: "4", title: "Get Paid Same Day", desc: "Funds are deposited via ACH or wire directly into your bank account or fuel card within 24 hours.", color: "emerald-600" }
+          ].map((item, idx) => (
+            <motion.div 
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1, duration: 0.5 }}
+              className="bg-slate-50 border border-slate-200 p-6 rounded-2xl space-y-3 relative hover:shadow-md transition-all"
+            >
+              <div className={`w-10 h-10 rounded-xl bg-${item.color} text-white font-black text-sm flex items-center justify-center shadow`}>
+                {item.step}
+              </div>
+              <h3 className="text-base font-black text-slate-900">{item.title}</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">{item.desc}</p>
+            </motion.div>
+          ))}
         </div>
 
         {/* Comparison: Non-Recourse vs Recourse Factoring */}
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-white border-2 border-emerald-300 rounded-3xl p-8 space-y-4 shadow-sm">
+          <motion.div 
+            initial={{ x: -30, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-white border-2 border-emerald-300 rounded-3xl p-8 space-y-4 shadow-sm"
+          >
             <div className="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-black uppercase rounded-full">
               Recommended for Carriers
             </div>
@@ -260,9 +275,15 @@ export default function FactoringPage({ onOpenQuote }) {
                 <span>Protects cash reserves from bad debt</span>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
-          <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8 space-y-4 shadow-sm">
+          <motion.div 
+            initial={{ x: 30, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-slate-50 border border-slate-200 rounded-3xl p-8 space-y-4 shadow-sm"
+          >
             <div className="inline-block px-3 py-1 bg-slate-200 text-slate-700 text-xs font-black uppercase rounded-full">
               Standard Recourse
             </div>
@@ -284,11 +305,16 @@ export default function FactoringPage({ onOpenQuote }) {
                 <span>Best suited for established fleets with direct shipper contracts</span>
               </li>
             </ul>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Direct Email Referral Box matching screenshot */}
-        <div className="mt-14 bg-gradient-to-r from-blue-50 via-slate-50 to-amber-50 border-2 border-slate-200 rounded-3xl p-8 sm:p-12 text-center space-y-5">
+        {/* Direct Email Referral Box */}
+        <motion.div 
+          initial={{ y: 20, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          className="mt-14 bg-gradient-to-r from-blue-50 via-slate-50 to-amber-50 border-2 border-slate-200 rounded-3xl p-8 sm:p-12 text-center space-y-5"
+        >
           <h3 className="text-2xl sm:text-3xl font-black text-slate-900">
             Official Factoring Inquiries & Direct Submissions
           </h3>
@@ -310,8 +336,8 @@ export default function FactoringPage({ onOpenQuote }) {
               {copied ? 'Copied!' : 'Copy Email'}
             </button>
           </div>
-        </div>
+        </motion.div>
       </section>
-    </div>
+    </motion.div>
   );
 }

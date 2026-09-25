@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { IconCheckCircle, IconShieldCheck, IconUpload, IconFileText, IconPhone, IconWhatsApp, IconArrowRight } from '../components/Icons';
 import { COMPANY_DETAILS } from '../data/dispatchData';
 
@@ -70,10 +71,20 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="register-page bg-white">
+    <motion.div 
+      initial={{ opacity: 0 }} 
+      animate={{ opacity: 1 }} 
+      exit={{ opacity: 0 }}
+      className="register-page bg-white"
+    >
       {/* Header Banner */}
       <div className="page-hero-light py-16 sm:py-20 border-b border-slate-200">
-        <div className="container-custom text-center space-y-4">
+        <motion.div 
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="container-custom text-center space-y-4"
+        >
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-100 border border-amber-300 text-amber-900 text-xs font-bold uppercase tracking-wider shadow-sm">
             <IconShieldCheck className="w-3.5 h-3.5" />
             <span>Fast 24-Hour Carrier Setup</span>
@@ -82,14 +93,21 @@ export default function RegisterPage() {
             Register As A <span className="text-[#003366]">Carrier</span>
           </h1>
           <p className="text-sm sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium">
-            Partner with Truck Dispatcher USA. Zero forced dispatch, no long-term contracts, and dedicated 24/7 personal dispatchers booking high-paying loads.
+            Partner with {COMPANY_DETAILS.name}. Zero forced dispatch, no long-term contracts, and dedicated 24/7 personal dispatchers booking high-paying loads.
           </p>
-        </div>
+        </motion.div>
       </div>
 
       <div className="py-16 sm:py-20 container-custom max-w-3xl">
+        <AnimatePresence mode="wait">
         {submitted ? (
-          <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8 sm:p-12 text-center space-y-6 shadow-md">
+          <motion.div 
+            key="submitted"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            className="bg-slate-50 border border-slate-200 rounded-3xl p-8 sm:p-12 text-center space-y-6 shadow-md"
+          >
             <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
               <IconCheckCircle className="w-10 h-10" />
             </div>
@@ -109,7 +127,7 @@ export default function RegisterPage() {
             <div className="pt-2 flex flex-col sm:flex-row justify-center gap-3 max-w-md mx-auto">
               <a
                 href={`https://wa.me/${COMPANY_DETAILS.whatsappNumber}?text=${encodeURIComponent(
-                  `Hello Truck Dispatcher USA, I completed registration for ${formData.businessName}, MC# ${formData.mcNumber}. Contact: ${formData.contactPerson}, Phone: ${formData.phone}`
+                  `Hello ${COMPANY_DETAILS.name}, I completed registration for ${formData.businessName}, MC# ${formData.mcNumber}. Contact: ${formData.contactPerson}, Phone: ${formData.phone}`
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -128,9 +146,15 @@ export default function RegisterPage() {
                 Register Another Truck
               </button>
             </div>
-          </div>
+          </motion.div>
         ) : (
-          <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-12 shadow-md space-y-8">
+          <motion.div 
+            key="form"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-12 shadow-md space-y-8"
+          >
             {/* Step Wizard Indicator */}
             <div className="grid grid-cols-3 gap-2 border-b border-slate-200 pb-6 text-center">
               <div
@@ -205,7 +229,13 @@ export default function RegisterPage() {
 
             {/* STEP 1: Carrier & Contact Information */}
             {currentStep === 1 && (
-              <form onSubmit={handleNextStep} className="space-y-6">
+              <motion.form 
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 20 }}
+                onSubmit={handleNextStep} 
+                className="space-y-6"
+              >
                 <div>
                   <h2 className="text-xl sm:text-2xl font-black text-slate-900">
                     Step 1: Motor Carrier & Authority Profile
@@ -331,12 +361,18 @@ export default function RegisterPage() {
                   <span>Continue to Step 2: Equipment & Lanes</span>
                   <IconArrowRight className="w-4 h-4" />
                 </button>
-              </form>
+              </motion.form>
             )}
 
             {/* STEP 2: Equipment & Operating Lanes */}
             {currentStep === 2 && (
-              <form onSubmit={handleNextStep} className="space-y-6">
+              <motion.form 
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                onSubmit={handleNextStep} 
+                className="space-y-6"
+              >
                 <div>
                   <h2 className="text-xl sm:text-2xl font-black text-slate-900">
                     Step 2: Equipment Capacity & Preferred Lanes
@@ -444,12 +480,18 @@ export default function RegisterPage() {
                     <IconArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
-              </form>
+              </motion.form>
             )}
 
             {/* STEP 3: Documents & Agreement */}
             {currentStep === 3 && (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <motion.form 
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                onSubmit={handleSubmit} 
+                className="space-y-6"
+              >
                 <div>
                   <h2 className="text-xl sm:text-2xl font-black text-slate-900">
                     Step 3: Document Readiness & Final Agreement
@@ -519,7 +561,7 @@ export default function RegisterPage() {
                       className="accent-amber-600 rounded mt-0.5 w-4 h-4 flex-shrink-0"
                     />
                     <span>
-                      I acknowledge and understand that Truck Dispatcher USA operates on a 100% Zero Forced Dispatch policy with NO upfront onboarding or setup fees.
+                      I acknowledge and understand that {COMPANY_DETAILS.name} operates on a 100% Zero Forced Dispatch policy with NO upfront onboarding or setup fees.
                     </span>
                   </label>
                 </div>
@@ -539,11 +581,12 @@ export default function RegisterPage() {
                     Complete Carrier Registration
                   </button>
                 </div>
-              </form>
+              </motion.form>
             )}
-          </div>
+          </motion.div>
         )}
+        </AnimatePresence>
       </div>
-    </div>
+    </motion.div>
   );
 }

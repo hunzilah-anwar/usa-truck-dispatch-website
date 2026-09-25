@@ -20,7 +20,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="py-20 sm:py-24 bg-white">
+    <section className="py-20 sm:py-24 bg-white page-hero-light">
       <div className="container-custom">
 
         {/* Section heading */}
