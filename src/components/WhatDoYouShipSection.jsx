@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { EQUIPMENT_DETAILS } from '../data/dispatchData';
-import { IconTruck, IconCheckCircle, IconArrowRight, IconShieldCheck } from './Icons';
+import { IconCheckCircle } from './Icons';
 
 const SERVICE_IMAGES = {
   'dry-van':    '/images/dry-van.jpg',
@@ -12,7 +12,7 @@ const SERVICE_IMAGES = {
   'power-only': '/images/dry-van.jpg',
 };
 
-export default function WhatDoYouShipSection({ onOpenLoadRequest, onOpenQuote }) {
+export default function WhatDoYouShipSection({ onOpenQuote }) {
   const [selectedId, setSelectedId] = useState('dry-van');
   const eq = EQUIPMENT_DETAILS.find(e => e.id === selectedId) || EQUIPMENT_DETAILS[0];
 
@@ -22,7 +22,7 @@ export default function WhatDoYouShipSection({ onOpenLoadRequest, onOpenQuote })
 
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="text-xs font-black uppercase tracking-widest text-[#003366] block mb-3">
+          <span className="text-xs font-black uppercase tracking-widest text-primary-navy block mb-3">
             Equipment Types We Dispatch
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight mb-4">
@@ -93,15 +93,8 @@ export default function WhatDoYouShipSection({ onOpenLoadRequest, onOpenQuote })
               {/* CTAs */}
               <div className="flex flex-wrap gap-3 pt-2">
                 <button
-                  onClick={() => onOpenLoadRequest(eq.name)}
-                  className="px-6 py-3.5 bg-amber-400 hover:bg-amber-300 text-slate-900 font-black uppercase tracking-wider text-xs rounded-xl shadow transition-all flex items-center gap-2 hover:-translate-y-0.5"
-                >
-                  <IconTruck className="w-4 h-4" />
-                  Book Loads
-                </button>
-                <button
                   onClick={() => onOpenQuote({ equipment: eq.name })}
-                  className="px-6 py-3.5 bg-[#003366] hover:bg-[#002244] text-white font-black uppercase tracking-wider text-xs rounded-xl transition-all hover:-translate-y-0.5"
+                  className="px-6 py-3.5 bg-primary-navy hover:bg-[#002244] text-white font-black uppercase tracking-wider text-xs rounded-xl transition-all hover:-translate-y-0.5"
                 >
                   Get Dispatch Rate
                 </button>

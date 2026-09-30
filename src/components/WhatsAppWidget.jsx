@@ -5,9 +5,7 @@ import { COMPANY_DETAILS } from '../data/dispatchData';
 export default function WhatsAppWidget() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const whatsappUrl = `https://wa.me/${COMPANY_DETAILS.whatsappNumber}?text=${encodeURIComponent(
-    COMPANY_DETAILS.whatsappMessage
-  )}`;
+  const whatsappUrl = COMPANY_DETAILS.whatsapplink;
 
   return (
     <div className="fixed right-6 bottom-6 z-40">
@@ -16,7 +14,7 @@ export default function WhatsAppWidget() {
         <div className="absolute right-0 bottom-16 mb-2 w-72 glass-card bg-white/95 backdrop-blur-xl rounded-2xl border border-slate-200 shadow-2xl p-4 animate-entrance">
           <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-3">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-[#25D366] text-white flex items-center justify-center">
+              <div className="w-8 h-8 rounded-full bg-whatsapp-green text-white flex items-center justify-center">
                 <IconWhatsApp className="w-4 h-4" />
               </div>
               <div>
@@ -36,7 +34,7 @@ export default function WhatsAppWidget() {
           </div>
 
           <p className="text-xs text-slate-600 mb-3 leading-relaxed">
-            Need an urgent rate-con, detention check, or backhaul load? Connect directly with our on-duty American dispatch team.
+            Need an urgent rate-con, detention check, or backhaul load? Connect directly with our on-duty dispatch team.
           </p>
 
           <div className="space-y-2">
@@ -44,7 +42,7 @@ export default function WhatsAppWidget() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-2.5 px-3 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-xl text-xs font-extrabold flex items-center justify-center gap-2 shadow-sm transition-all"
+              className="w-full py-2.5 px-3 bg-whatsapp-green hover:bg-[#20ba5a] text-white rounded-xl text-xs font-extrabold flex items-center justify-center gap-2 shadow-sm transition-all"
             >
               <IconWhatsApp className="w-4 h-4" />
               <span>Start WhatsApp Dispatch</span>
@@ -60,7 +58,7 @@ export default function WhatsAppWidget() {
           </div>
 
           <div className="mt-2 text-center text-[10px] text-slate-400">
-            24 Hours • 7 Days A Week • 48 States
+            24 Hours • 7 Days A Week
           </div>
         </div>
       )}

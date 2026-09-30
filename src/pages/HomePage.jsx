@@ -1,4 +1,3 @@
-import React from 'react';
 import HeroSlider from '../components/HeroSlider';
 import QuickFeaturesStrip from '../components/QuickFeaturesStrip';
 import WhoWeAreSection from '../components/WhoWeAreSection';
@@ -9,19 +8,19 @@ import FAQSection from '../components/FAQSection';
 import Testimonials from '../components/Testimonials';
 import ContactSection from '../components/ContactSection';
 
-export default function HomePage({ onOpenQuote, onOpenLoadRequest, onOpenOnboard }) {
+export default function HomePage({ onOpenQuote }) {
   return (
     <div className="home-page">
       {/* 1. ThemeREX Multi-Slide Hero Slider */}
       <HeroSlider
         onOpenQuote={() => onOpenQuote()}
-        onOpenLoadRequest={() => onOpenLoadRequest()}
+        onOpenLoadRequest={() => onOpenQuote()}
       />
 
       {/* 2. ThemeREX 3 Quick Action Cards under Slider */}
       <QuickFeaturesStrip
         onOpenQuote={() => onOpenQuote()}
-        onOpenLoadRequest={() => onOpenLoadRequest()}
+        onOpenLoadRequest={() => onOpenQuote()}
       />
 
       {/* 3. ThemeREX "Who We Are" (What We Do, Why We Do It Better, How We Succeed) */}
@@ -34,7 +33,7 @@ export default function HomePage({ onOpenQuote, onOpenLoadRequest, onOpenOnboard
 
       {/* 6. ThemeREX "What Do You Ship?" Equipment Showcase (5% & 6% Rates) */}
       <WhatDoYouShipSection
-        onOpenLoadRequest={onOpenLoadRequest}
+        onOpenLoadRequest={onOpenQuote}
         onOpenQuote={onOpenQuote}
       />
 

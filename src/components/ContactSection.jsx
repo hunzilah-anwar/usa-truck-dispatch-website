@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { IconPhone, IconMail, IconMapPin, IconSend, IconCheckCircle, IconWhatsApp } from './Icons';
+import { useState } from 'react';
+import { IconPhone, IconMail, IconSend, IconCheckCircle, IconWhatsApp } from './Icons';
 import { COMPANY_DETAILS } from '../data/dispatchData';
 
 export default function ContactSection() {
@@ -25,7 +25,7 @@ export default function ContactSection() {
 
         {/* Section heading */}
         <div className="text-center mb-14">
-          <span className="text-xs font-black uppercase tracking-widest text-[#003366]">Contact Us</span>
+          <span className="text-xs font-black uppercase tracking-widest text-primary-navy">Contact Us</span>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-2">Get In Touch With Our Team</h2>
           <p className="text-slate-500 text-sm mt-3 max-w-xl mx-auto">Available 24/7. Our dispatch team is ready to onboard you and start finding you high-paying loads immediately.</p>
         </div>
@@ -41,7 +41,7 @@ export default function ContactSection() {
                 alt="Dispatch Office"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent flex items-end p-5">
+              <div className="absolute inset-0 bg-linear-to-t from-slate-900/80 to-transparent flex items-end p-5">
                 <div>
                   <span className="text-amber-400 text-xs font-black uppercase tracking-widest block">Greenville, SC</span>
                   <p className="text-white font-bold text-sm">{COMPANY_DETAILS.address}</p>
@@ -50,13 +50,13 @@ export default function ContactSection() {
             </div>
 
             {/* Contact detail blocks */}
-            <a href={`tel:${COMPANY_DETAILS.phoneRaw}`} className="flex items-center gap-4 p-5 bg-slate-50 border border-slate-200 rounded-xl hover:border-[#003366] transition-colors group">
-              <div className="w-12 h-12 bg-[#003366] text-white rounded-xl flex items-center justify-center shrink-0">
+            <a href={`tel:${COMPANY_DETAILS.phoneRaw}`} className="flex items-center gap-4 p-5 bg-slate-50 border border-slate-200 rounded-xl hover:border-primary-navy transition-colors group">
+              <div className="w-12 h-12 bg-primary-navy text-white rounded-xl flex items-center justify-center shrink-0">
                 <IconPhone className="w-5 h-5" />
               </div>
               <div>
                 <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">24/7 Dispatch Hotline</p>
-                <p className="text-base font-black text-slate-900 group-hover:text-[#003366] transition-colors">{COMPANY_DETAILS.phone}</p>
+                <p className="text-base font-black text-slate-900 group-hover:text-primary-navy transition-colors">{COMPANY_DETAILS.phone}</p>
               </div>
             </a>
 
@@ -71,7 +71,7 @@ export default function ContactSection() {
             </a>
 
             <a
-              href={`https://wa.me/${COMPANY_DETAILS.whatsappNumber}`}
+              href={COMPANY_DETAILS.whatsapplink}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-4 p-5 bg-emerald-50 border border-emerald-200 rounded-xl hover:border-emerald-500 transition-colors group"
@@ -103,40 +103,137 @@ export default function ContactSection() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <h3 className="text-xl font-black text-slate-900 mb-6">Drop Us a Message</h3>
-                {errorMsg && <div className="p-4 bg-red-50 text-red-600 text-sm font-bold rounded-xl">{errorMsg}</div>}
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-2">Full Name *</label>
-                    <input type="text" name="name" required value={formData.name} onChange={handleChange}
-                      className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:border-[#003366] focus:ring-2 focus:ring-[#003366]/10 outline-none transition-all" />
-                  </div>
-                  <div>
-                    <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-2">Phone *</label>
-                    <input type="tel" name="phone" required value={formData.phone} onChange={handleChange}
-                      className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:border-[#003366] focus:ring-2 focus:ring-[#003366]/10 outline-none transition-all" />
-                  </div>
+              <form onSubmit={handleSubmit} className="space-y-4">
+              {errorMsg && (
+                <div className="p-3 bg-red-50 text-red-700 text-xs rounded border border-red-200 font-medium">
+                  {errorMsg}
                 </div>
+              )}
 
+              {/* First & Last Name */}
+              <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-2">Email *</label>
-                  <input type="email" name="email" required value={formData.email} onChange={handleChange}
-                    className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:border-[#003366] focus:ring-2 focus:ring-[#003366]/10 outline-none transition-all" />
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">First name</label>
+                  <input
+                    type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    placeholder="John"
+                    className="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white"
+                  />
                 </div>
-
                 <div>
-                  <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-2">How can we help? *</label>
-                  <textarea name="comments" required rows="4" value={formData.comments} onChange={handleChange}
-                    className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:border-[#003366] focus:ring-2 focus:ring-[#003366]/10 outline-none transition-all resize-none" />
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">Last name</label>
+                  <input
+                    type="text"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    placeholder="Doe"
+                    className="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white"
+                  />
                 </div>
+              </div>
 
-                <button type="submit" className="w-full py-4 bg-[#003366] hover:bg-[#002244] text-white font-black uppercase tracking-widest text-xs rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
-                  <span>Send Message</span>
-                  <IconSend className="w-4 h-4" />
-                </button>
-              </form>
+              {/* Company & Job Title */}
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">Company name</label>
+                  <input
+                    type="text"
+                    name="companyName"
+                    value={formData.companyName}
+                    onChange={handleChange}
+                    placeholder="Apex Transport LLC"
+                    className="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">Job title</label>
+                  <input
+                    type="text"
+                    name="jobTitle"
+                    value={formData.jobTitle}
+                    onChange={handleChange}
+                    placeholder="Owner Operator"
+                    className="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white"
+                  />
+                </div>
+              </div>
+
+              {/* Email & Phone */}
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">
+                    Email <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="carrier@gmail.com"
+                    className="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">Phone number</label>
+                  <input
+                    type="tel"
+                    name="phoneNumber"
+                    value={formData.phoneNumber}
+                    onChange={handleChange}
+                    placeholder="(555) 000-0000"
+                    className="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white"
+                  />
+                </div>
+              </div>
+
+              {/* Equipment Type */}
+              <div>
+                <label className="block text-xs font-semibold text-slate-700 mb-1">Equipment type</label>
+                <select
+                  name="equipment"
+                  value={formData.equipment}
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white"
+                >
+                  <option value="Dry Van">Dry Van (53')</option>
+                  <option value="Reefer">Reefer (Temperature Controlled)</option>
+                  <option value="Flatbed">Flatbed</option>
+                  <option value="Step Deck">Step Deck</option>
+                  <option value="Power Only">Power Only</option>
+                  <option value="Box Truck">Box Truck (26')</option>
+                  <option value="Hotshot">Hotshot</option>
+                </select>
+              </div>
+
+              {/* How can we help? */}
+              <div>
+                <label className="block text-xs font-semibold text-slate-700 mb-1">
+                  How can we help? <span className="text-red-500">*</span>
+                </label>
+                <textarea
+                  name="comments"
+                  required
+                  rows="4"
+                  value={formData.comments}
+                  onChange={handleChange}
+                  placeholder="Tell us about your truck, preferred lanes, or when you are ready to roll..."
+                  className="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white resize-none"
+                ></textarea>
+              </div>
+
+              {/* Orange Button matching screenshot media_1789804965674.jpg */}
+              <button
+                type="submit"
+                className="w-full py-3 bg-[#e65c00] hover:bg-[#cf5300] text-white font-extrabold uppercase tracking-wider text-sm rounded shadow transition-all"
+              >
+                Request a Quote
+              </button>
+            </form>
             )}
           </div>
         </div>

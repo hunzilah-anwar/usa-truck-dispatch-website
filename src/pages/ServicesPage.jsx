@@ -1,11 +1,10 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { EQUIPMENT_DETAILS } from '../data/dispatchData';
 import { IconArrowRight, IconCheckCircle } from '../components/Icons';
 import CoreCapabilitiesSection from '../components/CoreCapabilitiesSection';
 
-export default function ServicesPage({ onOpenQuote, onOpenLoadRequest, onOpenOnboard }) {
+export default function ServicesPage({ onOpenQuote }) {
   return (
     <motion.div 
       initial={{ opacity: 0 }} 
@@ -15,9 +14,9 @@ export default function ServicesPage({ onOpenQuote, onOpenLoadRequest, onOpenOnb
     >
 
       {/* Hero Banner */}
-      <div className="relative bg-[#003366] text-white py-24 overflow-hidden">
+      <div className="relative bg-primary-navy text-white py-24 overflow-hidden">
         <img
-          src="/images/dispatcher.jpg"
+          src="/images/dry-van.jpg"
           alt="Services"
           className="absolute inset-0 w-full h-full object-cover opacity-20"
         />
@@ -25,9 +24,9 @@ export default function ServicesPage({ onOpenQuote, onOpenLoadRequest, onOpenOnb
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className="container-custom relative z-10 text-center max-w-3xl mx-auto space-y-4"
+          className="container-custom relative z-10 text-center max-w-3xl mx-auto space-y-2"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-amber-400/20 border border-amber-400/40 text-amber-400 text-xs font-black uppercase tracking-widest">
+          <span className="inline-block text-amber-400 text-sm font-black uppercase tracking-widest">
             Comprehensive Freight Solutions
           </span>
           <h1 className="text-4xl sm:text-6xl font-black tracking-tight leading-tight">
@@ -37,9 +36,6 @@ export default function ServicesPage({ onOpenQuote, onOpenLoadRequest, onOpenOnb
             Professional 24/7 truck dispatching. Transparent rates. Click a service to see full details.
           </p>
           <div className="flex flex-wrap justify-center gap-3 pt-4">
-            <button onClick={onOpenOnboard} className="px-7 py-3.5 bg-amber-400 hover:bg-amber-300 text-slate-900 font-black text-xs uppercase tracking-widest rounded-lg transition-all">
-              Register as Carrier
-            </button>
             <button onClick={onOpenQuote} className="px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white font-black text-xs uppercase tracking-widest rounded-lg border border-white/20 transition-all">
               Get a Quote
             </button>
@@ -55,7 +51,7 @@ export default function ServicesPage({ onOpenQuote, onOpenLoadRequest, onOpenOnb
           viewport={{ once: true }}
           className="text-center mb-14"
         >
-          <span className="text-xs font-black uppercase tracking-widest text-[#003366]">What We Dispatch</span>
+          <span className="text-xs font-black uppercase tracking-widest text-primary-navy">What We Dispatch</span>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-2">Choose Your Equipment Type</h2>
         </motion.div>
 
@@ -73,7 +69,7 @@ export default function ServicesPage({ onOpenQuote, onOpenLoadRequest, onOpenOnb
               >
                 <Link
                   to={`/services/${service.id}`}
-                  className="group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-[#003366] hover:shadow-2xl transition-all duration-300 flex flex-col h-full"
+                  className="group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-primary-navy hover:shadow-2xl transition-all duration-300 flex flex-col h-full"
                 >
                   {/* Image */}
                   <div className="relative h-52 overflow-hidden">
@@ -82,7 +78,7 @@ export default function ServicesPage({ onOpenQuote, onOpenLoadRequest, onOpenOnb
                       alt={service.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-slate-900/70 via-transparent to-transparent" />
                     <span className="absolute bottom-4 left-4 px-3 py-1 bg-amber-400 text-slate-900 text-[10px] font-black uppercase tracking-widest rounded-md">
                       {service.badge}
                     </span>
@@ -90,7 +86,7 @@ export default function ServicesPage({ onOpenQuote, onOpenLoadRequest, onOpenOnb
 
                   {/* Content */}
                   <div className="p-6 flex flex-col flex-1">
-                    <h3 className="text-xl font-black text-slate-900 mb-2 group-hover:text-[#003366] transition-colors">{service.name}</h3>
+                    <h3 className="text-xl font-black text-slate-900 mb-2 group-hover:text-primary-navy transition-colors">{service.name}</h3>
                     <p className="text-sm text-slate-500 leading-relaxed mb-4 line-clamp-2">{service.description}</p>
 
                     <ul className="space-y-1.5 mb-6 flex-1">
@@ -102,7 +98,7 @@ export default function ServicesPage({ onOpenQuote, onOpenLoadRequest, onOpenOnb
                       ))}
                     </ul>
 
-                    <div className="flex items-center justify-between pt-4 border-t border-slate-100 text-xs font-black uppercase tracking-wider text-[#003366] group-hover:text-amber-500 transition-colors mt-auto">
+                    <div className="flex items-center justify-between pt-4 border-t border-slate-100 text-xs font-black uppercase tracking-wider text-primary-navy group-hover:text-amber-500 transition-colors mt-auto">
                       <span>View Full Details</span>
                       <IconArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </div>

@@ -1,17 +1,31 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import Logo from './Logo';
-import { IconPhone, IconMail, IconMapPin, IconClock } from './Icons';
-import { COMPANY_DETAILS } from '../data/dispatchData';
+import { IconPhone, IconMail, IconMapPin } from './Icons';
+import { COMPANY_DETAILS, EQUIPMENT_DETAILS } from '../data/dispatchData';
 
-export default function ThemeRexFooter({ onOpenLoadRequest, onOpenOnboard }) {
+export default function ThemeRexFooter({ onOpenQuote }) {
+  const mainPages = [
+    { name: 'Home', path: '/' },
+    { name: 'About Us', path: '/about' },
+    { name: 'Services', path: '/services' },
+    { name: 'Factoring', path: '/factoring' },
+    { name: 'Dispatch Course', path: '/course' },
+    { name: 'Contact Us', path: '/contact' },
+  ];
+  
+
   return (
-    <footer className="bg-gradient-to-b from-slate-100 to-slate-200 text-slate-700 border-t border-slate-300 pt-16 pb-12">
+    <footer className="bg-linear-to-b from-slate-100 to-slate-200 text-slate-700 border-t border-slate-300 pt-16 pb-12">
       <div className="container-custom">
         {/* Top Callout Strip (ThemeREX Banner) */}
         <div className="glass-card bg-white rounded-2xl p-6 sm:p-8 mb-12 shadow-sm border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
-            <Logo variant="dark" size="lg" />
+            <Link to="/" className="inline-flex items-center">
+              <img
+                src="/logo.jpeg"
+                alt={COMPANY_DETAILS.name}
+                className="h-12 w-auto object-contain"
+              />
+            </Link>
             <div className="hidden lg:block border-l border-slate-200 pl-4">
               <span className="text-xs font-black text-slate-900 uppercase tracking-wide block">
                 Independent Truck Dispatching
@@ -23,16 +37,17 @@ export default function ThemeRexFooter({ onOpenLoadRequest, onOpenOnboard }) {
           <div className="flex flex-wrap items-center gap-3">
             <a
               href={`tel:${COMPANY_DETAILS.phoneRaw}`}
-              className="px-6 py-3 bg-[#003366] hover:bg-[#002244] text-white font-extrabold text-xs uppercase tracking-wider rounded-lg transition-all shadow flex items-center gap-2"
+              className="px-6 py-3 bg-primary-navy hover:bg-[#002244] text-white font-extrabold text-xs uppercase tracking-wider rounded-lg transition-all shadow flex items-center gap-2"
             >
               <IconPhone className="w-4 h-4 text-amber-400" />
               <span>Call: {COMPANY_DETAILS.phone}</span>
             </a>
             <button
-              onClick={onOpenLoadRequest}
-              className="px-6 py-3 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs uppercase tracking-wider rounded-lg transition-all shadow"
+              onClick={() => onOpenQuote()}
+              className="px-6 py-3 bg-amber-400 hover:bg-amber-300 text-slate-900 font-extrabold text-xs uppercase tracking-wider rounded-lg transition-all shadow flex items-center gap-2"
             >
-              Request A Load
+              <IconMail className="w-4 h-4" />
+              <span>Request Quote</span>
             </button>
           </div>
         </div>
@@ -58,15 +73,6 @@ export default function ThemeRexFooter({ onOpenLoadRequest, onOpenOnboard }) {
                 aria-label="Facebook"
               >
                 f
-              </a>
-              <a
-                href={COMPANY_DETAILS.socials.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-8 h-8 rounded-lg bg-white hover:bg-sky-500 text-slate-700 hover:text-white border border-slate-300 flex items-center justify-center font-bold text-xs transition-colors shadow-sm"
-                aria-label="Twitter"
-              >
-                𝕏
               </a>
               <a
                 href={COMPANY_DETAILS.socials.instagram}
@@ -100,99 +106,66 @@ export default function ThemeRexFooter({ onOpenLoadRequest, onOpenOnboard }) {
 
           {/* Col 2: USEFULL LINKS (matching screenshot spelling) */}
           <div className="space-y-3">
-            <h4 className="text-slate-900 font-black uppercase tracking-wider text-sm border-b border-slate-300 pb-2 text-[#003366]">
-              USEFULL LINKS
+            <h4 className="text-slate-900 font-black uppercase tracking-wider text-sm border-b border-slate-300 pb-2">
+              Pages
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm">
-              <li>
-                <Link to="/" className="text-slate-600 hover:text-[#003366] transition-colors flex items-center gap-1.5">
-                  <span className="text-amber-500 font-bold">»</span> Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className="text-slate-600 hover:text-[#003366] transition-colors flex items-center gap-1.5">
-                  <span className="text-amber-500 font-bold">»</span> About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/course" className="text-[#003366] font-bold hover:text-amber-600 transition-colors flex items-center gap-1.5">
-                  <span className="text-amber-500 font-bold">»</span> Dispatch Course (Training)
-                </Link>
-              </li>
-              <li>
-                <Link to="/factoring" className="text-slate-600 hover:text-[#003366] transition-colors flex items-center gap-1.5">
-                  <span className="text-amber-500 font-bold">»</span> Factoring Services
-                </Link>
-              </li>
+              {mainPages.map((page) => (
+                <li key={page.path}>
+                  <Link to={page.path} className="text-slate-600 hover:text-primary-navy transition-colors flex items-center gap-1.5">
+                    <span className="text-amber-500 font-bold">»</span> {page.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
-
           </div>
 
           {/* Col 3: OUR SERVICES */}
           <div className="space-y-3">
-            <h4 className="text-slate-900 font-black uppercase tracking-wider text-sm border-b border-slate-300 pb-2 text-[#003366]">
+            <h4 className="text-slate-900 font-black uppercase tracking-wider text-sm border-b border-slate-300 pb-2">
               OUR SERVICES
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm">
-              <li>
-                <Link to="/services" className="text-slate-600 hover:text-[#003366] transition-colors flex items-center gap-1.5">
-                  <span className="text-amber-500 font-bold">»</span> 24/7 Dispatch Services
-                </Link>
-              </li>
-              <li>
-                <Link to="/factoring" className="text-slate-600 hover:text-[#003366] transition-colors flex items-center gap-1.5">
-                  <span className="text-amber-500 font-bold">»</span> Freight Factoring
-                </Link>
-              </li>
-              <li>
-                <Link to="/course" className="text-slate-600 hover:text-[#003366] transition-colors flex items-center gap-1.5">
-                  <span className="text-amber-500 font-bold">»</span> Dispatch Academy Course
-                </Link>
-              </li>
-              <li>
-                <Link to="/register" className="text-amber-600 font-bold hover:underline flex items-center gap-1.5">
-                  <span className="text-amber-500 font-bold">»</span> Register Carrier
-                </Link>
-              </li>
-
-              <li>
-                <Link to="/contact" className="text-slate-600 hover:text-[#003366] transition-colors flex items-center gap-1.5">
-                  <span className="text-amber-500 font-bold">»</span> Contact Support
-                </Link>
-              </li>
+              {EQUIPMENT_DETAILS.map((service) => (
+                <li key={service.id}>
+                  <Link to={`/services/${service.id}`} className="text-slate-600 hover:text-primary-navy transition-colors flex items-center gap-1.5">
+                    <span className="text-amber-500 font-bold">»</span> {service.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Col 4: CONTACT US */}
           <div className="space-y-3">
-            <h4 className="text-slate-900 font-black uppercase tracking-wider text-sm border-b border-slate-300 pb-2 text-[#003366]">
+            <h4 className="font-black uppercase tracking-wider text-sm border-b border-slate-300 pb-2 text-primary-navy">
               CONTACT US
             </h4>
-            <div className="space-y-2.5 text-xs sm:text-sm">
-              <div className="flex items-start gap-2">
-                <span className="text-amber-500 font-bold">📞</span>
+            <div className="space-y-4 text-xs sm:text-sm">
+              <div className="flex items-center gap-2">
+                <span className="text-amber-500 font-bold"><IconPhone /></span>
                 <div>
                   <span className="text-slate-500 block text-[11px] font-semibold">Call Us :</span>
-                  <a href={`tel:${COMPANY_DETAILS.phoneRaw}`} className="font-bold text-slate-900 hover:text-[#003366]">
+                  <a href={`tel:${COMPANY_DETAILS.phoneRaw}`} className="font-bold text-slate-900 hover:text-primary-navy">
                     {COMPANY_DETAILS.phone}
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-2">
-                <span className="text-amber-500 font-bold">✉️</span>
+              <div className="flex items-center gap-2">
+                <span className="text-amber-500 font-bold"><IconMail /></span>
                 <div>
                   <span className="text-slate-500 block text-[11px] font-semibold">Email :</span>
-                  <a href={`mailto:${COMPANY_DETAILS.email}`} className="text-slate-800 hover:text-[#003366] break-all font-medium">
+                  <a href={`mailto:${COMPANY_DETAILS.email}`} className="text-slate-800 hover:text-primary-navy break-all font-medium">
                     {COMPANY_DETAILS.email}
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-2">
-                <span className="text-amber-500 font-bold">📍</span>
+              <div className="flex items-center gap-2">
+                <span className="text-amber-500 font-bold"><IconMapPin /></span>
                 <span className="text-slate-600 text-xs leading-relaxed">
-                  {COMPANY_DETAILS.address}, zip code {COMPANY_DETAILS.zipCode}
+                  {COMPANY_DETAILS.address}
                 </span>
               </div>
 

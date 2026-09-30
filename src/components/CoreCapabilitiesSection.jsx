@@ -1,4 +1,3 @@
-import React from 'react';
 import { CORE_CAPABILITIES } from '../data/dispatchData';
 import { 
   IconDollarSign, 
@@ -43,7 +42,7 @@ export default function CoreCapabilitiesSection() {
               key={cap.id}
               className="bg-white border border-slate-200 rounded-2xl sm:p-8 p-4 hover:shadow-lg transition-all duration-300 group"
             >
-              <div className="w-14 h-14 rounded-xl bg-blue-50 text-primary-navy flex items-center justify-center mb-6 group-hover:bg-[#003366] group-hover:text-white transition-colors">
+              <div className="w-14 h-14 rounded-xl bg-blue-50 text-primary-navy flex items-center justify-center mb-6 group-hover:bg-primary-navy group-hover:text-white transition-colors">
                 {getIcon(cap.iconName)}
               </div>
               <h3 className="text-xl font-black text-slate-900 mb-3">

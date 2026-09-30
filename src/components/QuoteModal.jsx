@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { IconX, IconCheckCircle, IconPhone, IconMail, IconWhatsApp } from './Icons';
-import { COMPANY_DETAILS, EQUIPMENT_DETAILS } from '../data/dispatchData';
+import { useState, useEffect } from 'react';
+import { IconX, IconCheckCircle, IconWhatsApp } from './Icons';
+import { COMPANY_DETAILS } from '../data/dispatchData';
 
 export default function QuoteModal({ isOpen, onClose, initialData = {} }) {
   const [formData, setFormData] = useState({
@@ -60,7 +60,7 @@ export default function QuoteModal({ isOpen, onClose, initialData = {} }) {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header (Clean Light Theme with Frosted Glass) */}
-        <div className="bg-gradient-to-r from-slate-50 to-amber-50/40 text-slate-900 p-5 flex items-center justify-between border-b border-slate-200">
+        <div className="bg-linear-to-r from-slate-50 to-amber-50/40 text-slate-900 p-5 flex items-center justify-between border-b border-slate-200">
           <div>
             <h3 className="text-xl font-extrabold tracking-wide text-slate-900">Request a Quote</h3>
             <p className="text-xs text-slate-500 mt-0.5 font-medium">Receive top broker dispatch rates within 15 minutes</p>
@@ -87,12 +87,10 @@ export default function QuoteModal({ isOpen, onClose, initialData = {} }) {
 
               <div className="pt-4 border-t border-slate-100 flex flex-col gap-2">
                 <a
-                  href={`https://wa.me/${COMPANY_DETAILS.whatsappNumber}?text=${encodeURIComponent(
-                    `Hello Truck Dispatcher USA, I just requested a quote for my ${formData.equipment}. Name: ${formData.firstName} ${formData.lastName}, Phone: ${formData.phoneNumber}`
-                  )}`}
+                  href={COMPANY_DETAILS.whatsapplink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-lg text-sm flex items-center justify-center gap-2 shadow"
+                  className="w-full py-3 bg-whatsapp-green hover:bg-[#20bd5a] text-white font-bold rounded-lg text-sm flex items-center justify-center gap-2 shadow"
                 >
                   <IconWhatsApp className="w-4 h-4" />
                   <span>Chat With Dispatcher on WhatsApp Now</span>

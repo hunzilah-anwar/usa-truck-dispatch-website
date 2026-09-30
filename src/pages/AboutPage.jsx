@@ -1,11 +1,9 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import Testimonials from '../components/Testimonials';
-import { IconAward, IconCheckCircle, IconShieldCheck, IconClock, IconTruck, IconArrowRight } from '../components/Icons';
+import { IconArrowRight } from '../components/Icons';
 import { COMPANY_DETAILS, LIVE_STATS } from '../data/dispatchData';
 
-export default function AboutPage({ onOpenQuote, onOpenOnboard }) {
+export default function AboutPage({ onOpenOnboard }) {
   return (
     <motion.div 
       initial={{ opacity: 0 }} 
@@ -21,11 +19,8 @@ export default function AboutPage({ onOpenQuote, onOpenOnboard }) {
           transition={{ duration: 0.5 }}
           className="container-custom text-center space-y-4"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-100 border border-amber-300 text-amber-900 text-xs font-bold uppercase tracking-wider shadow-sm">
-            <span>Established 2016 • Proudly American</span>
-          </div>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900">
-            About <span className="text-[#003366]">{COMPANY_DETAILS.name}</span>
+          <h1 className="flex flex-col text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900">
+            About <span className="text-primary-navy">{COMPANY_DETAILS.name}</span>
           </h1>
           <p className="text-sm sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium">
             Empowering independent owner operators and carrier fleets across the continental United States with top rates, paperwork automation, and zero forced dispatch.
@@ -41,15 +36,12 @@ export default function AboutPage({ onOpenQuote, onOpenOnboard }) {
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-6 space-y-6"
+            className="lg:col-span-6 space-y-2"
           >
-            <span className="text-xs font-black uppercase tracking-widest text-amber-600 block">
-              OUR MISSION & PURPOSE
-            </span>
             <h2 className="text-3xl sm:text-4xl font-black text-slate-900 leading-tight">
               Born from Passion for the Hardest Working Drivers in America
             </h2>
-            <div className="w-16 h-1.5 bg-amber-400 rounded-full"></div>
+            <div className="w-16 h-1.5 bg-amber-400 rounded-full -translate-y-2"></div>
             <p className="text-base text-slate-700 leading-relaxed font-medium">
               {COMPANY_DETAILS.missionStatement}
             </p>
@@ -63,7 +55,7 @@ export default function AboutPage({ onOpenQuote, onOpenOnboard }) {
             <div className="pt-2 flex flex-wrap gap-4">
               <button
                 onClick={onOpenOnboard}
-                className="px-6 py-3.5 bg-[#003366] hover:bg-[#002244] text-white font-extrabold text-xs uppercase tracking-wider rounded-lg shadow transition-all flex items-center gap-2"
+                className="px-6 py-3.5 bg-primary-navy hover:bg-[#002244] text-white font-extrabold text-xs uppercase tracking-wider rounded-lg shadow transition-all flex items-center gap-2"
               >
                 <span>Register As Carrier</span>
                 <IconArrowRight className="w-4 h-4" />
@@ -87,10 +79,10 @@ export default function AboutPage({ onOpenQuote, onOpenOnboard }) {
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-100">
               <img
                 src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&auto=format&fit=crop&q=80"
-                alt={`${COMPANY_DETAILS.name} on the American Highway`}
+                alt={`${COMPANY_DETAILS.name} on the Highway`}
                 className="w-full h-96 object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-8 text-white">
+              <div className="absolute inset-0 bg-linear-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-8 text-white">
                 <div>
                   <span className="text-xs font-bold text-amber-400 uppercase tracking-widest block">HQ Greenville, South Carolina</span>
                   <h3 className="text-xl font-black text-white">Serving Carriers Across All 48 Continental States</h3>
@@ -114,7 +106,7 @@ export default function AboutPage({ onOpenQuote, onOpenOnboard }) {
                 transition={{ delay: idx * 0.1, duration: 0.5 }}
                 className="glass-card glass-shine bg-white p-6 rounded-2xl border border-slate-200 text-center shadow-sm"
               >
-                <div className="text-3xl sm:text-4xl font-black text-[#003366] mb-1">{s.value}</div>
+                <div className="text-3xl sm:text-4xl font-black text-primary-navy mb-1">{s.value}</div>
                 <div className="text-xs font-extrabold uppercase tracking-wider text-slate-900 mb-1">{s.label}</div>
                 <div className="text-xs text-slate-500">{s.subtext}</div>
               </motion.div>
@@ -170,14 +162,14 @@ export default function AboutPage({ onOpenQuote, onOpenOnboard }) {
             viewport={{ once: true }}
             className="text-center max-w-2xl mx-auto mb-12"
           >
-            <span className="text-xs font-black uppercase tracking-widest text-[#003366] block">COMPANY MILESTONES</span>
+            <span className="text-xs font-black uppercase tracking-widest text-primary-navy block">COMPANY MILESTONES</span>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-1">A Decade of Freight Excellence</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
               { year: "2016", title: "Company Founded", desc: "Started in South Carolina with 5 dedicated owner-operators running regional Midwest lanes.", color: "amber-500" },
-              { year: "2019", title: "Factoring Partnership", desc: "Established direct wire integration with Express Freight Finance for guaranteed cash flow.", color: "[#003366]" },
+              { year: "2019", title: "Factoring Partnership", desc: "Established direct wire integration with Express Freight Finance for guaranteed cash flow.", color: "primary-navy" },
               { year: "2022", title: "500+ Active Fleets", desc: "Expanded dispatch desks to cover Dry Van, Reefer, Flatbed, Step Deck, and Box Trucks across 48 states.", color: "emerald-600" },
               { year: "2026", title: "Real-Time Lane Network", desc: "Over 623,000 load opportunities evaluated daily with proprietary rate benchmarking.", color: "blue-600" }
             ].map((milestone, idx) => (
@@ -197,9 +189,6 @@ export default function AboutPage({ onOpenQuote, onOpenOnboard }) {
           </div>
         </div>
       </section>
-
-      {/* Testimonials */}
-      <Testimonials />
     </motion.div>
   );
 }

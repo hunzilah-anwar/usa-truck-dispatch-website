@@ -1,15 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { DISPATCH_COURSE_DATA, COMPANY_DETAILS } from '../data/dispatchData';
-import { 
-  IconCheck, 
-  IconCheckCircle, 
-  IconShieldCheck, 
-  IconArrowRight, 
-  IconPhone, 
-  IconMail, 
-  IconWhatsApp, 
-  IconClock, 
-  IconFileText 
+import {
+  IconCheckCircle,
+  IconArrowRight,
+  IconWhatsApp,
 } from '../components/Icons';
 
 export default function DispatchCoursePage() {
@@ -43,15 +37,14 @@ export default function DispatchCoursePage() {
   return (
     <div className="dispatch-course-page bg-white">
       {/* Header Banner — with background image */}
-      <div className="relative bg-[#003366] text-white py-24 overflow-hidden">
+      <div className="relative bg-primary-navy text-white py-24 overflow-hidden">
         <img
-          src="/images/dispatcher.jpg"
+          src="/images/course.jpg"
           alt="Dispatch Training"
-          className="absolute inset-0 w-full h-full object-cover opacity-20"
+          className="absolute inset-0 w-full h-full object-cover object-top opacity-20"
         />
         <div className="container-custom relative z-10 text-center space-y-4 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-400/20 border border-amber-400/40 text-amber-400 text-xs font-black uppercase tracking-wider">
-            <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+          <div className="text-amber-400 text-xs font-black uppercase tracking-wider">
             <span>{DISPATCH_COURSE_DATA.badge}</span>
           </div>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight">
@@ -70,9 +63,7 @@ export default function DispatchCoursePage() {
               <IconArrowRight className="w-4 h-4" />
             </a>
             <a
-              href={`https://wa.me/${COMPANY_DETAILS.whatsappNumber}?text=${encodeURIComponent(
-                "Hello Truck Dispatcher USA, I want to learn more about the Dispatcher Training Course schedule and syllabus."
-              )}`}
+              href={COMPANY_DETAILS.whatsapplink}
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider rounded-xl border border-white/20 transition-all flex items-center gap-2"
@@ -91,7 +82,7 @@ export default function DispatchCoursePage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {DISPATCH_COURSE_DATA.stats.map((s, idx) => (
               <div key={idx} className="space-y-1">
-                <div className="text-3xl sm:text-4xl font-black text-[#003366]">{s.value}</div>
+                <div className="text-xl sm:text-2xl font-black text-primary-navy">{s.value}</div>
                 <div className="text-xs font-bold uppercase tracking-wider text-slate-600">{s.label}</div>
               </div>
             ))}
@@ -119,7 +110,7 @@ export default function DispatchCoursePage() {
               key={idx}
               className="glass-card bg-white p-7 rounded-2xl border border-slate-200 shadow-sm space-y-3 hover:border-amber-400 transition-all"
             >
-              <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#003366] font-black text-lg flex items-center justify-center">
+              <div className="w-12 h-12 rounded-xl bg-blue-50 text-primary-navy font-black text-lg flex items-center justify-center">
                 0{idx + 1}
               </div>
               <h3 className="text-lg font-extrabold text-slate-900">{aud.title}</h3>
@@ -133,7 +124,7 @@ export default function DispatchCoursePage() {
       <section className="py-16 sm:py-20 bg-slate-50 border-y border-slate-200">
         <div className="container-custom max-w-5xl">
           <div className="text-center space-y-3 mb-12">
-            <span className="text-xs font-black uppercase tracking-widest text-[#003366] block">
+            <span className="text-xs font-black uppercase tracking-widest text-primary-navy block">
               DETAILED SYLLABUS
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-slate-900">
@@ -157,7 +148,7 @@ export default function DispatchCoursePage() {
                     className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-slate-50/50 transition-colors"
                   >
                     <div className="flex items-center gap-3 sm:gap-4">
-                      <span className="w-9 h-9 rounded-xl bg-[#003366] text-amber-400 font-black text-xs sm:text-sm flex items-center justify-center shrink-0">
+                      <span className="w-9 h-9 rounded-xl bg-primary-navy text-amber-400 font-black text-xs sm:text-sm flex items-center justify-center shrink-0">
                         {mod.number}
                       </span>
                       <div>
@@ -226,11 +217,11 @@ export default function DispatchCoursePage() {
       </section>
 
       {/* Enrollment Form Section */}
-      <section id="enroll-form" className="py-16 sm:py-20 bg-gradient-to-b from-slate-50 to-white border-t border-slate-200">
+      <section id="enroll-form" className="py-16 sm:py-20 bg-linear-to-b from-slate-50 to-white border-t border-slate-200">
         <div className="container-custom max-w-3xl">
           <div className="glass-card bg-white p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-xl space-y-6">
             <div className="text-center space-y-2 border-b border-slate-100 pb-6">
-              <span className="text-xs font-black uppercase tracking-widest text-[#003366] block">
+              <span className="text-xs font-black uppercase tracking-widest text-primary-navy block">
                 RESERVE YOUR SEAT
               </span>
               <h2 className="text-2xl sm:text-3xl font-black text-slate-900">
@@ -253,12 +244,10 @@ export default function DispatchCoursePage() {
 
                 <div className="pt-4 flex flex-col sm:flex-row justify-center gap-3">
                   <a
-                    href={`https://wa.me/${COMPANY_DETAILS.whatsappNumber}?text=${encodeURIComponent(
-                      `Hello Truck Dispatcher USA, I have submitted my enrollment form for the Dispatch Course. My name is ${formData.fullName} (${formData.phone}). Please share the batch start date.`
-                    )}`}
+                    href={COMPANY_DETAILS.whatsapplink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-6 py-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 shadow"
+                    className="px-6 py-3 bg-whatsapp-green hover:bg-[#20bd5a] text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 shadow"
                   >
                     <IconWhatsApp className="w-4 h-4" />
                     <span>Confirm Instantly on WhatsApp</span>

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { IconX, IconCheckCircle, IconFileText, IconShieldCheck, IconUpload, IconWhatsApp } from './Icons';
-import { COMPANY_DETAILS, ONBOARDING_REQUIREMENTS } from '../data/dispatchData';
+import { useState } from 'react';
+import { IconX, IconCheckCircle, IconShieldCheck, IconWhatsApp } from './Icons';
+import { COMPANY_DETAILS } from '../data/dispatchData';
 
 export default function CarrierOnboardModal({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
@@ -48,7 +48,7 @@ export default function CarrierOnboardModal({ isOpen, onClose }) {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header (Clean Light Theme with Frosted Glass) */}
-        <div className="bg-gradient-to-r from-slate-50 to-amber-50/40 text-slate-900 p-5 flex items-center justify-between border-b-2 border-amber-400 flex-shrink-0">
+        <div className="bg-linear-to-r from-slate-50 to-amber-50/40 text-slate-900 p-5 flex items-center justify-between border-b-2 border-amber-400 shrink-0">
           <div className="flex items-center gap-2.5">
             <div className="p-2 bg-amber-400 text-slate-950 rounded-lg shadow-sm">
               <IconShieldCheck className="w-5 h-5" />
@@ -88,7 +88,7 @@ export default function CarrierOnboardModal({ isOpen, onClose }) {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-lg text-sm flex items-center justify-center gap-2 shadow"
+                  className="w-full py-3 bg-whatsapp-green hover:bg-[#20bd5a] text-white font-bold rounded-lg text-sm flex items-center justify-center gap-2 shadow"
                 >
                   <IconWhatsApp className="w-4 h-4" />
                   <span>Send Documents on WhatsApp</span>
