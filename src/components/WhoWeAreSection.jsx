@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IconCheckCircle, IconAward, IconArrowRight } from './Icons';
 
@@ -39,7 +39,7 @@ export default function WhoWeAreSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
           {/* Left — image */}
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl h-[300px] sm:h-[520px]">
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl h-75 sm:h-130">
             {TABS.map(t => (
               <img
                 key={t.id}
@@ -48,7 +48,7 @@ export default function WhoWeAreSection() {
                 className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${t.id === active ? 'opacity-100' : 'opacity-0'}`}
               />
             ))}
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
           </div>
 
           {/* Right — content */}
@@ -69,7 +69,7 @@ export default function WhoWeAreSection() {
                 <button
                   key={t.id}
                   onClick={() => setActive(t.id)}
-                  className={`sm:px-5 px-2 sm:py-2.5 py-1 rounded-full text-xs sm:text-sm font-bold transition-all ${active === t.id ? 'bg-[#003366] text-white shadow-md' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
+                  className={`sm:px-5 px-2 sm:py-2.5 py-1 rounded-full text-xs sm:text-sm font-bold transition-all ${active === t.id ? 'bg-primary-navy text-white shadow-md' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
                 >
                   {t.label}
                 </button>
@@ -89,7 +89,7 @@ export default function WhoWeAreSection() {
               </div>
               <Link
                 to="/about"
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#003366] hover:bg-[#002244] text-white font-black uppercase tracking-wider text-xs rounded-xl transition-all shadow-lg hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary-navy hover:bg-[#002244] text-white font-black uppercase tracking-wider text-xs rounded-xl transition-all shadow-lg hover:-translate-y-0.5"
               >
                 <span>Learn More About Us</span>
                 <IconArrowRight className="w-4 h-4" />

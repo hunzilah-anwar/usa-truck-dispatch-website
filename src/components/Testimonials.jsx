@@ -1,91 +1,160 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { IconStar, IconQuote } from './Icons';
-import { TESTIMONIALS } from '../data/dispatchData';
-
-const STATS = [
-  { value: '99.4%', label: 'Carrier Satisfaction' },
-  { value: '5%', label: 'Flat Dispatch Fee' },
-  { value: '24/7', label: 'Dedicated Support' },
-  { value: '623K+', label: 'Daily Load Opportunities' },
-];
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Quote } from "lucide-react";
+import { TESTIMONIALS } from "../data/dispatchData";
 
 export default function Testimonials() {
   const [current, setCurrent] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const total = TESTIMONIALS.length;
+
+  // Auto slider
+  useEffect(() => {
+    if (isPaused || total <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % total);
+    }, 3500);
+
+    return () => clearInterval(interval);
+  }, [isPaused, total]);
+
+  // Get visible testimonials
+  const getVisibleTestimonials = () => {
+    if (total <= 3) return TESTIMONIALS;
+
+    return [0, 1, 2].map((offset) => TESTIMONIALS[(current + offset) % total]);
+  };
+
+  const visibleTestimonials = getVisibleTestimonials();
 
   return (
-    <section className="py-16 sm:py-24 bg-[#003366] text-white relative overflow-hidden">
-      {/* Background image overlay */}
-      <img
-        src="/images/dispatcher.jpg"
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover opacity-10"
-      />
+    <section
+      className="border-y border-slate-200 bg-white py-16 sm:py-20 lg:py-24"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      <div className="container-custom">
+        {/* Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-10 text-center sm:mb-12"
+        >
+          <h2 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+            Here's what{" "}
+            <span className="text-amber-500">people are saying</span>
+          </h2>
 
-      <div className="container-custom relative z-10">
-
-        {/* Stats row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 pb-8 border-b border-white/20">
-          {STATS.map((s, i) => (
-            <div key={i} className="text-center">
-              <div className="text-3xl sm:text-4xl font-black text-amber-400">{s.value}</div>
-              <div className="text-xs font-bold text-slate-300 uppercase tracking-widest mt-1">{s.label}</div>
-            </div>
-          ))}
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-          {/* Left: heading */}
-          <div className="space-y-6">
-            <span className="text-xs font-black uppercase tracking-widest text-amber-400">Trusted By Drivers Nationwide</span>
-            <h2 className="text-3xl sm:text-5xl font-black text-white leading-tight">
-              What Our <br />Carriers Are Saying
-            </h2>
-            <p className="text-slate-300 text-base leading-relaxed max-w-md">
-              Over 500+ owner-operators and fleet owners trust Truck Dispatcher USA to keep their trucks loaded, profitable, and stress-free.
-            </p>
-
-            {/* Dot navigation */}
-            <div className="flex gap-3 pt-4">
-              {TESTIMONIALS.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrent(i)}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${i === current ? 'w-10 bg-amber-400' : 'w-2.5 bg-white/30 hover:bg-white/60'}`}
-                />
-              ))}
-            </div>
+          {/* Centered underline */}
+          <div className="relative mx-auto mt-4 h-1 w-[50%] overflow-hidden rounded-full bg-slate-200">
+            <div className="absolute inset-y-0 left-0 w-1/2 rounded-full bg-primary-navy" />
           </div>
+        </motion.div>
 
-          {/* Right: testimonial card */}
-          <div className="relative min-h-[320px]">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={current}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5 }}
-                className="absolute inset-0"
-              >
-                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 h-full flex flex-col justify-between">
-                  <div>
-                    <IconQuote className="w-8 h-8 text-amber-400 mb-4" />
-                    <p className="text-white text-lg leading-relaxed font-medium mb-4">"{TESTIMONIALS[current].quote}"</p>
+        {/* Cards */}
+        <div className="overflow-visible pt-20">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current}
+              initial={{ opacity: 0, x: 35 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -35 }}
+              transition={{
+                duration: 0.45,
+                ease: "easeInOut",
+              }}
+              className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3"
+            >
+              {visibleTestimonials.map((testimonial, index) => (
+                <div
+                  key={`${testimonial.name}-${index}`}
+                  className="group relative z-10 flex min-h-76.25 flex-col items-center rounded-2xl border border-[#e7e7e7] bg-white px-6 py-7 text-center shadow-[0_1px_3px_rgba(0,0,0,0.08)] transition-all duration-300 hover:border-[#d8d8d8] hover:shadow-[0_10px_28px_rgba(0,0,0,0.09)] sm:px-7"
+                >
+                  {/* Quote Icon */}
+                  <div className="absolute right-5 top-5 text-[#e9e9e9] transition-colors duration-300 group-hover:text-[#dedede]">
+                    <Quote size={42} strokeWidth={1.4} fill="currentColor" />
                   </div>
-                  <div className="flex items-center gap-4 pt-2 border-t border-white/20">
-                    <div>
-                      <h4 className="font-black text-white text-base">{TESTIMONIALS[current].name}</h4>
-                      <span className="text-xs text-slate-300 font-medium">{TESTIMONIALS[current].role} · {TESTIMONIALS[current].location}</span>
+
+                  {/* Top Decoration */}
+                  <div className="relative z-20 mb-6 h-2 w-16 rounded-full bg-primary-navy">
+                    {/* Center Dot */}
+                    <div className="absolute z-10 left-1/2 -top-14 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-amber ring-2 ring-primary-navy" />
+
+                    {/* Left Decorative Line */}
+                    <div className="absolute -left-8 -top-14 h-0.5 w-16 origin-right -translate-y-1/2 rotate-[-65deg] rounded-full bg-primary-navy" />
+
+                    {/* Right Decorative Line */}
+                    <div className="absolute -right-8 -top-14 h-0.5 w-16 origin-left -translate-y-1/2 rotate-65 rounded-full bg-primary-navy" />
+                  </div>
+
+                  {/* Quote */}
+                  <p className="relative z-10 max-w-85 text-[15px] leading-6 text-gray-500">
+                    "{testimonial.quote}"
+                  </p>
+
+                  {/* Author */}
+                  <div className="mt-auto flex w-full items-center justify-center gap-3 pt-8">
+                    {/* Profile Image */}
+                    <div className="h-12 w-12 shrink-0 overflow-hidden rounded-full bg-[#e5e5e5] ring-1 ring-[#eeeeee]">
+                      {testimonial.avatar ? (
+                        <img
+                          src={testimonial.avatar}
+                          alt={testimonial.name}
+                          loading="lazy"
+                          className="h-full w-full object-cover"
+                        />
+                      ) : (
+                        <div className="flex h-full w-full items-center justify-center bg-[#d9d9d9] text-lg font-semibold text-[#666]">
+                          {testimonial.name?.charAt(0)?.toUpperCase()}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Name + Role */}
+                    <div className="text-left">
+                      <h3 className="text-[14px] font-medium leading-5 text-[#222]">
+                        {testimonial.name}
+                      </h3>
+
+                      <p className="text-[13px] leading-5 text-[#777]">
+                        {testimonial.role || "Carrier"}
+                      </p>
+
+                      {testimonial.location && (
+                        <p className="text-[12px] leading-4 text-[#999]">
+                          {testimonial.location}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
+              ))}
+            </motion.div>
+          </AnimatePresence>
         </div>
+
+        {/* Slider dots */}
+        {total > 3 && (
+          <div className="mt-8 flex justify-center gap-2">
+            {TESTIMONIALS.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                aria-label={`Show testimonial ${index + 1}`}
+                onClick={() => setCurrent(index)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  index === current
+                    ? "w-6 bg-primary-navy"
+                    : "w-2 bg-[#d5d5d5] hover:bg-[#999]"
+                }`}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

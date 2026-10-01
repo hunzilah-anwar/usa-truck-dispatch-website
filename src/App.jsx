@@ -9,7 +9,6 @@ import ThemeRexHeader from "./components/ThemeRexHeader";
 import ThemeRexFooter from "./components/ThemeRexFooter";
 import WhatsAppWidget from "./components/WhatsAppWidget";
 import QuoteModal from "./components/QuoteModal";
-import CarrierOnboardModal from "./components/CarrierOnboardModal";
 
 // Pages
 import HomePage from "./pages/HomePage";
@@ -36,15 +35,9 @@ function MainApp() {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [quoteModalData, setQuoteModalData] = useState({});
 
-  const [carrierOnboardModalOpen, setCarrierOnboardModalOpen] = useState(false);
-
   const handleOpenQuote = (customData = {}) => {
     setQuoteModalData(customData);
     setQuoteModalOpen(true);
-  };
-
-  const handleOpenOnboard = () => {
-    setCarrierOnboardModalOpen(true);
   };
 
   return (
@@ -54,7 +47,6 @@ function MainApp() {
       {/* ThemeREX Clean Light Header */}
       <ThemeRexHeader
         onOpenQuote={() => handleOpenQuote()}
-        onOpenOnboard={handleOpenOnboard}
       />
 
       {/* Multi-Page Routes */}
@@ -65,7 +57,6 @@ function MainApp() {
             element={
               <HomePage
                 onOpenQuote={handleOpenQuote}
-                onOpenOnboard={handleOpenOnboard}
               />
             }
           />
@@ -74,7 +65,6 @@ function MainApp() {
             element={
               <AboutPage
                 onOpenQuote={handleOpenQuote}
-                onOpenOnboard={handleOpenOnboard}
               />
             }
           />
@@ -83,7 +73,6 @@ function MainApp() {
             element={
               <ServicesPage
                 onOpenQuote={handleOpenQuote}
-                onOpenOnboard={handleOpenOnboard}
               />
             }
           />
@@ -92,7 +81,6 @@ function MainApp() {
             element={
               <ServiceDetailPage
                 onOpenQuote={handleOpenQuote}
-                onOpenOnboard={handleOpenOnboard}
               />
             }
           />
@@ -109,7 +97,6 @@ function MainApp() {
             element={
               <HomePage
                 onOpenQuote={handleOpenQuote}
-                onOpenOnboard={handleOpenOnboard}
               />
             }
           />
@@ -119,7 +106,6 @@ function MainApp() {
       {/* ThemeREX Clean Light Footer */}
       <ThemeRexFooter
         onOpenQuote={handleOpenQuote}
-        onOpenOnboard={handleOpenOnboard}
       />
 
       {/* Floating WhatsApp Widget with Pulsing Radar Rings */}
@@ -130,11 +116,6 @@ function MainApp() {
         isOpen={quoteModalOpen}
         onClose={() => setQuoteModalOpen(false)}
         initialData={quoteModalData}
-      />
-
-      <CarrierOnboardModal
-        isOpen={carrierOnboardModalOpen}
-        onClose={() => setCarrierOnboardModalOpen(false)}
       />
     </div>
   );

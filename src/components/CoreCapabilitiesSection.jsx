@@ -37,7 +37,7 @@ export default function CoreCapabilitiesSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {CORE_CAPABILITIES.map((cap, idx) => (
+          {CORE_CAPABILITIES.map((cap) => (
             <div
               key={cap.id}
               className="bg-white border border-slate-200 rounded-2xl sm:p-8 p-4 hover:shadow-lg transition-all duration-300 group"

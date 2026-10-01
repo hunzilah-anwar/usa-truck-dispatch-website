@@ -1197,31 +1197,34 @@ export const DISPATCH_COURSE_DATA = {
 export const TESTIMONIALS = [
   {
     name: "Marcus Sterling",
-    role: "Owner Operator — 2022 Freightliner Cascadia (Dry Van)",
+    role: "Owner Operator",
     location: "Atlanta, GA",
     stars: 5,
     quote:
-      "Before Truck Dispatcher USA, I spent 3-4 hours every night scrolling DAT and Truckstop trying to book loads while exhausted. Now, my dispatcher has my next load locked in at $3.25/mi before I even arrive at delivery. Grossed $38,000 last month!",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"
+      "Finding good loads while handling everything else on my own was taking too much time. Since working with the dispatch team, I have more consistency in my schedule and spend far less time searching load boards. They keep me updated, handle the communication, and make sure I know what is lined up next.",
+    avatar:
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
   },
   {
     name: "Elena Rostova",
-    role: "Fleet Owner — 4 Reefer Units",
+    role: "Fleet Owner",
     location: "Dallas, TX",
     stars: 5,
     quote:
-      "Their factoring coordination and zero forced dispatch policy makes them the real deal. When rates dipped elsewhere, they kept our refrigerated units moving on high-paying temperature-controlled lanes with zero downtime.",
-    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80"
+      "Managing four reefer trucks means there is always something to keep up with. Having a dispatcher who understands our lanes and communicates clearly has made a big difference. They help keep our trucks moving, stay on top of rate negotiations, and keep us informed throughout each load.",
+    avatar:
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80",
   },
   {
     name: "Darnell Washington",
-    role: "Flatbed Operator (Step Deck & Oversize)",
+    role: "Flatbed Operator",
     location: "Gary, IN",
     stars: 5,
     quote:
-      "Tarp fees, detention money, layovers—they fight for every single cent from the broker. I never had a dispatcher handle paperwork so cleanly. Best decision for my trucking business since 2018.",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80"
-  }
+      "Flatbed work comes with a lot of details that cannot be overlooked, especially when it comes to detention, layovers, and accessorial charges. Their team stays on top of the paperwork and communicates with brokers when something needs to be addressed. It has made the day-to-day side of my business much easier.",
+    avatar:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+  },
 ];
 
 export const NEWS_ARTICLES = [

@@ -17,36 +17,21 @@ export default function FactoringPage() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="factoring-page bg-white"
+      className="bg-white py-20"
     >
-      {/* Header Banner */}
-      <div className="page-hero-light py-16 sm:py-20 border-b border-slate-200">
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
           className="container-custom text-center space-y-4"
         >
-          <div className="text-emerald-900 text-sm font-bold uppercase tracking-wider">
-            <span>Express Freight Finance Official Partner</span>
-          </div>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900">
-            Apply For{" "}
-            <span className="text-primary-navy">Freight Factoring</span> &
-            Same-Day Cash Flow
-          </h1>
-          <p className="text-sm sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium">
-            Our funding program helps ensure motor carriers have uninterrupted
-            cash flow to cover diesel, insurance, and payroll. Get paid within
-            24 hours of delivery.
-          </p>
 
           {/* Direct Email Referral Box */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
-          className="mt-14 bg-linear-to-r from-blue-50 via-slate-50 to-amber-50 border-2 border-slate-200 rounded-3xl p-8 sm:p-12 text-center space-y-5"
+          className="bg-linear-to-r from-blue-50 via-slate-50 to-amber-50 border-2 border-slate-200 rounded-3xl p-8 sm:p-12 text-center space-y-5"
         >
           <h3 className="text-2xl sm:text-3xl font-black text-slate-900">
             Official Factoring Inquiries & Direct Submissions
@@ -72,7 +57,6 @@ export default function FactoringPage() {
           </div>
         </motion.div>
         </motion.div>
-      </div>
     </motion.div>
   );
 }

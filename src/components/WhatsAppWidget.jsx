@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { IconWhatsApp, IconPhone } from './Icons';
 import { COMPANY_DETAILS } from '../data/dispatchData';
 
@@ -66,12 +66,12 @@ export default function WhatsAppWidget() {
       {/* Pulsing Green Radar Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-2xl hover:scale-110 transition-all duration-300 cursor-pointer"
+        className="relative flex items-center justify-center w-14 h-14 rounded-full bg-whatsapp-green text-white shadow-2xl hover:scale-110 transition-all duration-300 cursor-pointer"
         aria-label="Toggle WhatsApp Dispatch Chat"
       >
         {/* Outer Pulsing Rings */}
-        <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-60 animate-ping"></span>
-        <span className="absolute -inset-2 rounded-full border-2 border-[#25D366] opacity-40 animate-pulse"></span>
+        <span className="absolute inset-0 rounded-full bg-whatsapp-green opacity-60 animate-ping"></span>
+        <span className="absolute -inset-2 rounded-full border-2 border-whatsapp-green opacity-40 animate-pulse"></span>
 
         {/* WhatsApp Icon */}
         <IconWhatsApp className="w-7 h-7 relative z-10" />

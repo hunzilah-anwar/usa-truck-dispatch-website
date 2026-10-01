@@ -1,5 +1,4 @@
 import HeroSlider from '../components/HeroSlider';
-import QuickFeaturesStrip from '../components/QuickFeaturesStrip';
 import WhoWeAreSection from '../components/WhoWeAreSection';
 import CoreCapabilitiesSection from '../components/CoreCapabilitiesSection';
 import WhatDoYouShipSection from '../components/WhatDoYouShipSection';
@@ -17,39 +16,28 @@ export default function HomePage({ onOpenQuote }) {
         onOpenLoadRequest={() => onOpenQuote()}
       />
 
-      {/* 2. ThemeREX 3 Quick Action Cards under Slider */}
-      <QuickFeaturesStrip
-        onOpenQuote={() => onOpenQuote()}
-        onOpenLoadRequest={() => onOpenQuote()}
-      />
-
-      {/* 3. ThemeREX "Who We Are" (What We Do, Why We Do It Better, How We Succeed) */}
+      {/* 2. ThemeREX "Who We Are" (What We Do, Why We Do It Better, How We Succeed) */}
       <WhoWeAreSection />
 
-
-
-      {/* 5. ThemeREX Core Capabilities Grid */}
+      {/* 3. ThemeREX Core Capabilities Grid */}
       <CoreCapabilitiesSection />
 
-      {/* 6. ThemeREX "What Do You Ship?" Equipment Showcase (5% & 6% Rates) */}
+      {/* 4. ThemeREX "What Do You Ship?" Equipment Showcase (5% & 6% Rates) */}
       <WhatDoYouShipSection
         onOpenLoadRequest={onOpenQuote}
         onOpenQuote={onOpenQuote}
       />
 
-
-
-      {/* 8. Dispatch Training Course Academy Section (New) */}
+      {/* 5. Dispatch Training Course Academy Section (New) */}
       <DispatchCourseSection />
 
-
-      {/* 9. FAQs Section (Animated, Unique) */}
-      <FAQSection />
-
-      {/* 10. ThemeREX "What Our Clients Say" Testimonials */}
+      {/* 6. ThemeREX "What Our Clients Say" Testimonials */}
       <Testimonials />
 
-      {/* 11. Contact Form & Office HQ */}
+      {/* 7. FAQs Section (Animated, Unique) */}
+      <FAQSection />
+
+      {/* 8. Contact Form & Office HQ */}
       <ContactSection />
     </div>
   );

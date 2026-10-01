@@ -47,7 +47,7 @@ export default function DispatchCoursePage() {
           <div className="text-amber-400 text-xs font-black uppercase tracking-wider">
             <span>{DISPATCH_COURSE_DATA.badge}</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight">
+          <h1 className="text-3xl sm:text-5xl font-black tracking-tight">
             Professional <span className="text-amber-400">Truck Dispatcher</span> Masterclass
           </h1>
           <p className="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
