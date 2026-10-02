@@ -1,12 +1,36 @@
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { DISPATCH_COURSE_DATA, COMPANY_DETAILS } from '../data/dispatchData';
 import {
   IconCheckCircle,
   IconArrowRight,
   IconWhatsApp,
 } from '../components/Icons';
+import courseImage from '../assets/images/course.jpg';
 
-export default function DispatchCoursePage() {
+// Animation Variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const syllabusVariant = {
+  hidden: { opacity: 0, height: 0 },
+  visible: { opacity: 1, height: 'auto', transition: { duration: 0.3 } },
+  exit: { opacity: 0, height: 0, transition: { duration: 0.2 } },
+};
+
+export default function CoursePage() {
   const [activeModule, setActiveModule] = useState(0);
   const [formData, setFormData] = useState({
     fullName: '',
@@ -35,26 +59,34 @@ export default function DispatchCoursePage() {
   };
 
   return (
-    <div className="dispatch-course-page bg-white">
+    <div className="bg-white">
       {/* Header Banner — with background image */}
-      <div className="relative bg-primary-navy text-white py-24 overflow-hidden">
-        <img
-          src="/images/course.jpg"
+      <motion.div 
+        initial="hidden" 
+        animate="visible" 
+        variants={staggerContainer}
+        className="relative bg-primary-navy text-white py-24 overflow-hidden"
+      >
+        <motion.img
+          initial={{ scale: 1.1, opacity: 0 }}
+          animate={{ scale: 1, opacity: 0.2 }}
+          transition={{ duration: 1.5 }}
+          src={courseImage}
           alt="Dispatch Training"
-          className="absolute inset-0 w-full h-full object-cover object-top opacity-20"
+          className="absolute inset-0 w-full h-full object-cover object-top"
         />
-        <div className="container-custom relative z-10 text-center space-y-4 max-w-3xl mx-auto">
-          <div className="text-amber-400 text-xs font-black uppercase tracking-wider">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
+          <motion.div variants={fadeInUp} className="text-amber-400 text-xs font-black uppercase tracking-wider">
             <span>{DISPATCH_COURSE_DATA.badge}</span>
-          </div>
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight">
+          </motion.div>
+          <motion.h1 variants={fadeInUp} className="text-3xl sm:text-5xl font-black tracking-tight">
             Professional <span className="text-amber-400">Truck Dispatcher</span> Masterclass
-          </h1>
-          <p className="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          </motion.h1>
+          <motion.p variants={fadeInUp} className="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
             Learn how to find top-dollar loads, negotiate like a veteran, manage carrier paperwork, and build a profitable independent dispatch business from home.
-          </p>
+          </motion.p>
 
-          <div className="pt-2 flex flex-wrap justify-center gap-3">
+          <motion.div variants={fadeInUp} className="pt-2 flex flex-wrap justify-center gap-3">
             <a
               href="#enroll-form"
               className="px-8 py-3.5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black uppercase tracking-wider text-xs rounded-xl shadow-md transition-all flex items-center gap-2"
@@ -71,28 +103,40 @@ export default function DispatchCoursePage() {
               <IconWhatsApp className="w-4 h-4 text-emerald-400" />
               <span>Inquire via WhatsApp</span>
             </a>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
 
 
       {/* Stats Counter Strip */}
       <div className="py-8 bg-slate-50 border-b border-slate-200">
-        <div className="container-custom">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={staggerContainer}
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {DISPATCH_COURSE_DATA.stats.map((s, idx) => (
-              <div key={idx} className="space-y-1">
+              <motion.div variants={fadeInUp} key={idx} className="space-y-1">
                 <div className="text-xl sm:text-2xl font-black text-primary-navy">{s.value}</div>
                 <div className="text-xs font-bold uppercase tracking-wider text-slate-600">{s.label}</div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Who Is This Course For? */}
-      <section className="py-16 sm:py-20 container-custom">
-        <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
+      <section className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInUp}
+          className="text-center max-w-3xl mx-auto space-y-3 mb-12"
+        >
           <span className="text-xs font-black uppercase tracking-widest text-amber-600 block">
             TARGET AUDIENCE
           </span>
@@ -102,28 +146,41 @@ export default function DispatchCoursePage() {
           <p className="text-sm sm:text-base text-slate-600">
             No prior logistics experience required. We guide you from basic freight terminology to live real-world broker call execution.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={staggerContainer}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+        >
           {DISPATCH_COURSE_DATA.targetAudience.map((aud, idx) => (
-            <div 
+            <motion.div 
+              variants={fadeInUp}
               key={idx}
-              className="glass-card bg-white p-7 rounded-2xl border border-slate-200 shadow-sm space-y-3 hover:border-amber-400 transition-all"
+              className="bg-white/80 backdrop-blur-md p-7 rounded-2xl border border-slate-200 shadow-sm space-y-3 hover:border-amber-400 transition-all"
             >
               <div className="w-12 h-12 rounded-xl bg-blue-50 text-primary-navy font-black text-lg flex items-center justify-center">
                 0{idx + 1}
               </div>
               <h3 className="text-lg font-extrabold text-slate-900">{aud.title}</h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{aud.desc}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
       {/* Comprehensive 8-Module Syllabus */}
       <section className="py-16 sm:py-20 bg-slate-50 border-y border-slate-200">
-        <div className="container-custom max-w-5xl">
-          <div className="text-center space-y-3 mb-12">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInUp}
+            className="text-center space-y-3 mb-12"
+          >
             <span className="text-xs font-black uppercase tracking-widest text-primary-navy block">
               DETAILED SYLLABUS
             </span>
@@ -133,13 +190,20 @@ export default function DispatchCoursePage() {
             <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto">
               Each module includes live video walkthroughs, interactive homework assignments, real document analysis, and actionable negotiation drills.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="space-y-4">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={staggerContainer}
+            className="space-y-4"
+          >
             {DISPATCH_COURSE_DATA.modules.map((mod, idx) => {
               const isOpen = activeModule === idx;
               return (
-                <div 
+                <motion.div 
+                  variants={fadeInUp}
                   key={mod.number}
                   className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs transition-all"
                 >
@@ -161,34 +225,50 @@ export default function DispatchCoursePage() {
                     </span>
                   </button>
 
-                  {isOpen && (
-                    <div className="px-6 pb-6 pt-2 border-t border-slate-100 space-y-3 animate-fadeIn">
-                      <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
-                        {mod.summary}
-                      </p>
-                      <div className="bg-slate-50 p-4 rounded-xl space-y-2">
-                        <span className="text-xs font-black uppercase tracking-wider text-slate-900 block">Topics Covered:</span>
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                          {mod.topics.map((top, tIdx) => (
-                            <li key={tIdx} className="flex items-start gap-2 text-xs text-slate-600">
-                              <span className="text-emerald-500 font-bold">✓</span>
-                              <span>{top}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  )}
-                </div>
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div 
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        variants={syllabusVariant}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-6 pb-6 pt-2 border-t border-slate-100 space-y-3">
+                          <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+                            {mod.summary}
+                          </p>
+                          <div className="bg-slate-50 p-4 rounded-xl space-y-2">
+                            <span className="text-xs font-black uppercase tracking-wider text-slate-900 block">Topics Covered:</span>
+                            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                              {mod.topics.map((top, tIdx) => (
+                                <li key={tIdx} className="flex items-start gap-2 text-xs text-slate-600">
+                                  <span className="text-emerald-500 font-bold">✓</span>
+                                  <span>{top}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Deliverables & Materials Included */}
-      <section className="py-16 sm:py-20 container-custom">
-        <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
+      <section className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInUp}
+          className="text-center max-w-3xl mx-auto space-y-3 mb-12"
+        >
           <span className="text-xs font-black uppercase tracking-widest text-amber-600 block">
             COURSE ASSETS
           </span>
@@ -198,28 +278,41 @@ export default function DispatchCoursePage() {
           <p className="text-sm sm:text-base text-slate-600">
             Get lifetime access to our operational templates, rate calculators, and legal documents.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={staggerContainer}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {DISPATCH_COURSE_DATA.deliverables.map((del, idx) => (
-            <div 
+            <motion.div 
+              variants={fadeInUp}
               key={idx}
-              className="glass-card bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-2 hover:border-amber-400 transition-all"
+              className="bg-white/80 backdrop-blur-md p-6 rounded-2xl border border-slate-200 shadow-sm space-y-2 hover:border-amber-400 transition-all"
             >
               <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-900 flex items-center justify-center font-bold text-lg">
                 📁
               </div>
               <h3 className="font-extrabold text-base text-slate-900">{del.title}</h3>
               <p className="text-xs text-slate-600 leading-relaxed">{del.desc}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
       {/* Enrollment Form Section */}
       <section id="enroll-form" className="py-16 sm:py-20 bg-linear-to-b from-slate-50 to-white border-t border-slate-200">
-        <div className="container-custom max-w-3xl">
-          <div className="glass-card bg-white p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-xl space-y-6">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInUp}
+          className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
+          <div className="bg-white/80 backdrop-blur-md p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-xl space-y-6">
             <div className="text-center space-y-2 border-b border-slate-100 pb-6">
               <span className="text-xs font-black uppercase tracking-widest text-primary-navy block">
                 RESERVE YOUR SEAT
@@ -233,7 +326,11 @@ export default function DispatchCoursePage() {
             </div>
 
             {submitted ? (
-              <div className="py-8 text-center space-y-4">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="py-8 text-center space-y-4"
+              >
                 <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
                   <IconCheckCircle className="w-10 h-10" />
                 </div>
@@ -259,14 +356,21 @@ export default function DispatchCoursePage() {
                     Submit Another Application
                   </button>
                 </div>
-              </div>
+              </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
-                {errorMsg && (
-                  <div className="p-3 bg-red-50 text-red-700 text-xs rounded-lg border border-red-200 font-medium">
-                    {errorMsg}
-                  </div>
-                )}
+                <AnimatePresence>
+                  {errorMsg && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="p-3 bg-red-50 text-red-700 text-xs rounded-lg border border-red-200 font-medium"
+                    >
+                      {errorMsg}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
 
                 <div>
                   <label className="block text-xs font-bold text-slate-700 mb-1">
@@ -279,7 +383,7 @@ export default function DispatchCoursePage() {
                     value={formData.fullName}
                     onChange={handleChange}
                     placeholder="John Doe"
-                    className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-xl focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white"
+                    className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-xl focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white transition-colors"
                   />
                 </div>
 
@@ -295,7 +399,7 @@ export default function DispatchCoursePage() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="john@example.com"
-                      className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-xl focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white"
+                      className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-xl focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white transition-colors"
                     />
                   </div>
                   <div>
@@ -309,7 +413,7 @@ export default function DispatchCoursePage() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+1 (555) 000-0000"
-                      className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-xl focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white"
+                      className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-xl focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white transition-colors"
                     />
                   </div>
                 </div>
@@ -323,7 +427,7 @@ export default function DispatchCoursePage() {
                       name="experience"
                       value={formData.experience}
                       onChange={handleChange}
-                      className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-xl focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white"
+                      className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-xl focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white transition-colors"
                     >
                       <option value="Complete Beginner">Complete Beginner (No Experience)</option>
                       <option value="Truck Driver / CDL Holder">Truck Driver / CDL Holder</option>
@@ -339,7 +443,7 @@ export default function DispatchCoursePage() {
                       name="preferredTiming"
                       value={formData.preferredTiming}
                       onChange={handleChange}
-                      className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-xl focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white"
+                      className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-xl focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white transition-colors"
                     >
                       <option value="Evening Batch (Online Live)">Evening Batch (Online Live)</option>
                       <option value="Weekend Intensive">Weekend Intensive</option>
@@ -358,21 +462,23 @@ export default function DispatchCoursePage() {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Tell us what you want to achieve or any questions you have about the curriculum..."
-                    className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-xl focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white resize-none"
+                    className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-xl focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white resize-none transition-colors"
                   ></textarea>
                 </div>
 
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   type="submit"
                   className="w-full py-3.5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black uppercase tracking-wider text-xs rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <span>Submit Course Application</span>
                   <IconArrowRight className="w-4 h-4" />
-                </button>
+                </motion.button>
               </form>
             )}
           </div>
-        </div>
+        </motion.div>
       </section>
     </div>
   );

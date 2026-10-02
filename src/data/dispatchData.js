@@ -747,7 +747,7 @@ export const EQUIPMENT_DETAILS = [
     },
 
     image:
-      "https://images.unsplash.com/photo-1501700493788-fa1a4fc9fe62?w=1200&auto=format&fit=crop&q=85"
+      "/images/power-only.jpg"
   },
 
   {
@@ -874,7 +874,7 @@ export const EQUIPMENT_DETAILS = [
     },
 
     image:
-      "https://images.unsplash.com/photo-1599256872237-5dcc0fbe9668?w=1200&auto=format&fit=crop&q=85"
+      "/images/box-truck.jpg"
   },
 
   {

@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { IconPhone, IconMail, IconMapPin } from './Icons';
 import { COMPANY_DETAILS, EQUIPMENT_DETAILS } from '../data/dispatchData';
+import logoImg from '../assets/logo.jpeg';
 
-export default function ThemeRexFooter({ onOpenQuote }) {
+export default function Footer({ onOpenQuote }) {
   const mainPages = [
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
@@ -11,17 +13,34 @@ export default function ThemeRexFooter({ onOpenQuote }) {
     { name: 'Dispatch Course', path: '/course' },
     { name: 'Contact Us', path: '/contact' },
   ];
-  
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 50 } }
+  };
 
   return (
-    <footer className="bg-linear-to-b from-slate-100 to-slate-200 text-slate-700 border-t border-slate-300 pt-16 pb-12">
-      <div className="container-custom">
+    <motion.footer 
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-50px" }}
+      className="bg-linear-to-b from-slate-100 to-slate-200 text-slate-700 border-t border-slate-300 pt-16 pb-12"
+    >
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Callout Strip (ThemeREX Banner) */}
-        <div className="glass-card bg-white rounded-2xl p-6 sm:p-8 mb-12 shadow-sm border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-6">
+        <motion.div variants={itemVariants} className="bg-white/90 backdrop-blur-md rounded-2xl p-6 sm:p-8 mb-12 shadow-sm border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
             <Link to="/" className="inline-flex items-center">
               <img
-                src="/logo.jpeg"
+                src={logoImg}
                 alt={COMPANY_DETAILS.name}
                 className="h-12 w-auto object-contain"
               />
@@ -50,12 +69,12 @@ export default function ThemeRexFooter({ onOpenQuote }) {
               <span>Request Quote</span>
             </button>
           </div>
-        </div>
+        </motion.div>
 
         {/* 4 Main Footer Columns (Exact from user screenshots media_1789804927716.jpg & media_1789804927806.jpg) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12 text-sm">
+        <motion.div variants={containerVariants} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12 text-sm">
           {/* Col 1: About Us */}
-          <div className="space-y-4">
+          <motion.div variants={itemVariants} className="space-y-4">
             <h4 className="text-slate-900 font-black uppercase tracking-wider text-sm border-b border-slate-300 pb-2">
               ABOUT US
             </h4>
@@ -102,10 +121,10 @@ export default function ThemeRexFooter({ onOpenQuote }) {
                 in
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Col 2: USEFULL LINKS (matching screenshot spelling) */}
-          <div className="space-y-3">
+          <motion.div variants={itemVariants} className="space-y-3">
             <h4 className="text-slate-900 font-black uppercase tracking-wider text-sm border-b border-slate-300 pb-2">
               Pages
             </h4>
@@ -118,10 +137,10 @@ export default function ThemeRexFooter({ onOpenQuote }) {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Col 3: OUR SERVICES */}
-          <div className="space-y-3">
+          <motion.div variants={itemVariants} className="space-y-3">
             <h4 className="text-slate-900 font-black uppercase tracking-wider text-sm border-b border-slate-300 pb-2">
               OUR SERVICES
             </h4>
@@ -134,10 +153,10 @@ export default function ThemeRexFooter({ onOpenQuote }) {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Col 4: CONTACT US */}
-          <div className="space-y-3">
+          <motion.div variants={itemVariants} className="space-y-3">
             <h4 className="font-black uppercase tracking-wider text-sm border-b border-slate-300 pb-2 text-primary-navy">
               CONTACT US
             </h4>
@@ -173,20 +192,19 @@ export default function ThemeRexFooter({ onOpenQuote }) {
                 We are available 24 hours a day, 7 days a week to support and assist those who request our services.
               </p>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Bottom Copyright */}
-        <div className="pt-8 border-t border-slate-300 text-center flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-600">
+        <motion.div variants={itemVariants} className="pt-8 border-t border-slate-300 text-center flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-600">
           <div>
             © {COMPANY_DETAILS.foundedYear} - {new Date().getFullYear()} {COMPANY_DETAILS.name}. All Rights Reserved.
           </div>
           <div className="flex items-center gap-6">
-
             <Link to="/contact" className="hover:text-slate-900">24/7 Dispatch Hotline</Link>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }

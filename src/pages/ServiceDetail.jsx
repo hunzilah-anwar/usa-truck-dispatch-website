@@ -122,7 +122,7 @@ const InfoParagraph = ({ children }) => {
   return <p>{children}</p>;
 };
 
-export default function ServiceDetailPage({ onOpenQuote }) {
+export default function ServiceDetail({ onOpenQuote }) {
   const { slug } = useParams();
 
   const service = EQUIPMENT_DETAILS.find((item) => item.id === slug);

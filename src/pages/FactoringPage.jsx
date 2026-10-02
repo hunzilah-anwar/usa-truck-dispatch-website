@@ -23,7 +23,7 @@ export default function FactoringPage() {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="container-custom text-center space-y-4"
+          className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4"
         >
 
           {/* Direct Email Referral Box */}

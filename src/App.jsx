@@ -5,10 +5,10 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
-import ThemeRexHeader from "./components/ThemeRexHeader";
-import ThemeRexFooter from "./components/ThemeRexFooter";
-import WhatsAppWidget from "./components/WhatsAppWidget";
-import QuoteModal from "./components/QuoteModal";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import WhatsApp from "./components/WhatsApp";
+import Modal from "./components/Modal";
 
 // Pages
 import HomePage from "./pages/HomePage";
@@ -16,11 +16,9 @@ import AboutPage from "./pages/AboutPage";
 import ServicesPage from "./pages/ServicesPage";
 import FactoringPage from "./pages/FactoringPage";
 
-import ServiceDetailPage from "./pages/ServiceDetailPage";
-import DispatchCoursePage from "./pages/DispatchCoursePage";
+import ServiceDetail from "./pages/ServiceDetail";
+import CoursePage from "./pages/CoursePage";
 import ContactPage from "./pages/ContactPage";
-
-import "./App.css";
 
 // Scroll to top helper on route change
 function ScrollToTop() {
@@ -45,7 +43,7 @@ function MainApp() {
       <ScrollToTop />
 
       {/* ThemeREX Clean Light Header */}
-      <ThemeRexHeader
+      <Header
         onOpenQuote={() => handleOpenQuote()}
       />
 
@@ -79,7 +77,7 @@ function MainApp() {
           <Route
             path="/services/:slug"
             element={
-              <ServiceDetailPage
+              <ServiceDetail
                 onOpenQuote={handleOpenQuote}
               />
             }
@@ -89,7 +87,7 @@ function MainApp() {
             element={<FactoringPage onOpenQuote={handleOpenQuote} />}
           />
 
-          <Route path="/course" element={<DispatchCoursePage />} />
+          <Route path="/course" element={<CoursePage />} />
           <Route path="/contact" element={<ContactPage />} />
           {/* Fallback to Home */}
           <Route
@@ -104,15 +102,15 @@ function MainApp() {
       </main>
 
       {/* ThemeREX Clean Light Footer */}
-      <ThemeRexFooter
+      <Footer
         onOpenQuote={handleOpenQuote}
       />
 
       {/* Floating WhatsApp Widget with Pulsing Radar Rings */}
-      <WhatsAppWidget />
+      <WhatsApp />
 
       {/* Interactive Modals */}
-      <QuoteModal
+      <Modal
         isOpen={quoteModalOpen}
         onClose={() => setQuoteModalOpen(false)}
         initialData={quoteModalData}

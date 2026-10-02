@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { EQUIPMENT_DETAILS } from '../data/dispatchData';
 import { IconArrowRight, IconCheckCircle } from '../components/Icons';
-import CoreCapabilitiesSection from '../components/CoreCapabilitiesSection';
+import Capabilities from '../components/Capabilities';
 
 export default function ServicesPage({ onOpenQuote }) {
   return (
@@ -111,7 +111,7 @@ export default function ServicesPage({ onOpenQuote }) {
       </section>
 
       {/* Core Capabilities */}
-      <CoreCapabilitiesSection />
+      <Capabilities />
     </motion.div>
   );
 }

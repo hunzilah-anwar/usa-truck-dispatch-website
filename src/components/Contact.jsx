@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { IconPhone, IconMail, IconSend, IconCheckCircle, IconWhatsApp } from './Icons';
 import { COMPANY_DETAILS } from '../data/dispatchData';
+import dispatcherImg from '../assets/images/dispatcher.jpg';
 
-export default function ContactSection() {
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', comments: '' });
+export default function Contact() {
+  const [formData, setFormData] = useState({ firstName: '', lastName: '', email: '', phoneNumber: '', companyName: '', jobTitle: '', equipment: 'Dry Van', comments: '' });
   const [submitted, setSubmitted] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -11,7 +13,7 @@ export default function ContactSection() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (!formData.name.trim() || !formData.email.trim() || !formData.comments.trim()) {
+    if (!formData.firstName?.trim() || !formData.email?.trim() || !formData.comments?.trim()) {
       setErrorMsg('Please complete all required fields.');
       return;
     }
@@ -19,25 +21,50 @@ export default function ContactSection() {
     setErrorMsg('');
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  };
+
   return (
-    <section className="py-20 sm:py-24 bg-white page-hero-light">
-      <div className="container-custom">
+    <section className="py-20 sm:py-24 bg-white">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section heading */}
-        <div className="text-center mb-14">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={itemVariants}
+          className="text-center mb-14"
+        >
           <span className="text-xs font-black uppercase tracking-widest text-primary-navy">Contact Us</span>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-2">Get In Touch With Our Team</h2>
           <p className="text-slate-500 text-sm mt-3 max-w-xl mx-auto">Available 24/7. Our dispatch team is ready to onboard you and start finding you high-paying loads immediately.</p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+          className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start"
+        >
 
           {/* Left col — contact info + image */}
-          <div className="lg:col-span-2 space-y-6">
+          <motion.div variants={itemVariants} className="lg:col-span-2 space-y-6">
             {/* Map / office image */}
             <div className="rounded-2xl overflow-hidden h-52 relative">
               <img
-                src="/images/dispatcher.jpg"
+                src={dispatcherImg}
                 alt="Dispatch Office"
                 className="w-full h-full object-cover"
               />
@@ -84,24 +111,28 @@ export default function ContactSection() {
                 <p className="text-base font-black text-slate-900">Chat with us instantly</p>
               </div>
             </a>
-          </div>
+          </motion.div>
 
           {/* Right col — form */}
-          <div className="lg:col-span-3 bg-slate-50 border border-slate-200 rounded-2xl p-8">
+          <motion.div variants={itemVariants} className="lg:col-span-3 bg-slate-50 border border-slate-200 rounded-2xl p-8">
             {submitted ? (
-              <div className="py-16 text-center space-y-5">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="py-16 text-center space-y-5"
+              >
                 <div className="w-20 h-20 bg-emerald-50 text-emerald-500 rounded-full flex items-center justify-center mx-auto">
                   <IconCheckCircle className="w-10 h-10" />
                 </div>
                 <h4 className="text-2xl font-black text-slate-900">Message Received!</h4>
                 <p className="text-slate-600 text-sm">We'll reach out to <strong>{formData.email}</strong> within minutes.</p>
                 <button
-                  onClick={() => { setSubmitted(false); setFormData({ name: '', email: '', phone: '', comments: '' }); }}
+                  onClick={() => { setSubmitted(false); setFormData({ firstName: '', lastName: '', email: '', phoneNumber: '', companyName: '', jobTitle: '', equipment: 'Dry Van', comments: '' }); }}
                   className="mt-4 px-6 py-3 bg-white border border-slate-200 hover:bg-slate-100 text-slate-700 font-bold rounded-xl transition-all text-sm"
                 >
                   Send Another
                 </button>
-              </div>
+              </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
               {errorMsg && (
@@ -117,7 +148,7 @@ export default function ContactSection() {
                   <input
                     type="text"
                     name="firstName"
-                    value={formData.firstName}
+                    value={formData.firstName || ''}
                     onChange={handleChange}
                     placeholder="John"
                     className="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white"
@@ -128,7 +159,7 @@ export default function ContactSection() {
                   <input
                     type="text"
                     name="lastName"
-                    value={formData.lastName}
+                    value={formData.lastName || ''}
                     onChange={handleChange}
                     placeholder="Doe"
                     className="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white"
@@ -143,7 +174,7 @@ export default function ContactSection() {
                   <input
                     type="text"
                     name="companyName"
-                    value={formData.companyName}
+                    value={formData.companyName || ''}
                     onChange={handleChange}
                     placeholder="Apex Transport LLC"
                     className="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white"
@@ -154,7 +185,7 @@ export default function ContactSection() {
                   <input
                     type="text"
                     name="jobTitle"
-                    value={formData.jobTitle}
+                    value={formData.jobTitle || ''}
                     onChange={handleChange}
                     placeholder="Owner Operator"
                     className="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white"
@@ -172,7 +203,7 @@ export default function ContactSection() {
                     type="email"
                     name="email"
                     required
-                    value={formData.email}
+                    value={formData.email || ''}
                     onChange={handleChange}
                     placeholder="carrier@gmail.com"
                     className="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white"
@@ -183,7 +214,7 @@ export default function ContactSection() {
                   <input
                     type="tel"
                     name="phoneNumber"
-                    value={formData.phoneNumber}
+                    value={formData.phoneNumber || ''}
                     onChange={handleChange}
                     placeholder="(555) 000-0000"
                     className="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white"
@@ -196,7 +227,7 @@ export default function ContactSection() {
                 <label className="block text-xs font-semibold text-slate-700 mb-1">Equipment type</label>
                 <select
                   name="equipment"
-                  value={formData.equipment}
+                  value={formData.equipment || 'Dry Van'}
                   onChange={handleChange}
                   className="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white"
                 >
@@ -219,7 +250,7 @@ export default function ContactSection() {
                   name="comments"
                   required
                   rows="4"
-                  value={formData.comments}
+                  value={formData.comments || ''}
                   onChange={handleChange}
                   placeholder="Tell us about your truck, preferred lanes, or when you are ready to roll..."
                   className="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:border-amber-500 focus:outline-none bg-slate-50 focus:bg-white resize-none"
@@ -235,9 +266,10 @@ export default function ContactSection() {
               </button>
             </form>
             )}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
 }
+
