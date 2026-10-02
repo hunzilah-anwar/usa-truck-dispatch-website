@@ -1,3 +1,11 @@
+import DryVanImg from "../assets/images/dry-van.jpg"
+import ReeferImg from "../assets/images/reefer.jpg"
+import FlatbedImg from "../assets/images/flatbed.jpg"
+import StepDeckImg from "../assets/images/step-deck.jpg"
+import PowerOnlyImg from "../assets/images/power-only.jpg"
+import BoxTruckImg from "../assets/images/box-truck.jpg"
+import HotshotImg from "../assets/images/hotshot.jpg"
+
 export const COMPANY_DETAILS = {
   name: "Royal Freight Solutions",
   legalName: "Royal Freight Solutions Inc.",
@@ -242,7 +250,7 @@ export const EQUIPMENT_DETAILS = [
         "Retail merchandise, packaged consumer goods, paper products, dry groceries, furniture, clothing, household products, and general palletized freight."
     },
 
-    image: "./src/assets/images/dry-van.jpg"
+    image: DryVanImg,
   },
 
   {
@@ -368,7 +376,7 @@ export const EQUIPMENT_DETAILS = [
         "Fresh produce, frozen foods, meat, poultry, dairy, beverages, pharmaceuticals, flowers, and temperature-sensitive products."
     },
 
-    image: "./src/assets/images/reefer.jpg"
+    image: ReeferImg,
   },
 
   {
@@ -494,7 +502,7 @@ export const EQUIPMENT_DETAILS = [
         "Structural steel, lumber, pipe, construction materials, machinery, building products, manufactured metal products, and industrial equipment."
     },
 
-    image: "./src/assets/images/flatbed.jpg"
+    image: FlatbedImg,
   },
 
   {
@@ -620,7 +628,7 @@ export const EQUIPMENT_DETAILS = [
         "Construction machinery, agricultural equipment, generators, transformers, industrial equipment, excavators, and manufacturing machinery."
     },
 
-    image: "./src/assets/images/step-deck.jpg"
+    image: StepDeckImg,
   },
 
   {
@@ -747,7 +755,7 @@ export const EQUIPMENT_DETAILS = [
     },
 
     image:
-      "./src/assets/images/power-only.jpg"
+      PowerOnlyImg,
   },
 
   {
@@ -874,7 +882,7 @@ export const EQUIPMENT_DETAILS = [
     },
 
     image:
-      "./src/assets/images/box-truck.jpg"
+      BoxTruckImg,
   },
 
   {
@@ -1000,7 +1008,7 @@ export const EQUIPMENT_DETAILS = [
         "Construction equipment, oilfield supplies, machinery, agricultural equipment, pipe, job-site materials, and industrial components."
     },
 
-    image: "./src/assets/images/hotshot.jpg"
+    image: HotshotImg,
   }
 ];
 
