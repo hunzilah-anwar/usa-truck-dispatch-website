@@ -44,13 +44,13 @@ export default function Capabilities() {
           className="mb-12 flex flex-col justify-between gap-8 md:flex-row md:items-start lg:mb-14"
         >
           <div>
-            <h2 className="text-[42px] font-normal leading-[1.1] tracking-tight text-[#161616] lg:text-[58px]">
+            <h2 className="text-4xl sm:text-[42px] font-normal leading-[1.1] tracking-tight text-primary lg:text-[58px]">
               Dispatching built
               <br />
-              for your business
+              <span className="text-main">for your business.</span>
             </h2>
 
-            <p className="mt-5 text-[18px] leading-[1.6] text-[#161616]">
+            <p className="mt-5 text-[18px] leading-[1.6] text-primary">
               Everything you need to keep your trucks loaded, moving, and profitable.
             </p>
           </div>
@@ -68,11 +68,11 @@ export default function Capabilities() {
           {items.map((item) => (
             <motion.div key={item.title} variants={fadeUp}>
               <div className="flex flex-col justify-between gap-5 border-b border-gray-300 py-7 md:flex-row md:items-center">
-                <h3 className="text-[28px] font-normal leading-[1.2] text-[#161616] lg:text-[34px]">
+                <h3 className="text-[28px] font-normal leading-[1.2] text-primary lg:text-[34px]">
                   {item.title}
                 </h3>
 
-                <p className="max-w-90 text-[16px] leading-[1.6] text-[#161616]">
+                <p className="max-w-90 text-[16px] leading-[1.6] text-primary">
                   {item.text}
                 </p>
               </div>

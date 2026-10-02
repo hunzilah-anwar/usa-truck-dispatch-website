@@ -110,7 +110,7 @@ export default function Modal({ isOpen, onClose, initialData = {} }) {
                       href={COMPANY_DETAILS.whatsapplink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full py-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-lg text-sm flex items-center justify-center gap-2 shadow"
+                      className="w-full py-3 bg-whatsapp-green hover:bg-[#20bd5a] text-white font-bold rounded-lg text-sm flex items-center justify-center gap-2 shadow"
                     >
                       <IconWhatsApp className="w-4 h-4" />
                       <span>Chat With Dispatcher on WhatsApp Now</span>

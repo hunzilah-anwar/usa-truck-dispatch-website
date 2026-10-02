@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { IconCheckCircle } from "./Icons";
+import { IconArrowRight, IconCheckCircle } from "./Icons";
 import dispatcherImg from "../assets/images/dispatcher.jpg";
 import { Link } from "react-router-dom";
 
@@ -33,10 +33,10 @@ export default function Capabilities() {
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div className="space-y-6">
             <motion.div variants={itemVariants} className="space-y-3">
-              <h2 className="text-[42px] font-normal leading-[1.1] tracking-tight text-[#161616] lg:text-[58px]">
+              <h2 className="text-4xl sm:text-[42px] font-normal leading-[1.1] tracking-tight text-primary lg:text-[58px]">
                 Your Truck.
                 <br />
-                <span className="text-primary-navy">Our Dispatch.</span>
+                <span className="text-main">Our Dispatch.</span>
               </h2>
             </motion.div>
 
@@ -52,8 +52,8 @@ export default function Capabilities() {
             <motion.div variants={itemVariants} className="space-y-4">
               {points.map((point) => (
                 <div key={point} className="flex items-start gap-3">
-                  <IconCheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-amber-500" />
-                  <span className="text-sm font-semibold text-[#161616]">
+                  <IconCheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-secondery" />
+                  <span className="text-sm font-semibold text-primary">
                     {point}
                   </span>
                 </div>
@@ -64,10 +64,11 @@ export default function Capabilities() {
               <motion.div whileTap={{ scale: 0.95 }} className="inline-block">
                 <Link
                   to="/contact"
-                  className="group relative inline-flex cursor-pointer overflow-hidden bg-orange-500 px-6 py-3 text-xs font-bold uppercase tracking-wider text-white"
+                  className="group relative inline-flex items-center gap-2 overflow-hidden bg-secondery px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-white"
                 >
                   <span className="relative z-10">Get Started</span>
-                  <span className="absolute inset-0 -translate-x-full bg-[#0a2540] transition-transform duration-300 group-hover:translate-x-0" />
+                  <IconArrowRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  <span className="absolute inset-0 -translate-x-full bg-main transition-transform duration-300 group-hover:translate-x-0" />
                 </Link>
               </motion.div>
             </motion.div>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { IconMenu, IconX } from "./Icons";
+import { IconArrowRight, IconMenu, IconX } from "./Icons";
 import { COMPANY_DETAILS } from "../data/dispatchData";
 
 import logoPng from "../assets/logo.png";
@@ -85,7 +85,7 @@ export default function Header({ onOpenQuote }) {
           </Link>
 
           {/* Navigation */}
-          <nav className="hidden xl:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link, i) => (
               <motion.div
                 key={link.path}
@@ -99,8 +99,8 @@ export default function Header({ onOpenQuote }) {
                     to={link.path}
                     className={`relative block px-4 py-2 text-[13px] font-semibold uppercase tracking-wide transition-colors ${
                       isScrolled
-                        ? "text-slate-700 hover:text-orange-500"
-                        : "text-white hover:text-orange-400"
+                        ? "text-primary hover:text-secondery"
+                        : "text-white hover:text-secondery"
                     }`}
                   >
                     {link.label}
@@ -111,7 +111,7 @@ export default function Header({ onOpenQuote }) {
                       }}
                       style={{ originX: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="absolute bottom-0 left-4 right-4 h-0.5 bg-orange-500" 
+                      className="absolute bottom-0 left-4 right-4 h-0.5 bg-secondery" 
                     />
                   </Link>
                 </motion.div>
@@ -125,16 +125,17 @@ export default function Header({ onOpenQuote }) {
             whileHover="hover"
             whileTap={{ scale: 0.95 }}
             onClick={onOpenQuote}
-            className="relative overflow-hidden cursor-pointer bg-orange-500 px-6 py-3 text-xs font-bold uppercase tracking-wider text-white"
+            className="relative hidden lg:flex gap-2 group overflow-hidden cursor-pointer bg-secondery px-6 py-3 text-xs font-bold uppercase tracking-wider text-white"
           >
             <span className="relative z-10">Get A Quote</span>
+            <IconArrowRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             <motion.span 
               variants={{
                 initial: { x: "-100%" },
                 hover: { x: 0 }
               }}
               transition={{ duration: 0.3 }}
-              className="absolute inset-0 bg-[#0a2540]" 
+              className="absolute inset-0 bg-main" 
             />
           </motion.button>
 
@@ -142,7 +143,7 @@ export default function Header({ onOpenQuote }) {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setMobileMenuOpen(true)}
-            className={`xl:hidden p-2 transition-colors ${isScrolled ? "text-slate-800" : "text-white"}`}
+            className={`lg:hidden p-2 cursor-pointer transition-colors ${isScrolled ? "text-primary" : "text-white"}`}
             aria-label="Open menu"
           >
             <IconMenu className="h-7 w-7" />
@@ -165,15 +166,15 @@ export default function Header({ onOpenQuote }) {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="ml-auto flex h-full w-[320px] flex-col bg-white shadow-2xl"
+              className="ml-auto flex h-screen max-w-100 flex-col bg-white shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex items-center justify-between bg-[#0a2540] px-5 py-4">
+              <div className="flex items-center justify-between px-5">
                 <Link to="/" onClick={() => setMobileMenuOpen(false)}>
                   <img
                     src={logoJpeg}
                     alt={COMPANY_DETAILS.name}
-                    className="h-10 w-auto"
+                    className="h-20 w-auto"
                   />
                 </Link>
 
@@ -181,13 +182,13 @@ export default function Header({ onOpenQuote }) {
                   whileHover={{ scale: 1.1, rotate: 90 }}
                   whileTap={{ scale: 0.9 }}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-white"
+                  className="text-main cursor-pointer"
                 >
                   <IconX className="h-6 w-6" />
                 </motion.button>
               </div>
 
-              <nav className="flex flex-1 flex-col py-3 overflow-y-auto">
+              <nav className="flex flex-col py-3">
                 {navLinks.map((link, index) => (
                   <motion.div
                     key={link.path}
@@ -199,39 +200,12 @@ export default function Header({ onOpenQuote }) {
                     <Link
                       to={link.path}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center justify-between border-b border-slate-100 px-6 py-4 text-sm font-bold uppercase tracking-wide text-slate-700 transition-colors hover:bg-slate-50 hover:text-orange-500"
+                      className="flex items-center justify-between border-b border-gray-100 px-6 py-4 text-sm font-bold uppercase tracking-wide text-primary transition-colors hover:bg-gray-50 hover:text-secondery"
                     >
                       <span>{link.label}</span>
-                      <motion.span 
-                        initial={{ x: -10, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ delay: index * 0.1 + 0.3 }}
-                        className="text-orange-500"
-                      >
-                        →
-                      </motion.span>
                     </Link>
                   </motion.div>
                 ))}
-
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="mt-auto p-6"
-                >
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      onOpenQuote();
-                    }}
-                    className="w-full bg-orange-500 px-5 py-4 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-orange-600"
-                  >
-                    Get A Quote
-                  </motion.button>
-                </motion.div>
               </nav>
             </motion.aside>
           </motion.div>

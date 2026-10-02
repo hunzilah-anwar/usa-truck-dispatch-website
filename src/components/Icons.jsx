@@ -1,4 +1,3 @@
-import React from 'react';
 
 export function IconTruck({ className = "w-5 h-5", ...props }) {
   return (

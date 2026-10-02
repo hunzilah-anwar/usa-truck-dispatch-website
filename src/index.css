@@ -5,16 +5,14 @@
 @source "../index.html";
 
 @theme {
-  --color-primary-navy: #003366;
-  --color-primary-blue: #0245a3;
-  --color-accent-amber: #fcb900;
-  --color-accent-amber-hover: #e5a700;
-  --color-accent-red: #dc2626;
+  --color-primary: #161616;
+  --color-main: #003366;
+  --color-secondery: #ff6900;
   --color-whatsapp-green: #25d366;
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-heading: 'Barlow', sans-serif;
 }
-
+/* [#0a2540] */
 @layer base {
   html {
     scroll-behavior: smooth;

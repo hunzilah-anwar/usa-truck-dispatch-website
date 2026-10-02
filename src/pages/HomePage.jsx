@@ -6,7 +6,6 @@ import Equipment from "../components/Equipment";
 import Course from "../components/Course";
 import FAQ from "../components/FAQ";
 import Testimonials from "../components/Testimonials";
-import Contact from "../components/Contact";
 
 export default function HomePage({ onOpenQuote }) {
   const services = [
@@ -51,7 +50,6 @@ export default function HomePage({ onOpenQuote }) {
         onOpenQuote={() => onOpenQuote()}
         onOpenLoadRequest={() => onOpenQuote()}
       />
-
       <motion.section
         id="services"
         className="py-10 lg:py-20"
@@ -67,10 +65,10 @@ export default function HomePage({ onOpenQuote }) {
             className="mb-12 flex flex-col gap-6 lg:mb-16 lg:flex-row lg:items-center lg:justify-between"
           >
             <div>
-              <h2 className="text-[42px] font-normal leading-[1.1] tracking-tight text-[#161616] lg:text-[58px]">
+              <h2 className="text-4xl sm:text-[42px] font-normal leading-[1.1] tracking-tight text-primary lg:text-[58px]">
                 Dispatching for
                 <br />
-                every mile.
+                <span className="text-main">every mile.</span>
               </h2>
             </div>
 
@@ -81,7 +79,7 @@ export default function HomePage({ onOpenQuote }) {
           </motion.div>
 
           {/* Service Cards */}
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
             {services.map((service) => (
               <motion.article
                 key={service.title}
@@ -89,7 +87,7 @@ export default function HomePage({ onOpenQuote }) {
                 className="group"
               >
                 {/* Image */}
-                <div className="relative aspect-square overflow-hidden bg-slate-100">
+                <div className="relative sm:aspect-square aspect-video overflow-hidden bg-gray-100">
                   <img
                     src={service.image}
                     alt={service.title}
@@ -105,11 +103,11 @@ export default function HomePage({ onOpenQuote }) {
 
                 {/* Content */}
                 <div className="py-6">
-                  <h3 className="text-sm font-bold uppercase tracking-[1px] text-[#0a2540]">
+                  <h3 className="text-sm font-bold uppercase tracking-[1px] text-main">
                     {service.title}
                   </h3>
 
-                  <p className="mt-3 max-w-sm text-[15px] leading-6 text-slate-600">
+                  <p className="mt-3 max-w-sm text-[15px] leading-6 text-gray-600">
                     {service.text}
                   </p>
                 </div>
@@ -118,20 +116,12 @@ export default function HomePage({ onOpenQuote }) {
           </div>
         </div>
       </motion.section>
-
       <Capabilities />
-
       <About />
-
       <Equipment onOpenLoadRequest={onOpenQuote} onOpenQuote={onOpenQuote} />
-
       <Course />
-
       <Testimonials />
-
       <FAQ />
-
-      <Contact />
     </div>
   );
 }

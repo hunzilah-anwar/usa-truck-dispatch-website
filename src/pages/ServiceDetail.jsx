@@ -70,16 +70,16 @@ const SpecCard = ({ icon: Icon, label, value }) => {
   if (!value) return null;
 
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-[0_8px_30px_rgba(15,23,42,0.04)]">
-      <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-primary-navy/[0.07] text-primary-navy">
+    <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-[0_8px_30px_rgba(15,23,42,0.04)]">
+      <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-main/[0.07] text-main">
         <Icon size={19} strokeWidth={1.8} />
       </div>
 
-      <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400">
+      <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-gray-400">
         {label}
       </p>
 
-      <p className="mt-2 text-sm font-semibold leading-6 text-slate-800">
+      <p className="mt-2 text-sm font-semibold leading-6 text-gray-800">
         {value}
       </p>
     </div>
@@ -90,24 +90,24 @@ const ContentSection = ({ eyebrow, title, children }) => {
   return (
     <motion.section
       variants={fadeUp}
-      className="border-t border-slate-300 mb-8 pt-16"
+      className="border-t border-gray-300 mb-8 pt-16"
     >
       <div className="">
         <div>
 
           {eyebrow && (
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.12em] text-slate-400">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.12em] text-gray-400">
               {eyebrow}
             </p>
           )}
         </div>
 
         <div>
-          <h2 className="max-w-3xl text-2xl font-extrabold tracking-tight text-[#06213D] sm:text-3xl">
+          <h2 className="max-w-3xl text-2xl font-extrabold tracking-tight text-main sm:text-3xl">
             {title}
           </h2>
 
-          <div className="mt-2 space-y-4 text-[15px] leading-8 text-slate-600">
+          <div className="mt-2 space-y-4 text-[15px] leading-8 text-gray-600">
             {children}
           </div>
         </div>
@@ -129,17 +129,17 @@ export default function ServiceDetail({ onOpenQuote }) {
 
   if (!service) {
     return (
-      <main className="min-h-screen bg-slate-50 px-4 py-24">
+      <main className="min-h-screen bg-gray-50 px-4 py-24">
         <div className="mx-auto max-w-3xl text-center">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-navy text-white">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-main text-white">
             <Truck size={28} />
           </div>
 
-          <h1 className="mt-6 text-3xl font-extrabold text-[#06213D]">
+          <h1 className="mt-6 text-3xl font-extrabold text-main">
             Equipment Not Found
           </h1>
 
-          <p className="mx-auto mt-4 max-w-xl leading-7 text-slate-600">
+          <p className="mx-auto mt-4 max-w-xl leading-7 text-gray-600">
             The equipment or dispatch service you are looking for could not be
             found. Please return to our equipment section and select another
             service.
@@ -147,7 +147,7 @@ export default function ServiceDetail({ onOpenQuote }) {
 
           <Link
             to="/equipment"
-            className="mt-8 inline-flex items-center gap-2 rounded-xl bg-primary-navy px-6 py-3.5 text-sm font-bold text-white transition hover:bg-[#06213D]"
+            className="mt-8 inline-flex items-center gap-2 rounded-xl bg-main px-6 py-3.5 text-sm font-bold text-white transition hover:bg-main"
           >
             <ArrowLeft size={17} />
             Back to Equipment
@@ -181,11 +181,11 @@ export default function ServiceDetail({ onOpenQuote }) {
   const useCasesText = paragraphFrom(service.useCases);
 
   return (
-    <main className="overflow-hidden bg-[#F7F9FC] text-slate-900">
+    <main className="overflow-hidden bg-[#F7F9FC] text-primary">
       {/* =====================================================
           HERO
       ====================================================== */}
-      <section className="relative overflow-hidden bg-primary-navy">
+      <section className="relative overflow-hidden bg-main">
         {/* Background image */}
         <div className="absolute inset-0">
           <img
@@ -194,7 +194,7 @@ export default function ServiceDetail({ onOpenQuote }) {
             className="h-full w-full object-cover opacity-25"
           />
 
-          <div className="absolute inset-0 bg-primary-navy/50" />
+          <div className="absolute inset-0 bg-main/50" />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-4 pb-14 pt-28 sm:px-6 sm:pb-10 sm:pt-20 lg:px-8">
@@ -234,14 +234,14 @@ export default function ServiceDetail({ onOpenQuote }) {
                 className="mt-6 max-w-3xl text-2xl font-black leading-[1.05] tracking-[-0.03em] text-white sm:text-4xl"
               >
                 {service.name}
-                <span className="mt-2 block text-[#F5C002]">
+                <span className="mt-2 block text-secondery">
                   Dispatch Services
                 </span>
               </motion.h1>
 
               <motion.p
                 variants={fadeUp}
-                className="mt-6 max-w-2xl text-sm leading-8 text-slate-300 sm:text-[16px]"
+                className="mt-6 max-w-2xl text-sm leading-8 text-gray-300 sm:text-[16px]"
               >
                 {service.description}
               </motion.p>
@@ -295,7 +295,7 @@ export default function ServiceDetail({ onOpenQuote }) {
                   </p>
 
                   <p className="mt-1 flex items-center gap-1.5 text-sm font-bold text-white">
-                    <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                    <span className="h-2 w-2 rounded-full bg-whatsapp-green" />
                     Active Support
                   </p>
                 </div>
@@ -538,20 +538,20 @@ export default function ServiceDetail({ onOpenQuote }) {
           ================================================== */}
           <aside className="lg:sticky lg:top-24">
             {/* Dispatch fee card */}
-            <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_12px_40px_rgba(15,23,42,0.07)]">
+            <div className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-[0_12px_40px_rgba(15,23,42,0.07)]">
 
               <div className="p-6">
                 {/* Fee */}
-                <div className="rounded-2xl border border-[#F5C002]/30 bg-[#FFF9DF] p-5">
-                  <p className="text-[10px] font-bold uppercase tracking-[0.17em] text-slate-500">
+                <div className="rounded-2xl border border-secondery/30 bg-[#FFF9DF] p-5">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.17em] text-gray-500">
                     Dispatch Fee
                   </p>
 
-                  <p className="mt-2 text-3xl font-black tracking-tight text-[#06213D]">
+                  <p className="mt-2 text-3xl font-black tracking-tight text-main">
                     {dispatchFee}
                   </p>
 
-                  <p className="mt-2 text-xs leading-5 text-slate-500">
+                  <p className="mt-2 text-xs leading-5 text-gray-500">
                     Simple dispatch pricing for this equipment category.
                   </p>
                 </div>
@@ -559,16 +559,16 @@ export default function ServiceDetail({ onOpenQuote }) {
                 {/* Service points */}
                 <div className="mt-6 space-y-4">
                   <div className="flex gap-3">
-                    <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary-navy/[0.07] text-primary-navy">
+                    <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-main/[0.07] text-main">
                       <ShieldCheck size={16} />
                     </div>
 
                     <div>
-                      <p className="text-sm font-bold text-slate-800">
+                      <p className="text-sm font-bold text-gray-800">
                         Carrier-focused dispatch
                       </p>
 
-                      <p className="mt-1 text-xs leading-5 text-slate-500">
+                      <p className="mt-1 text-xs leading-5 text-gray-500">
                         Dispatch decisions are based around your equipment and
                         operating preferences.
                       </p>
@@ -576,16 +576,16 @@ export default function ServiceDetail({ onOpenQuote }) {
                   </div>
 
                   <div className="flex gap-3">
-                    <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary-navy/[0.07] text-primary-navy">
+                    <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-main/[0.07] text-main">
                       <Clock3 size={16} />
                     </div>
 
                     <div>
-                      <p className="text-sm font-bold text-slate-800">
+                      <p className="text-sm font-bold text-gray-800">
                         Ongoing coordination
                       </p>
 
-                      <p className="mt-1 text-xs leading-5 text-slate-500">
+                      <p className="mt-1 text-xs leading-5 text-gray-500">
                         Load communication and dispatch coordination throughout
                         the process.
                       </p>
@@ -593,16 +593,16 @@ export default function ServiceDetail({ onOpenQuote }) {
                   </div>
 
                   <div className="flex gap-3">
-                    <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary-navy/[0.07] text-primary-navy">
+                    <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-main/[0.07] text-main">
                       <FileCheck2 size={16} />
                     </div>
 
                     <div>
-                      <p className="text-sm font-bold text-slate-800">
+                      <p className="text-sm font-bold text-gray-800">
                         Load detail review
                       </p>
 
-                      <p className="mt-1 text-xs leading-5 text-slate-500">
+                      <p className="mt-1 text-xs leading-5 text-gray-500">
                         Important shipment and equipment details are reviewed
                         before confirmation.
                       </p>
@@ -616,7 +616,7 @@ export default function ServiceDetail({ onOpenQuote }) {
                   <button
                     type="button"
                     onClick={onOpenQuote}
-                    className="flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3.5 text-sm font-bold text-[#06213D] transition hover:border-primary-navy hover:bg-slate-50"
+                    className="flex w-full items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-3.5 text-sm font-bold text-main transition hover:border-main hover:bg-gray-50"
                   >
                     Request a Quote
                   </button>
@@ -625,16 +625,16 @@ export default function ServiceDetail({ onOpenQuote }) {
             </div>
 
             {/* Contact mini card */}
-            <div className="mt-5 rounded-3xl border border-primary-navy/10 bg-primary-navy/[0.035] p-6">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary-navy text-white">
+            <div className="mt-5 rounded-3xl border border-main/10 bg-main/[0.035] p-6">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-main text-white">
                 <PhoneCall size={17} />
               </div>
 
-              <h3 className="mt-4 text-base font-extrabold text-[#06213D]">
+              <h3 className="mt-4 text-base font-extrabold text-main">
                 Need help choosing equipment?
               </h3>
 
-              <p className="mt-2 text-xs leading-6 text-slate-500">
+              <p className="mt-2 text-xs leading-6 text-gray-500">
                 If you are not sure which dispatch service fits your operation,
                 contact our team and we can discuss your equipment and operating
                 needs.
@@ -643,7 +643,7 @@ export default function ServiceDetail({ onOpenQuote }) {
               <button
                 type="button"
                 onClick={onOpenQuote}
-                className="mt-5 inline-flex items-center gap-2 text-sm font-extrabold text-primary-navy transition hover:text-[#06213D]"
+                className="mt-5 inline-flex items-center gap-2 text-sm font-extrabold text-main transition hover:text-main"
               >
                 Talk to our team
                 <ArrowRight size={16} />

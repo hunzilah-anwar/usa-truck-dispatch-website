@@ -26,7 +26,7 @@ export const HERO_SLIDES = [
     tagline: "PREMIUM FREIGHT MANAGEMENT",
     title: "Accelerate Your Trucking Business",
     subtitle: "We connect independent owner-operators and fleets with high-paying loads, reducing deadhead miles and maximizing your take-home pay. Zero forced dispatch.",
-    image: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=1920&auto=format&fit=crop&q=85",
+    image: "https:/./src/assets/images.unsplash.com/photo-1519003722824-194d4455a60c?w=1920&auto=format&fit=crop&q=85",
     buttonPrimary: "Discover Our Services",
     buttonSecondary: "Become a Partner",
     stat: "99% Carrier Retention"
@@ -36,7 +36,7 @@ export const HERO_SLIDES = [
     tagline: "DEDICATED 24/7 SUPPORT",
     title: "We Handle The Paperwork, You Drive",
     subtitle: "Stop stressing over rate confirmations, broker setups, and invoicing. Our expert dispatchers take care of the entire back-office so you can focus on the road.",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&auto=format&fit=crop&q=85",
+    image: "https:/./src/assets/images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&auto=format&fit=crop&q=85",
     buttonPrimary: "Explore Factoring",
     buttonSecondary: "Contact Support",
     stat: "24/7 Dispatch Desk"
@@ -46,7 +46,7 @@ export const HERO_SLIDES = [
     tagline: "EXPERT NEGOTIATION TEAM",
     title: "Get The Best Rates In Any Market",
     subtitle: "Leverage our proprietary network of direct shippers and top-tier brokers. We aggressively negotiate your rate-per-mile, ensuring your truck is always profitable.",
-    image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1920&auto=format&fit=crop&q=85",
+    image: "https:/./src/assets/images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1920&auto=format&fit=crop&q=85",
     buttonPrimary: "Learn Dispatching",
     buttonSecondary: "Talk to an Expert",
     stat: "Avg 12% Revenue Lift"
@@ -242,7 +242,7 @@ export const EQUIPMENT_DETAILS = [
         "Retail merchandise, packaged consumer goods, paper products, dry groceries, furniture, clothing, household products, and general palletized freight."
     },
 
-    image: "/images/dry-van.jpg"
+    image: "./src/assets/images/dry-van.jpg"
   },
 
   {
@@ -368,7 +368,7 @@ export const EQUIPMENT_DETAILS = [
         "Fresh produce, frozen foods, meat, poultry, dairy, beverages, pharmaceuticals, flowers, and temperature-sensitive products."
     },
 
-    image: "/images/reefer.jpg"
+    image: "./src/assets/images/reefer.jpg"
   },
 
   {
@@ -494,7 +494,7 @@ export const EQUIPMENT_DETAILS = [
         "Structural steel, lumber, pipe, construction materials, machinery, building products, manufactured metal products, and industrial equipment."
     },
 
-    image: "/images/flatbed.jpg"
+    image: "./src/assets/images/flatbed.jpg"
   },
 
   {
@@ -620,7 +620,7 @@ export const EQUIPMENT_DETAILS = [
         "Construction machinery, agricultural equipment, generators, transformers, industrial equipment, excavators, and manufacturing machinery."
     },
 
-    image: "/images/step-deck.jpg"
+    image: "./src/assets/images/step-deck.jpg"
   },
 
   {
@@ -747,7 +747,7 @@ export const EQUIPMENT_DETAILS = [
     },
 
     image:
-      "/images/power-only.jpg"
+      "./src/assets/images/power-only.jpg"
   },
 
   {
@@ -874,7 +874,7 @@ export const EQUIPMENT_DETAILS = [
     },
 
     image:
-      "/images/box-truck.jpg"
+      "./src/assets/images/box-truck.jpg"
   },
 
   {
@@ -1000,7 +1000,7 @@ export const EQUIPMENT_DETAILS = [
         "Construction equipment, oilfield supplies, machinery, agricultural equipment, pipe, job-site materials, and industrial components."
     },
 
-    image: "/images/hotshot.jpg"
+    image: "./src/assets/images/hotshot.jpg"
   }
 ];
 
@@ -1203,7 +1203,7 @@ export const TESTIMONIALS = [
     quote:
       "Finding good loads while handling everything else on my own was taking too much time. Since working with the dispatch team, I have more consistency in my schedule and spend far less time searching load boards. They keep me updated, handle the communication, and make sure I know what is lined up next.",
     avatar:
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "https:/./src/assets/images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
   },
   {
     name: "Elena Rostova",
@@ -1213,7 +1213,7 @@ export const TESTIMONIALS = [
     quote:
       "Managing four reefer trucks means there is always something to keep up with. Having a dispatcher who understands our lanes and communicates clearly has made a big difference. They help keep our trucks moving, stay on top of rate negotiations, and keep us informed throughout each load.",
     avatar:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80",
+      "https:/./src/assets/images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80",
   },
   {
     name: "Darnell Washington",
@@ -1223,7 +1223,7 @@ export const TESTIMONIALS = [
     quote:
       "Flatbed work comes with a lot of details that cannot be overlooked, especially when it comes to detention, layovers, and accessorial charges. Their team stays on top of the paperwork and communicates with brokers when something needs to be addressed. It has made the day-to-day side of my business much easier.",
     avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+      "https:/./src/assets/images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
   },
 ];
 
@@ -1237,7 +1237,7 @@ export const NEWS_ARTICLES = [
     author: "Michael Burns — Head of Dispatch Ops",
     summary: "How professional dispatchers leverage spot market surges and backhaul optimization to keep carrier gross revenue steady during fluctuating cycles.",
     content: "When national load-to-truck ratios oscillate, carriers without dedicated dispatch desks often get caught taking unprofitable loads just to keep moving. By maintaining strict baseline RPM floors and identifying tight outbound corridors before booking inbounds, owner operators can protect their operating margins. We outline our proven triangular routing system that eliminates deadheads over 8% and secures pre-booked reloads before arrival at receiver docks.",
-    image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&auto=format&fit=crop&q=80"
+    image: "https:/./src/assets/images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: 2,
@@ -1248,7 +1248,7 @@ export const NEWS_ARTICLES = [
     author: "Amanda Miller — Carrier Relations & Factoring",
     summary: "Why waiting 30-45 days for broker payouts hurts owner-operators and how our partnership with Express Freight Finance guarantees immediate capital.",
     content: "A single deferred broker payment can cascade into skipped preventive maintenance, credit card debt, or inability to pay fuel card balances. Non-recourse factoring acts as a safety shield, ensuring that once cargo is safely delivered and the clean BOL is signed, cash is wired directly into your operating bank account within 24 hours. Our dispatch desk uploads paperwork automatically on your behalf so you never touch an invoice portal again.",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&auto=format&fit=crop&q=80"
+    image: "https:/./src/assets/images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: 3,
@@ -1259,7 +1259,7 @@ export const NEWS_ARTICLES = [
     author: "Compliance Desk — Greenville SC HQ",
     summary: "A step-by-step breakdown of MC authority permits, W-9s, insurance limits ($1M liability / $100k cargo), and certificate holder guidelines.",
     content: "When high-paying freight hits DAT or Truckstop, the carrier whose packet is verified first gets the load. Incomplete W-9s or outdated Certificate of Insurance policies cause brokers to skip to the next truck. Having your Certificate of Insurance producer issue an ongoing certificate naming Truck Dispatcher USA allows our coordinators to dispatch paperwork within 90 seconds of reaching rate agreements with broker desks.",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&auto=format&fit=crop&q=80"
+    image: "https:/./src/assets/images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: 4,
@@ -1270,7 +1270,7 @@ export const NEWS_ARTICLES = [
     author: "Freight Economics Desk",
     summary: "Understanding national diesel averages, FSC escalation clauses, and how to verify that posted broker linehaul rates accurately compensate for pump prices.",
     content: "Operating a Class 8 tractor in 2026 costs between $1.85 and $2.20 per mile in fixed and variable expenses before driver pay. Fuel represents nearly 35% of that cost. Our dispatch team computes dynamic fuel surcharge baselines for every dispatched route, ensuring our drivers never haul freight where rising diesel eats their take-home profit margins.",
-    image: "https://images.unsplash.com/photo-1501700493788-fa1a4fc9fe62?w=600&auto=format&fit=crop&q=80"
+    image: "https:/./src/assets/images.unsplash.com/photo-1501700493788-fa1a4fc9fe62?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: 5,
@@ -1281,7 +1281,7 @@ export const NEWS_ARTICLES = [
     author: "Sarah Jenkins — Reefer Desk Director",
     summary: "Critical pre-trip precooling checklists, continuous vs start-stop protocols, and temperature recorder BOL documentation for cold chain carriers.",
     content: "Produce and pharmaceutical reefer loads command top dollar per mile, but come with strict liability. A temperature deviation of just 3 degrees can result in a rejected shipment. We guide our reefer fleet on pulp temperature checks, BOL continuous temperature notations, and immediate dispute protocol if a receiver attempts an improper cargo rejection.",
-    image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=600&auto=format&fit=crop&q=80"
+    image: "https:/./src/assets/images.unsplash.com/photo-1578575437130-527eed3abbec?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: 6,
@@ -1292,6 +1292,6 @@ export const NEWS_ARTICLES = [
     author: "David Ross — Operations Lead",
     summary: "Why running straight back-and-forth between two cities cuts profits and how 3-point loop dispatching boosts weekly gross by $1,800 or more.",
     content: "Taking freight into low-outbound freight zones like Miami or Denver without a planned triangle backhaul can force carriers into 500+ miles of unpaid deadhead. By routing through strategic reload hubs (e.g. Atlanta to Jacksonville to Nashville back to Midwest), our carriers keep their wheels generating revenue on 94% of miles driven.",
-    image: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=600&auto=format&fit=crop&q=80"
+    image: "https:/./src/assets/images.unsplash.com/photo-1519003722824-194d4455a60c?w=600&auto=format&fit=crop&q=80"
   }
 ];

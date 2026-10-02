@@ -25,17 +25,17 @@ export default function AboutPage({ onOpenOnboard }) {
       className="bg-white min-h-screen"
     >
       {/* Page Header Banner */}
-      <div className="relative overflow-hidden bg-slate-50 py-16 sm:py-20 border-b border-slate-200">
+      <div className="relative overflow-hidden bg-gray-50 py-16 sm:py-20 border-b border-gray-200">
         <motion.div 
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4 relative z-10"
         >
-          <h1 className="flex flex-col text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900">
-            About <span className="text-primary-navy">{COMPANY_DETAILS.name}</span>
+          <h1 className="flex flex-col text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-primary">
+            About <span className="text-main">{COMPANY_DETAILS.name}</span>
           </h1>
-          <p className="text-sm sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium">
+          <p className="text-sm sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed font-medium">
             Empowering independent owner operators and carrier fleets across the continental United States with top rates, paperwork automation, and zero forced dispatch.
           </p>
         </motion.div>
@@ -51,31 +51,31 @@ export default function AboutPage({ onOpenOnboard }) {
             transition={{ duration: 0.6 }}
             className="lg:col-span-6 space-y-2"
           >
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-black text-primary leading-tight">
               Born from Passion for the Hardest Working Drivers in America
             </h2>
-            <div className="w-16 h-1.5 bg-amber-400 rounded-full -translate-y-2"></div>
-            <p className="text-base text-slate-700 leading-relaxed font-medium">
+            <div className="w-16 h-1.5 bg-secondery rounded-full -trangray-y-2"></div>
+            <p className="text-base text-gray-700 leading-relaxed font-medium">
               {COMPANY_DETAILS.missionStatement}
             </p>
-            <p className="text-sm text-slate-600 leading-relaxed">
+            <p className="text-sm text-gray-600 leading-relaxed">
               Founded in {COMPANY_DETAILS.foundedYear}, {COMPANY_DETAILS.name} was started by transportation specialists who saw owner-operators sacrificing sleep and safety to navigate convoluted load boards, negotiate with ruthless freight brokers, and drown in rate confirmation paperwork.
             </p>
-            <p className="text-sm text-slate-600 leading-relaxed">
+            <p className="text-sm text-gray-600 leading-relaxed">
               We eliminated the middleman headache. By providing each truck driver with a dedicated 24/7 personal dispatcher, verified broker credit checks, and same-day factoring coordination through Express Freight Finance, we transformed truck driving into a scalable, high-earning business.
             </p>
 
             <div className="pt-2 flex flex-wrap gap-4">
               <button
                 onClick={onOpenOnboard}
-                className="px-6 py-3.5 bg-primary-navy hover:bg-[#002244] text-white font-extrabold text-xs uppercase tracking-wider rounded-lg shadow transition-all flex items-center gap-2"
+                className="px-6 py-3.5 bg-main hover:bg-secondery text-white font-extrabold text-xs uppercase tracking-wider rounded-lg shadow transition-all flex items-center gap-2"
               >
                 <span>Register As Carrier</span>
                 <IconArrowRight className="w-4 h-4" />
               </button>
               <Link
                 to="/services"
-                className="px-6 py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs uppercase tracking-wider rounded-lg transition-all"
+                className="px-6 py-3.5 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold text-xs uppercase tracking-wider rounded-lg transition-all"
               >
                 Explore Services
               </Link>
@@ -89,15 +89,15 @@ export default function AboutPage({ onOpenOnboard }) {
             transition={{ duration: 0.6 }}
             className="lg:col-span-6"
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-100">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-gray-100">
               <img
                 src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&auto=format&fit=crop&q=80"
                 alt={`${COMPANY_DETAILS.name} on the Highway`}
                 className="w-full h-96 object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-8 text-white">
+              <div className="absolute inset-0 bg-linear-to-t from-gray-950/80 via-transparent to-transparent flex items-end p-8 text-white">
                 <div>
-                  <span className="text-xs font-bold text-amber-400 uppercase tracking-widest block">HQ Greenville, South Carolina</span>
+                  <span className="text-xs font-bold text-secondery uppercase tracking-widest block">HQ Greenville, South Carolina</span>
                   <h3 className="text-xl font-black text-white">Serving Carriers Across All 48 Continental States</h3>
                 </div>
               </div>
@@ -107,7 +107,7 @@ export default function AboutPage({ onOpenOnboard }) {
       </section>
 
       {/* Stats Counter Section */}
-      <section className="py-16 bg-slate-50 border-y border-slate-200">
+      <section className="py-16 bg-gray-50 border-y border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             variants={containerVariants}
@@ -120,12 +120,12 @@ export default function AboutPage({ onOpenOnboard }) {
               <motion.div 
                 key={idx} 
                 variants={itemVariants}
-                className="relative overflow-hidden bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-slate-200 text-center shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+                className="relative overflow-hidden bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-gray-200 text-center shadow-lg transition-all duration-300 hover:shadow-xl hover:-trangray-y-1"
               >
-                <div className="absolute -inset-1 bg-gradient-to-r from-transparent via-white/40 to-transparent -rotate-45 translate-x-[-150%] hover:animate-[shimmer_1.5s_infinite]"></div>
-                <div className="text-3xl sm:text-4xl font-black text-primary-navy mb-1">{s.value}</div>
-                <div className="text-xs font-extrabold uppercase tracking-wider text-slate-900 mb-1">{s.label}</div>
-                <div className="text-xs text-slate-500">{s.subtext}</div>
+                <div className="absolute -inset-1 bg-linear-to-r from-transparent via-white/40 to-transparent -rotate-45 trangray-x-[-150%] hover:animate-[shimmer_1.5s_infinite]"></div>
+                <div className="text-3xl sm:text-4xl font-black text-main mb-1">{s.value}</div>
+                <div className="text-xs font-extrabold uppercase tracking-wider text-primary mb-1">{s.label}</div>
+                <div className="text-xs text-gray-500">{s.subtext}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -141,8 +141,8 @@ export default function AboutPage({ onOpenOnboard }) {
           className="text-center max-w-3xl mx-auto space-y-3 mb-12"
         >
           <span className="text-xs font-black uppercase tracking-widest text-amber-600 block">OUR FOUNDATIONAL PILLARS</span>
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900">What Sets Us Apart in the Trucking Industry</h2>
-          <p className="text-sm sm:text-base text-slate-600">Built by trucking veterans who understand the cost of every gallon of diesel and every layover minute.</p>
+          <h2 className="text-3xl sm:text-4xl font-black text-primary">What Sets Us Apart in the Trucking Industry</h2>
+          <p className="text-sm sm:text-base text-gray-600">Built by trucking veterans who understand the cost of every gallon of diesel and every layover minute.</p>
         </motion.div>
 
         <motion.div 
@@ -161,20 +161,20 @@ export default function AboutPage({ onOpenOnboard }) {
             <motion.div 
               key={idx}
               variants={itemVariants}
-              className="bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-slate-200 shadow-lg space-y-3 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+              className="bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-gray-200 shadow-lg space-y-3 transition-all duration-300 hover:shadow-xl hover:-trangray-y-1"
             >
               <div className={`w-12 h-12 rounded-xl ${item.color} flex items-center justify-center font-black text-xl`}>
                 {item.icon}
               </div>
-              <h3 className="font-extrabold text-lg text-slate-900">{item.title}</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">{item.desc}</p>
+              <h3 className="font-extrabold text-lg text-primary">{item.title}</h3>
+              <p className="text-xs text-gray-600 leading-relaxed">{item.desc}</p>
             </motion.div>
           ))}
         </motion.div>
       </section>
 
       {/* Company Timeline */}
-      <section className="py-16 bg-slate-50 border-t border-slate-200">
+      <section className="py-16 bg-gray-50 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ y: 20, opacity: 0 }}
@@ -182,8 +182,8 @@ export default function AboutPage({ onOpenOnboard }) {
             viewport={{ once: true }}
             className="text-center max-w-2xl mx-auto mb-12"
           >
-            <span className="text-xs font-black uppercase tracking-widest text-primary-navy block">COMPANY MILESTONES</span>
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-1">A Decade of Freight Excellence</h2>
+            <span className="text-xs font-black uppercase tracking-widest text-main block">COMPANY MILESTONES</span>
+            <h2 className="text-2xl sm:text-3xl font-black text-primary mt-1">A Decade of Freight Excellence</h2>
           </motion.div>
 
           <motion.div 
@@ -195,18 +195,18 @@ export default function AboutPage({ onOpenOnboard }) {
           >
             {[
               { year: "2016", title: "Company Founded", desc: "Started in South Carolina with 5 dedicated owner-operators running regional Midwest lanes.", color: "text-amber-500" },
-              { year: "2019", title: "Factoring Partnership", desc: "Established direct wire integration with Express Freight Finance for guaranteed cash flow.", color: "text-primary-navy" },
+              { year: "2019", title: "Factoring Partnership", desc: "Established direct wire integration with Express Freight Finance for guaranteed cash flow.", color: "text-main" },
               { year: "2022", title: "500+ Active Fleets", desc: "Expanded dispatch desks to cover Dry Van, Reefer, Flatbed, Step Deck, and Box Trucks across 48 states.", color: "text-emerald-600" },
               { year: "2026", title: "Real-Time Lane Network", desc: "Over 623,000 load opportunities evaluated daily with proprietary rate benchmarking.", color: "text-blue-600" }
             ].map((milestone, idx) => (
               <motion.div 
                 key={idx}
                 variants={itemVariants}
-                className="bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-slate-200 shadow-lg text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+                className="bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-gray-200 shadow-lg text-center transition-all duration-300 hover:shadow-xl hover:-trangray-y-1"
               >
                 <span className={`text-2xl font-black ${milestone.color} block mb-1`}>{milestone.year}</span>
-                <h4 className="font-bold text-slate-900 text-sm mb-2">{milestone.title}</h4>
-                <p className="text-xs text-slate-600">{milestone.desc}</p>
+                <h4 className="font-bold text-primary text-sm mb-2">{milestone.title}</h4>
+                <p className="text-xs text-gray-600">{milestone.desc}</p>
               </motion.div>
             ))}
           </motion.div>

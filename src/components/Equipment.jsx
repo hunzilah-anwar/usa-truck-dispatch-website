@@ -50,22 +50,22 @@ export default function HomeServices() {
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-6">
         <motion.div
           variants={itemVariants}
-          className="mb-12 flex flex-col justify-between gap-6 lg:mb-14 lg:flex-row lg:items-center"
+          className="mb-12 flex flex-col justify-between sm:gap-6 gap-2 lg:mb-14 lg:flex-row lg:items-center"
         >
-          <h2 className="text-[42px] font-normal leading-[1.1] tracking-tight text-[#161616] lg:text-[58px]">
+          <h2 className="text-4xl sm:text-[42px] font-normal leading-[1.1] tracking-tight text-primary lg:text-[58px]">
             Professional.
             <br />
-            <span className="text-primary-navy">Dispatch Services.</span>
+            <span className="text-main">Dispatch Services.</span>
           </h2>
 
-          <p className="max-w-md text-[15px] leading-7 text-slate-600 lg:pb-1">
+          <p className="max-w-md text-[15px] leading-7 text-gray-600 lg:pb-1">
             We handle the work behind your freight — from finding suitable loads
             and communicating with brokers to organizing shipment details — so
             you can stay focused on driving.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-16 sm:gap-8 md:grid-cols-3">
           {HOME_SERVICES.map((service) => (
             <motion.article
               key={service.title}
@@ -81,11 +81,11 @@ export default function HomeServices() {
               </div>
 
               <div className="pt-6">
-                <h3 className="text-sm font-bold uppercase tracking-[1px] text-[#0a2540]">
+                <h3 className="text-sm font-bold uppercase tracking-[1px] text-main">
                   {service.title}
                 </h3>
 
-                <p className="mt-3 line-clamp-2 text-[15px] leading-6 text-slate-600">
+                <p className="mt-3 line-clamp-2 text-[15px] leading-6 text-gray-600">
                   {service.text}
                 </p>
               </div>
@@ -99,11 +99,11 @@ export default function HomeServices() {
         >
           <Link
             to="/services"
-            className="group relative inline-flex items-center gap-2 overflow-hidden bg-orange-500 px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-white"
+            className="group relative inline-flex items-center gap-2 overflow-hidden bg-secondery px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-white"
           >
             <span className="relative z-10">View All Services</span>
             <IconArrowRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-            <span className="absolute inset-0 -translate-x-full bg-primary-navy transition-transform duration-300 group-hover:translate-x-0" />
+            <span className="absolute inset-0 -translate-x-full bg-main transition-transform duration-300 group-hover:translate-x-0" />
           </Link>
         </motion.div>
       </div>

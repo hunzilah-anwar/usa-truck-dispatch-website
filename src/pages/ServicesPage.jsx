@@ -14,9 +14,9 @@ export default function ServicesPage({ onOpenQuote }) {
     >
 
       {/* Hero Banner */}
-      <div className="relative bg-primary-navy text-white py-24 overflow-hidden">
+      <div className="relative bg-main text-white py-24 overflow-hidden">
         <img
-          src="/images/dry-van.jpg"
+          src="./src/assets/images/dry-van.jpg"
           alt="Services"
           className="absolute inset-0 w-full h-full object-cover opacity-20"
         />
@@ -26,11 +26,11 @@ export default function ServicesPage({ onOpenQuote }) {
           transition={{ duration: 0.6 }}
           className="container-custom relative z-10 text-center max-w-3xl mx-auto space-y-2"
         >
-          <span className="inline-block text-amber-400 text-sm font-black uppercase tracking-widest">
+          <span className="inline-block text-secondery text-sm font-black uppercase tracking-widest">
             Comprehensive Freight Solutions
           </span>
           <h1 className="text-4xl sm:text-6xl font-black tracking-tight leading-tight">
-            Our <span className="text-amber-400">Dispatch Services</span>
+            Our <span className="text-secondery">Dispatch Services</span>
           </h1>
           <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
             Professional 24/7 truck dispatching. Transparent rates. Click a service to see full details.
@@ -51,13 +51,12 @@ export default function ServicesPage({ onOpenQuote }) {
           viewport={{ once: true }}
           className="text-center mb-14"
         >
-          <span className="text-xs font-black uppercase tracking-widest text-primary-navy">What We Dispatch</span>
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-2">Choose Your Equipment Type</h2>
+          <span className="text-xs font-black uppercase tracking-widest text-main">What We Dispatch</span>
+          <h2 className="text-3xl sm:text-4xl font-black text-primary mt-2">Choose Your Equipment Type</h2>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {EQUIPMENT_DETAILS.map((service, index) => {
-            const img = service.image;
             return (
               <motion.div
                 key={service.id}
@@ -69,36 +68,36 @@ export default function ServicesPage({ onOpenQuote }) {
               >
                 <Link
                   to={`/services/${service.id}`}
-                  className="group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-primary-navy hover:shadow-2xl transition-all duration-300 flex flex-col h-full"
+                  className="group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-main hover:shadow-2xl transition-all duration-300 flex flex-col h-full"
                 >
                   {/* Image */}
                   <div className="relative h-52 overflow-hidden">
                     <img
-                      src={img}
+                      src={service.image}
                       alt={service.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-linear-to-t from-slate-900/70 via-transparent to-transparent" />
-                    <span className="absolute bottom-4 left-4 px-3 py-1 bg-amber-400 text-slate-900 text-[10px] font-black uppercase tracking-widest rounded-md">
+                    <div className="absolute inset-0 bg-linear-to-t from-primary/70 via-transparent to-transparent" />
+                    <span className="absolute bottom-4 left-4 px-3 py-1 bg-secondery text-primary text-[10px] font-black uppercase tracking-widest rounded-md">
                       {service.badge}
                     </span>
                   </div>
 
                   {/* Content */}
                   <div className="p-6 flex flex-col flex-1">
-                    <h3 className="text-xl font-black text-slate-900 mb-2 group-hover:text-primary-navy transition-colors">{service.name}</h3>
+                    <h3 className="text-xl font-black text-primary mb-2 group-hover:text-main transition-colors">{service.name}</h3>
                     <p className="text-sm text-slate-500 leading-relaxed mb-4 line-clamp-2">{service.description}</p>
 
                     <ul className="space-y-1.5 mb-6 flex-1">
                       {service.features.slice(0, 3).map((f, i) => (
                         <li key={i} className="flex items-start gap-2 text-xs text-slate-700 font-medium">
-                          <IconCheckCircle className="w-3.5 h-3.5 text-amber-500 mt-0.5 shrink-0" />
+                          <IconCheckCircle className="w-3.5 h-3.5 text-secondery mt-0.5 shrink-0" />
                           {f}
                         </li>
                       ))}
                     </ul>
 
-                    <div className="flex items-center justify-between pt-4 border-t border-slate-100 text-xs font-black uppercase tracking-wider text-primary-navy group-hover:text-amber-500 transition-colors mt-auto">
+                    <div className="flex items-center justify-between pt-4 border-t border-slate-100 text-xs font-black uppercase tracking-wider text-main group-hover:text-secondery transition-colors mt-auto">
                       <span>View Full Details</span>
                       <IconArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </div>

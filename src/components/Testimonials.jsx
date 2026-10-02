@@ -25,7 +25,7 @@ export default function Testimonials() {
 
   return (
     <section
-      className="border-t border-slate-200 bg-white py-10 sm:py-20"
+      className="border-t border-gray-200 bg-white py-10 sm:py-20"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -39,12 +39,12 @@ export default function Testimonials() {
           transition={{ duration: 0.6 }}
           className="mx-auto max-w-2xl text-center"
         >
-          <h2 className="text-[42px] font-normal leading-[1.05] tracking-tight text-[#161616] lg:text-[58px]">
+          <h2 className="text-4xl sm:text-[42px] font-normal leading-[1.05] tracking-tight text-primary lg:text-[58px]">
             Trusted By{" "}
             <span className="text-primary-navy">Carriers.</span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-lg text-[15px] leading-7 text-slate-500">
+          <p className="mx-auto mt-2 sm:mt-5 max-w-lg text-[15px] leading-7 text-gray-500">
             See what owner-operators and carriers have to say about working
             with our dispatch team.
           </p>
@@ -63,24 +63,24 @@ export default function Testimonials() {
               transition={{ duration: 0.45, ease: "easeOut" }}
               className="relative"
             >
-              <div className="relative border border-slate-200 bg-slate-50 px-6 py-4 text-center sm:px-12 sm:py-4 lg:px-20 lg:py-8">
+              <div className="relative border border-gray-200 bg-gray-50 px-6 py-4 text-center sm:px-12 sm:py-4 lg:px-20 lg:py-8">
 
                 {/* Quote Icon */}
-                <Quote className="mx-auto mb-6 h-10 w-10 text-primary-navy/15" />
+                <Quote className="mx-auto mb-6 h-10 w-10 text-main/15" />
 
                 {/* Quote */}
-                <p className="mx-auto max-w-3xl text-lg leading-8 text-slate-700 sm:text-xl sm:leading-9 lg:text-[22px]">
+                <p className="mx-auto max-w-3xl text-lg leading-8 text-gray-700 sm:text-xl sm:leading-9 lg:text-[22px]">
                   “{testimonial.quote}”
                 </p>
 
                 {/* Author */}
                 <div className="mt-4 flex flex-col items-center">
 
-                  <h3 className="mt-4 text-sm font-bold text-slate-900">
+                  <h3 className="mt-4 text-sm font-bold text-gray-900">
                     {testimonial.name}
                   </h3>
 
-                  <p className="mt-1 text-xs text-slate-500">
+                  <p className="mt-1 text-xs text-gray-500">
                     {testimonial.role || "Carrier"}
                     {testimonial.location && ` · ${testimonial.location}`}
                   </p>
@@ -102,8 +102,8 @@ export default function Testimonials() {
                   onClick={() => setCurrent(index)}
                   className={`h-1.5 cursor-pointer transition-all duration-300 rounded-full ${
                     index === current
-                      ? "w-8 bg-orange-500"
-                      : "w-2 bg-slate-300 hover:bg-slate-400"
+                      ? "w-8 bg-secondery"
+                      : "w-2 bg-gray-300 hover:bg-gray-400"
                   }`}
                 />
               ))}

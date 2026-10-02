@@ -20,7 +20,7 @@ const itemVariants = {
 
 export default function Hero({ onOpenQuote }) {
   return (
-    <section className="relative min-h-150 h-screen w-full overflow-hidden bg-black text-white">
+    <section className="relative min-h-150 h-screen w-full overflow-hidden bg-primary text-white">
 
       {/* Background Video */}
       <motion.video
@@ -37,7 +37,7 @@ export default function Hero({ onOpenQuote }) {
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 bg-primary/40" />
 
       {/* Content */}
       <div className="relative z-10 flex h-full items-end">
@@ -50,17 +50,17 @@ export default function Hero({ onOpenQuote }) {
 
           {/* Heading */}
           <motion.div variants={itemVariants} className="shrink-0">
-            <h1 className="text-[48px] font-bold leading-[0.9] tracking-[-2px] sm:text-[64px] xl:text-[82px]">
-              YOUR CARGO,
+            <h1 className="text-[48px] font-medium leading-14 tracking-[-2px] sm:text-[64px] sm:leading-20 xl:text-[82px] xl:leading-24">
+              Royal Freight 
               <br />
-              OUR COMMITMENT
+              Solutions Inc.
             </h1>
           </motion.div>
 
           {/* Quote Card */}
           <motion.div
             variants={itemVariants}
-            className="flex w-full max-w-103.75 shrink-0 bg-orange-500 p-3 text-black"
+            className="flex w-full max-w-103.75 shrink-0 bg-secondery p-3 text-primary"
           >
             <div className="h-35 w-33.75 shrink-0 overflow-hidden">
               <motion.img
@@ -73,14 +73,14 @@ export default function Hero({ onOpenQuote }) {
             </div>
 
             <div className="flex flex-1 flex-col justify-between px-4 py-1">
-              <p className="text-[15px] leading-[1.35]">
+              <p className="sm:text-[15px] min-[500px]:text-[15px] text-[12px] leading-[1.35]">
                 Delivering unparalleled trucking and logistics solutions
                 across the nation. We move your business forward.
               </p>
 
               <button
                 onClick={onOpenQuote}
-                className="w-fit text-[15px] font-medium underline underline-offset-2 transition hover:text-black/60"
+                className="w-fit text-[15px] font-medium underline underline-offset-2 transition hover:text-primary/60"
               >
                 GET A QUOTE
               </button>

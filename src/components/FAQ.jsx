@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { IconChevronRight } from './Icons';
 
 export default function FAQ() {
-  const [openIdx, setOpenIdx] = useState(0);
+  const [openIdx, setOpenIdx] = useState();
 
   const faqs = [
     {
@@ -29,74 +29,107 @@ export default function FAQ() {
   ];
 
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: {},
     visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
+      transition: { staggerChildren: 0.08 }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+    hidden: { opacity: 0, y: 15 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.45, ease: "easeOut" }
+    }
   };
 
   return (
-    <motion.section 
+    <motion.section
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      className="py-20 bg-white relative"
+      variants={containerVariants}
+      className="border-t border-gray-200 bg-white py-14 sm:py-10 lg:py-20"
     >
-      <div className="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        
-        <motion.div variants={itemVariants} className="text-center space-y-4 mb-16">
-          <h2 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight">
-            Frequently Asked <span className="text-amber-500">Questions</span>
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-6">
+
+        {/* Heading */}
+        <motion.div
+          variants={itemVariants}
+          className="mx-auto mb-8 max-w-2xl text-center sm:mb-14"
+        >
+          <h2 className="text-4xl sm:text-[42px] font-normal leading-[1.05] tracking-tight text-primary lg:text-[58px]">
+            FA
+            <span className="text-main">Q's.</span>
           </h2>
-          <p className="text-slate-500 text-sm sm:text-base">
-            Everything you need to know about partnering with Truck Dispatcher USA.
+
+          <p className="mx-auto mt-2 sm:mt-5 max-w-lg text-[15px] leading-7 text-gray-600">
+            Everything you need to know about partnering with our dispatch
+            team.
           </p>
         </motion.div>
 
-        <motion.div variants={containerVariants} className="space-y-4">
+        {/* FAQ */}
+        <motion.div
+          variants={containerVariants}
+          className="mx-auto max-w-7xl"
+        >
           {faqs.map((faq, idx) => {
             const isOpen = openIdx === idx;
+
             return (
-              <motion.div 
-                key={idx}
+              <motion.div
+                key={faq.q}
                 variants={itemVariants}
-                className={`border rounded-2xl overflow-hidden transition-colors duration-300 ${isOpen ? 'border-[#003366] shadow-lg bg-blue-50/30' : 'border-slate-200 hover:border-amber-300 bg-white'}`}
+                className="border-b border-gray-200"
               >
                 <button
+                  type="button"
                   onClick={() => setOpenIdx(isOpen ? -1 : idx)}
-                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 focus:outline-none"
+                  className="group flex w-full items-center gap-5 py-6 text-left sm:py-7 cursor-pointer"
                 >
-                  <span className={`text-base sm:text-lg font-bold transition-colors duration-300 ${isOpen ? 'text-[#003366]' : 'text-slate-800'}`}>
+
+                  {/* Question */}
+                  <span
+                    className={`flex-1 text-base font-normal leading-[1.05] tracking-tight transition-colors duration-300 sm:text-2xl ${
+                      isOpen
+                        ? 'text-secondery'
+                        : 'text-primary group-hover:text-secondery'
+                    }`}
+                  >
                     {faq.q}
                   </span>
-                  <motion.div 
-                    animate={{ rotate: isOpen ? 90 : 0 }}
-                    transition={{ duration: 0.3 }}
-                    className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${isOpen ? 'bg-[#003366] text-white' : 'bg-slate-100 text-slate-400'}`}
+
+                  {/* Arrow */}
+                  <motion.span
+                    animate={{
+                      rotate: isOpen ? 90 : 0,
+                      x: isOpen ? 3 : 0
+                    }}
+                    transition={{ duration: 0.25 }}
+                    className={`shrink-0 ${
+                      isOpen ? 'text-secondery' : 'text-gray-500'
+                    }`}
                   >
-                    <IconChevronRight className="w-5 h-5" />
-                  </motion.div>
+                    <IconChevronRight className="h-5 w-5" />
+                  </motion.span>
                 </button>
-                
+
                 <AnimatePresence initial={false}>
                   {isOpen && (
-                    <motion.div 
+                    <motion.div
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="px-6 overflow-hidden"
+                      transition={{
+                        height: { duration: 0.35, ease: "easeInOut" },
+                        opacity: { duration: 0.2 }
+                      }}
+                      className="overflow-hidden"
                     >
-                      <div className="pb-6">
-                        <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                      <div className="pb-7 pr-8 sm:pb-8 sm:pr-12">
+                        <p className="max-w-3xl text-sm leading-7 text-gray-800 sm:text-[15px]">
                           {faq.a}
                         </p>
                       </div>
@@ -107,7 +140,6 @@ export default function FAQ() {
             );
           })}
         </motion.div>
-        
       </div>
     </motion.section>
   );
