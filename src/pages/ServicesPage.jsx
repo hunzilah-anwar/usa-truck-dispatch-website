@@ -56,7 +56,6 @@ export default function ServicesPage({ onOpenQuote }) {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="max-w-3xl mt-20"
           >
-
             <h1 className="text-[46px] font-normal leading-[1.02] tracking-tight text-white sm:text-[60px] lg:text-[76px]">
               Dispatch Built
               <br />
@@ -86,18 +85,18 @@ export default function ServicesPage({ onOpenQuote }) {
               </button>
 
               <a
-                href="#equipment"
+                href="#services"
                 className="text-xs font-bold uppercase tracking-wider text-white underline decoration-white/40 underline-offset-4 transition-colors hover:text-orange-400"
               >
-                Explore Equipment
+                Explore Services
               </a>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Equipment */}
-      <section id="equipment" className="bg-white py-14 sm:py-20 lg:py-24">
+      {/* Services */}
+      <section id="services" className="bg-white py-14 sm:py-20 lg:py-24">
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-6">
           {/* Section Heading */}
           <motion.div
@@ -110,13 +109,14 @@ export default function ServicesPage({ onOpenQuote }) {
               <h2 className="text-[42px] font-normal leading-[1.05] tracking-tight text-primary lg:text-[58px]">
                 One Team.
                 <br />
-                <span className="text-main">Every Equipment Type.</span>
+                <span className="text-main">Every Service.</span>
               </h2>
             </div>
 
             <p className="max-w-md text-[15px] leading-7 text-slate-500 lg:pb-1">
-              Our dispatch service is built around the equipment you operate,
-              the freight you carry, and the lanes you want to run.
+              From finding freight to negotiating rates and handling the
+              details, our dispatch services are built around the way you run
+              your truck.
             </p>
           </motion.div>
 
@@ -128,7 +128,7 @@ export default function ServicesPage({ onOpenQuote }) {
             viewport={{ once: true, margin: "-80px" }}
             className="border-t border-slate-200"
           >
-            {EQUIPMENT_DETAILS.map((service, index) => (
+            {EQUIPMENT_DETAILS.map((service) => (
               <motion.article
                 key={service.id}
                 variants={itemVariants}
@@ -138,9 +138,8 @@ export default function ServicesPage({ onOpenQuote }) {
                   to={`/services/${service.id}`}
                   className="grid items-center gap-7 lg:grid-cols-[320px_1fr] lg:gap-10"
                 >
-
                   {/* Image */}
-                  <div className="relative h-full overflow-hidden">
+                  <div className="relative h-52 overflow-hidden sm:h-60 lg:h-full">
                     <img
                       src={service.image}
                       alt={service.name}
@@ -156,12 +155,6 @@ export default function ServicesPage({ onOpenQuote }) {
 
                   {/* Content */}
                   <div>
-                    <div className="mb-2 flex items-center gap-3 lg:hidden">
-                      <span className="text-xs font-bold text-orange-500">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                      <span className="h-px w-7 bg-slate-200" />
-                    </div>
 
                     <h3 className="text-2xl font-bold tracking-tight text-slate-900 transition-colors duration-300 group-hover:text-main sm:text-3xl">
                       {service.name}
