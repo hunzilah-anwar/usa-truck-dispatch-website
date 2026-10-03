@@ -30,7 +30,7 @@ export default function ServicesPage({ onOpenQuote }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-screen bg-white"
+      className="bg-white"
     >
       {/* Hero */}
       <section className="relative overflow-hidden bg-main">
@@ -49,7 +49,7 @@ export default function ServicesPage({ onOpenQuote }) {
         <div className="absolute inset-0 bg-linear-to-t from-primary/80 via-transparent to-primary/80" />
 
         {/* Content */}
-        <div className="relative z-10 mx-auto flex  w-full max-w-7xl items-center px-4 py-20 sm:px-6 lg:px-6">
+        <div className="relative z-10 mx-auto flex  w-full max-w-7xl items-center px-4 py-24 sm:px-6 lg:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -61,10 +61,10 @@ export default function ServicesPage({ onOpenQuote }) {
               <br />
               Around
               <br />
-              <span className="text-orange-400">Your Truck.</span>
+              <span className="text-secondery">Your Truck.</span>
             </h1>
 
-            <p className="mt-7 max-w-xl text-[15px] leading-7 text-slate-200 sm:text-base">
+            <p className="mt-7 max-w-xl text-[15px] leading-7 text-gray-200 sm:text-base">
               From finding the right freight to negotiating rates and managing
               the details, we handle the work behind your loads so you can stay
               focused on the road.
@@ -73,12 +73,12 @@ export default function ServicesPage({ onOpenQuote }) {
             <div className="mt-8 flex flex-wrap items-center gap-5">
               <button
                 onClick={onOpenQuote}
-                className="group relative inline-flex items-center gap-2 overflow-hidden bg-orange-500 px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-white"
+                className="group relative inline-flex items-center gap-2 overflow-hidden bg-secondery px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-white"
               >
                 <span className="relative z-10">Get A Quote</span>
-                <IconArrowRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                <span className="absolute inset-0 -translate-x-full bg-white transition-transform duration-300 group-hover:translate-x-0" />
-                <span className="absolute inset-0 z-10 flex translate-x-full items-center justify-center gap-2 text-main transition-transform duration-300 group-hover:translate-x-0">
+                <IconArrowRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:trangray-x-1" />
+                <span className="absolute inset-0 -trangray-x-full bg-white transition-transform duration-300 group-hover:trangray-x-0" />
+                <span className="absolute inset-0 z-10 flex trangray-x-full items-center justify-center gap-2 text-main transition-transform duration-300 group-hover:trangray-x-0">
                   Get A Quote
                   <IconArrowRight className="h-4 w-4" />
                 </span>
@@ -86,7 +86,7 @@ export default function ServicesPage({ onOpenQuote }) {
 
               <a
                 href="#services"
-                className="text-xs font-bold uppercase tracking-wider text-white underline decoration-white/40 underline-offset-4 transition-colors hover:text-orange-400"
+                className="text-xs font-bold uppercase tracking-wider text-white underline decoration-white/40 underline-offset-4 transition-colors hover:text-secondery"
               >
                 Explore Services
               </a>
@@ -113,7 +113,7 @@ export default function ServicesPage({ onOpenQuote }) {
               </h2>
             </div>
 
-            <p className="max-w-md text-[15px] leading-7 text-slate-500 lg:pb-1">
+            <p className="max-w-md text-[15px] leading-7 text-gray-500 lg:pb-1">
               From finding freight to negotiating rates and handling the
               details, our dispatch services are built around the way you run
               your truck.
@@ -126,13 +126,13 @@ export default function ServicesPage({ onOpenQuote }) {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className="border-t border-slate-200"
+            className="border-t border-gray-200"
           >
             {EQUIPMENT_DETAILS.map((service) => (
               <motion.article
                 key={service.id}
                 variants={itemVariants}
-                className="group border-b border-slate-200 py-8 sm:py-10"
+                className="group border-b border-gray-200 py-8 sm:py-10"
               >
                 <Link
                   to={`/services/${service.id}`}
@@ -146,7 +146,7 @@ export default function ServicesPage({ onOpenQuote }) {
                       className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
 
-                    <div className="absolute inset-0 bg-linear-to-t from-main/50 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-primary/50 to-transparent" />
 
                     <span className="absolute bottom-4 left-4 text-[10px] font-bold uppercase tracking-wider text-white">
                       {service.badge}
@@ -156,11 +156,11 @@ export default function ServicesPage({ onOpenQuote }) {
                   {/* Content */}
                   <div>
 
-                    <h3 className="text-2xl font-bold tracking-tight text-slate-900 transition-colors duration-300 group-hover:text-main sm:text-3xl">
+                    <h3 className="text-2xl font-bold tracking-tight text-gray-900 transition-colors duration-300 group-hover:text-main sm:text-3xl">
                       {service.name}
                     </h3>
 
-                    <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-500">
+                    <p className="mt-3 max-w-2xl text-sm leading-6 text-gray-500">
                       {service.description}
                     </p>
 
@@ -168,9 +168,9 @@ export default function ServicesPage({ onOpenQuote }) {
                       {service.features.slice(0, 3).map((feature, i) => (
                         <span
                           key={i}
-                          className="flex items-center gap-2 text-xs font-medium text-slate-600"
+                          className="flex items-center gap-2 text-xs font-medium text-gray-600"
                         >
-                          <IconCheckCircle className="h-3.5 w-3.5 text-orange-500" />
+                          <IconCheckCircle className="h-3.5 w-3.5 text-secondery" />
                           {feature}
                         </span>
                       ))}
