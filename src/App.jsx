@@ -7,7 +7,6 @@ import {
 } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import WhatsApp from "./components/WhatsApp";
 import Modal from "./components/Modal";
 
 // Pages
@@ -105,9 +104,6 @@ function MainApp() {
       <Footer
         onOpenQuote={handleOpenQuote}
       />
-
-      {/* Floating WhatsApp Widget with Pulsing Radar Rings */}
-      <WhatsApp />
 
       {/* Interactive Modals */}
       <Modal
